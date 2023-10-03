@@ -1,10 +1,11 @@
 import json
 
-with open('board-game-seeds.json', 'r', errors="ignore") as file:
+with open('./seeds/categories-seed.json', 'r', errors="ignore") as file:
     data = json.load(file)
     number = 0
+    new_game = []
     # data['item'] is the array of games, go over the array and for each game, return a dict
-    for game in data['games']:
+    for game in data:
         # Delete any additional names except the primary one
         # del game['name'][1:]
 
@@ -13,7 +14,7 @@ with open('board-game-seeds.json', 'r', errors="ignore") as file:
 
         # Move the name and id -> "_value" to "name"
         # game["name"] = game["name"][0]["_value"]
-        del game['_id']
+        # del game['_id']
 
         # Move the year, min, max, time, age to their keys
         # game["yearpublished"] = game["yearpublished"]["_value"]
@@ -24,27 +25,38 @@ with open('board-game-seeds.json', 'r', errors="ignore") as file:
 
         # create the new key values
         # game['categories'] = []
-        # game['mechanics'] = []
+        # game['categories'] = []
 
         # For each category and mechanic in the 'link', append it to the list
         # for option in game['link']:
         #     if option['_type'] == "boardgamecategory":
-        #         game['categories'].append(option['_value'])
+        #         game['categories'].append(option['_id'])
         #     elif option['_type'] == "boardgamemechanic":
-        #         game['mechanics'].append(option['_value'])
+        #         game['categories'].append(option['_id'])
 
-        # Delete the link list
-        # del game['link']
+        # game['id'] = game['_id']
 
         # remove min maxplay time
         # game.pop("minplaytime")
         # game.pop("maxplaytime")
 
-        print(f"{number} {game['name']}")
+        # Change the format to match the model
+
+        # Delete the link list
+        # del game['link']
+        # del game['_id']
+        # del game['_type']
+
+        new_game.append({
+            "model": "categories.category",
+            "pk": int(game['pk']),
+            "fields": game
+        })
+
+        # print(f"{number} {new_game['fields']['name']}")
         number += 1
-    # print('original', data['item'])
 
-    newData = json.dumps(data, indent=4)
+    newData = json.dumps(new_game, indent=2)
 
-with open('board-game-seeds.json', 'w') as file:
+with open('categories-seeds.json', 'w') as file:
     file.write(newData)

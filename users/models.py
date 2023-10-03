@@ -6,3 +6,4 @@ from django.contrib.auth.models import AbstractUser
 
 class User(AbstractUser):
     bio = models.TextField(max_length=300, blank=True, null=True)
+    favourites = models.JSONField(default=list)

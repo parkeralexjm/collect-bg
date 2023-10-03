@@ -1,17 +1,30 @@
 import json
 
-with open('id_list.json', 'r', errors="ignore") as file:
+with open('./seeds/board-game-seeds-backup.json', 'r', errors="ignore") as file:
     data = json.load(file)
     # data['item'] is the array of games, go over the array and for each game, return a dict
-    ids = ''
-    for game in data['item'][:100]:
+    # categories = []
+    # for game in data['games']:
+    #     for option in game['link']:
+    #         if option['_type'] == 'boardgamecategory':
+    #             new_category = {
+    #                 "id": option['_id'],
+    #                 "name": option['_value']
+    #             }
+    #             if new_category not in categories:
+    #                 categories.append(new_category)
+    mechanics = []
+    for game in data['games']:
+        for option in game['link']:
+            if option['_type'] == 'boardgamemechanic':
+                new_category = {
+                    "id": option['_id'],
+                    "name": option['_value']
+                }
+                if new_category not in mechanics:
+                    mechanics.append(new_category)
 
-        ids += (f',{game["_objectid"]}')
-        print(ids)
+    newData = json.dumps(mechanics, indent=2)
 
-    # print('original', data['item'])
-
-    newData = json.dumps(ids)
-
-with open('game-seeds-modified.json', 'w') as file:
+with open('mechanics-seed.json', 'w') as file:
     file.write(newData)

@@ -1,0 +1,554 @@
+[
+  {
+    "model": "categories.category",
+    "pk": 1089,
+    "fields": {
+      "pk": "1089",
+      "name": "Animals"
+    }
+  },
+  {
+    "model": "categories.category",
+    "pk": 1002,
+    "fields": {
+      "pk": "1002",
+      "name": "Card Game"
+    }
+  },
+  {
+    "model": "categories.category",
+    "pk": 1094,
+    "fields": {
+      "pk": "1094",
+      "name": "Educational"
+    }
+  },
+  {
+    "model": "categories.category",
+    "pk": 1009,
+    "fields": {
+      "pk": "1009",
+      "name": "Abstract Strategy"
+    }
+  },
+  {
+    "model": "categories.category",
+    "pk": 1028,
+    "fields": {
+      "pk": "1028",
+      "name": "Puzzle"
+    }
+  },
+  {
+    "model": "categories.category",
+    "pk": 1070,
+    "fields": {
+      "pk": "1070",
+      "name": "Renaissance"
+    }
+  },
+  {
+    "model": "categories.category",
+    "pk": 1021,
+    "fields": {
+      "pk": "1021",
+      "name": "Economic"
+    }
+  },
+  {
+    "model": "categories.category",
+    "pk": 1084,
+    "fields": {
+      "pk": "1084",
+      "name": "Environmental"
+    }
+  },
+  {
+    "model": "categories.category",
+    "pk": 1022,
+    "fields": {
+      "pk": "1022",
+      "name": "Adventure"
+    }
+  },
+  {
+    "model": "categories.category",
+    "pk": 1050,
+    "fields": {
+      "pk": "1050",
+      "name": "Ancient"
+    }
+  },
+  {
+    "model": "categories.category",
+    "pk": 1020,
+    "fields": {
+      "pk": "1020",
+      "name": "Exploration"
+    }
+  },
+  {
+    "model": "categories.category",
+    "pk": 1097,
+    "fields": {
+      "pk": "1097",
+      "name": "Travel"
+    }
+  },
+  {
+    "model": "categories.category",
+    "pk": 1088,
+    "fields": {
+      "pk": "1088",
+      "name": "Industry / Manufacturing"
+    }
+  },
+  {
+    "model": "categories.category",
+    "pk": 1016,
+    "fields": {
+      "pk": "1016",
+      "name": "Science Fiction"
+    }
+  },
+  {
+    "model": "categories.category",
+    "pk": 1113,
+    "fields": {
+      "pk": "1113",
+      "name": "Space Exploration"
+    }
+  },
+  {
+    "model": "categories.category",
+    "pk": 1086,
+    "fields": {
+      "pk": "1086",
+      "name": "Territory Building"
+    }
+  },
+  {
+    "model": "categories.category",
+    "pk": 1064,
+    "fields": {
+      "pk": "1064",
+      "name": "Movies / TV / Radio theme"
+    }
+  },
+  {
+    "model": "categories.category",
+    "pk": 1093,
+    "fields": {
+      "pk": "1093",
+      "name": "Novel-based"
+    }
+  },
+  {
+    "model": "categories.category",
+    "pk": 1001,
+    "fields": {
+      "pk": "1001",
+      "name": "Political"
+    }
+  },
+  {
+    "model": "categories.category",
+    "pk": 1029,
+    "fields": {
+      "pk": "1029",
+      "name": "City Building"
+    }
+  },
+  {
+    "model": "categories.category",
+    "pk": 1010,
+    "fields": {
+      "pk": "1010",
+      "name": "Fantasy"
+    }
+  },
+  {
+    "model": "categories.category",
+    "pk": 1035,
+    "fields": {
+      "pk": "1035",
+      "name": "Medieval"
+    }
+  },
+  {
+    "model": "categories.category",
+    "pk": 1015,
+    "fields": {
+      "pk": "1015",
+      "name": "Civilization"
+    }
+  },
+  {
+    "model": "categories.category",
+    "pk": 1017,
+    "fields": {
+      "pk": "1017",
+      "name": "Dice"
+    }
+  },
+  {
+    "model": "categories.category",
+    "pk": 1046,
+    "fields": {
+      "pk": "1046",
+      "name": "Fighting"
+    }
+  },
+  {
+    "model": "categories.category",
+    "pk": 1082,
+    "fields": {
+      "pk": "1082",
+      "name": "Mythology"
+    }
+  },
+  {
+    "model": "categories.category",
+    "pk": 1030,
+    "fields": {
+      "pk": "1030",
+      "name": "Party Game"
+    }
+  },
+  {
+    "model": "categories.category",
+    "pk": 1025,
+    "fields": {
+      "pk": "1025",
+      "name": "Word Game"
+    }
+  },
+  {
+    "model": "categories.category",
+    "pk": 1013,
+    "fields": {
+      "pk": "1013",
+      "name": "Farming"
+    }
+  },
+  {
+    "model": "categories.category",
+    "pk": 1019,
+    "fields": {
+      "pk": "1019",
+      "name": "Wargame"
+    }
+  },
+  {
+    "model": "categories.category",
+    "pk": 2710,
+    "fields": {
+      "pk": "2710",
+      "name": "Post-Napoleonic"
+    }
+  },
+  {
+    "model": "categories.category",
+    "pk": 1034,
+    "fields": {
+      "pk": "1034",
+      "name": "Trains"
+    }
+  },
+  {
+    "model": "categories.category",
+    "pk": 1011,
+    "fields": {
+      "pk": "1011",
+      "name": "Transportation"
+    }
+  },
+  {
+    "model": "categories.category",
+    "pk": 1008,
+    "fields": {
+      "pk": "1008",
+      "name": "Nautical"
+    }
+  },
+  {
+    "model": "categories.category",
+    "pk": 1039,
+    "fields": {
+      "pk": "1039",
+      "name": "Deduction"
+    }
+  },
+  {
+    "model": "categories.category",
+    "pk": 1081,
+    "fields": {
+      "pk": "1081",
+      "name": "Spies/Secret Agents"
+    }
+  },
+  {
+    "model": "categories.category",
+    "pk": 1026,
+    "fields": {
+      "pk": "1026",
+      "name": "Negotiation"
+    }
+  },
+  {
+    "model": "categories.category",
+    "pk": 1047,
+    "fields": {
+      "pk": "1047",
+      "name": "Miniatures"
+    }
+  },
+  {
+    "model": "categories.category",
+    "pk": 1098,
+    "fields": {
+      "pk": "1098",
+      "name": "Number"
+    }
+  },
+  {
+    "model": "categories.category",
+    "pk": 1044,
+    "fields": {
+      "pk": "1044",
+      "name": "Collectible Components"
+    }
+  },
+  {
+    "model": "categories.category",
+    "pk": 1116,
+    "fields": {
+      "pk": "1116",
+      "name": "Comic Book / Strip"
+    }
+  },
+  {
+    "model": "categories.category",
+    "pk": 2145,
+    "fields": {
+      "pk": "2145",
+      "name": "Medical"
+    }
+  },
+  {
+    "model": "categories.category",
+    "pk": 1055,
+    "fields": {
+      "pk": "1055",
+      "name": "American West"
+    }
+  },
+  {
+    "model": "categories.category",
+    "pk": 1036,
+    "fields": {
+      "pk": "1036",
+      "name": "Prehistoric"
+    }
+  },
+  {
+    "model": "categories.category",
+    "pk": 1031,
+    "fields": {
+      "pk": "1031",
+      "name": "Racing"
+    }
+  },
+  {
+    "model": "categories.category",
+    "pk": 1024,
+    "fields": {
+      "pk": "1024",
+      "name": "Horror"
+    }
+  },
+  {
+    "model": "categories.category",
+    "pk": 1101,
+    "fields": {
+      "pk": "1101",
+      "name": "Vpkeo Game Theme"
+    }
+  },
+  {
+    "model": "categories.category",
+    "pk": 1052,
+    "fields": {
+      "pk": "1052",
+      "name": "Arabian"
+    }
+  },
+  {
+    "model": "categories.category",
+    "pk": 1079,
+    "fields": {
+      "pk": "1079",
+      "name": "Humor"
+    }
+  },
+  {
+    "model": "categories.category",
+    "pk": 1040,
+    "fields": {
+      "pk": "1040",
+      "name": "Murder/Mystery"
+    }
+  },
+  {
+    "model": "categories.category",
+    "pk": 1038,
+    "fields": {
+      "pk": "1038",
+      "name": "Sports"
+    }
+  },
+  {
+    "model": "categories.category",
+    "pk": 1115,
+    "fields": {
+      "pk": "1115",
+      "name": "Religious"
+    }
+  },
+  {
+    "model": "categories.category",
+    "pk": 1045,
+    "fields": {
+      "pk": "1045",
+      "name": "Memory"
+    }
+  },
+  {
+    "model": "categories.category",
+    "pk": 1090,
+    "fields": {
+      "pk": "1090",
+      "name": "Pirates"
+    }
+  },
+  {
+    "model": "categories.category",
+    "pk": 1023,
+    "fields": {
+      "pk": "1023",
+      "name": "Bluffing"
+    }
+  },
+  {
+    "model": "categories.category",
+    "pk": 1041,
+    "fields": {
+      "pk": "1041",
+      "name": "Children's Game"
+    }
+  },
+  {
+    "model": "categories.category",
+    "pk": 1037,
+    "fields": {
+      "pk": "1037",
+      "name": "Real-time"
+    }
+  },
+  {
+    "model": "categories.category",
+    "pk": 1104,
+    "fields": {
+      "pk": "1104",
+      "name": "Math"
+    }
+  },
+  {
+    "model": "categories.category",
+    "pk": 1120,
+    "fields": {
+      "pk": "1120",
+      "name": "Print & Play"
+    }
+  },
+  {
+    "model": "categories.category",
+    "pk": 1032,
+    "fields": {
+      "pk": "1032",
+      "name": "Action / Dexterity"
+    }
+  },
+  {
+    "model": "categories.category",
+    "pk": 1049,
+    "fields": {
+      "pk": "1049",
+      "name": "World War II"
+    }
+  },
+  {
+    "model": "categories.category",
+    "pk": 1072,
+    "fields": {
+      "pk": "1072",
+      "name": "Electronic"
+    }
+  },
+  {
+    "model": "categories.category",
+    "pk": 1059,
+    "fields": {
+      "pk": "1059",
+      "name": "Maze"
+    }
+  },
+  {
+    "model": "categories.category",
+    "pk": 1102,
+    "fields": {
+      "pk": "1102",
+      "name": "Civil War"
+    }
+  },
+  {
+    "model": "categories.category",
+    "pk": 1054,
+    "fields": {
+      "pk": "1054",
+      "name": "Music"
+    }
+  },
+  {
+    "model": "categories.category",
+    "pk": 2650,
+    "fields": {
+      "pk": "2650",
+      "name": "Aviation / Flight"
+    }
+  },
+  {
+    "model": "categories.category",
+    "pk": 1069,
+    "fields": {
+      "pk": "1069",
+      "name": "Modern Warfare"
+    }
+  },
+  {
+    "model": "categories.category",
+    "pk": 1118,
+    "fields": {
+      "pk": "1118",
+      "name": "Mature / Adult"
+    }
+  },
+  {
+    "model": "categories.category",
+    "pk": 2481,
+    "fields": {
+      "pk": "2481",
+      "name": "Zombies"
+    }
+  }
+]
