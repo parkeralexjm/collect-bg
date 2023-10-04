@@ -7,7 +7,7 @@ from rest_framework.generics import (
 from lib.views import UserListCreateAPIView
 
 # Permissions
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, IsAuthenticatedOrReadOnly
 from lib.permissions import IsOwnerOrReadOnly
 
 # Model
@@ -29,7 +29,7 @@ class GameView(GenericAPIView):
 
 # Endpoint for view: /Games
 class GameListView(GameView, UserListCreateAPIView):
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticatedOrReadOnly]
 
 
 # Detail view for Game
