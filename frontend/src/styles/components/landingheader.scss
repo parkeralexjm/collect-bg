@@ -1,9 +1,26 @@
 .landing-header {
   height: 90px;
+
+  .navbar-brand {
+    img {
+      width: 200px;
+    }
+  }
+}
+
+.dropdown-toggle::after {
+  content: none;
+}
+
+@media only screen and (max-width: $sm) {
+  .row {
+    display: none;
+  }
 }
 
 @media only screen and (min-width: $sm) {
   .landing-header {
-    height: 200px;
+    height: 180px;
   }
+
 }
