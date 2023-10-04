@@ -3,552 +3,552 @@
     "model": "categories.category",
     "pk": 1089,
     "fields": {
-      "pk": "1089",
-      "name": "Animals"
+      "name": "Animals",
+      "id": "1089"
     }
   },
   {
     "model": "categories.category",
     "pk": 1002,
     "fields": {
-      "pk": "1002",
-      "name": "Card Game"
+      "name": "Card Game",
+      "id": "1002"
     }
   },
   {
     "model": "categories.category",
     "pk": 1094,
     "fields": {
-      "pk": "1094",
-      "name": "Educational"
+      "name": "Educational",
+      "id": "1094"
     }
   },
   {
     "model": "categories.category",
     "pk": 1009,
     "fields": {
-      "pk": "1009",
-      "name": "Abstract Strategy"
+      "name": "Abstract Strategy",
+      "id": "1009"
     }
   },
   {
     "model": "categories.category",
     "pk": 1028,
     "fields": {
-      "pk": "1028",
-      "name": "Puzzle"
+      "name": "Puzzle",
+      "id": "1028"
     }
   },
   {
     "model": "categories.category",
     "pk": 1070,
     "fields": {
-      "pk": "1070",
-      "name": "Renaissance"
+      "name": "Renaissance",
+      "id": "1070"
     }
   },
   {
     "model": "categories.category",
     "pk": 1021,
     "fields": {
-      "pk": "1021",
-      "name": "Economic"
+      "name": "Economic",
+      "id": "1021"
     }
   },
   {
     "model": "categories.category",
     "pk": 1084,
     "fields": {
-      "pk": "1084",
-      "name": "Environmental"
+      "name": "Environmental",
+      "id": "1084"
     }
   },
   {
     "model": "categories.category",
     "pk": 1022,
     "fields": {
-      "pk": "1022",
-      "name": "Adventure"
+      "name": "Adventure",
+      "id": "1022"
     }
   },
   {
     "model": "categories.category",
     "pk": 1050,
     "fields": {
-      "pk": "1050",
-      "name": "Ancient"
+      "name": "Ancient",
+      "id": "1050"
     }
   },
   {
     "model": "categories.category",
     "pk": 1020,
     "fields": {
-      "pk": "1020",
-      "name": "Exploration"
+      "name": "Exploration",
+      "id": "1020"
     }
   },
   {
     "model": "categories.category",
     "pk": 1097,
     "fields": {
-      "pk": "1097",
-      "name": "Travel"
+      "name": "Travel",
+      "id": "1097"
     }
   },
   {
     "model": "categories.category",
     "pk": 1088,
     "fields": {
-      "pk": "1088",
-      "name": "Industry / Manufacturing"
+      "name": "Industry / Manufacturing",
+      "id": "1088"
     }
   },
   {
     "model": "categories.category",
     "pk": 1016,
     "fields": {
-      "pk": "1016",
-      "name": "Science Fiction"
+      "name": "Science Fiction",
+      "id": "1016"
     }
   },
   {
     "model": "categories.category",
     "pk": 1113,
     "fields": {
-      "pk": "1113",
-      "name": "Space Exploration"
+      "name": "Space Exploration",
+      "id": "1113"
     }
   },
   {
     "model": "categories.category",
     "pk": 1086,
     "fields": {
-      "pk": "1086",
-      "name": "Territory Building"
+      "name": "Territory Building",
+      "id": "1086"
     }
   },
   {
     "model": "categories.category",
     "pk": 1064,
     "fields": {
-      "pk": "1064",
-      "name": "Movies / TV / Radio theme"
+      "name": "Movies / TV / Radio theme",
+      "id": "1064"
     }
   },
   {
     "model": "categories.category",
     "pk": 1093,
     "fields": {
-      "pk": "1093",
-      "name": "Novel-based"
+      "name": "Novel-based",
+      "id": "1093"
     }
   },
   {
     "model": "categories.category",
     "pk": 1001,
     "fields": {
-      "pk": "1001",
-      "name": "Political"
+      "name": "Political",
+      "id": "1001"
     }
   },
   {
     "model": "categories.category",
     "pk": 1029,
     "fields": {
-      "pk": "1029",
-      "name": "City Building"
+      "name": "City Building",
+      "id": "1029"
     }
   },
   {
     "model": "categories.category",
     "pk": 1010,
     "fields": {
-      "pk": "1010",
-      "name": "Fantasy"
+      "name": "Fantasy",
+      "id": "1010"
     }
   },
   {
     "model": "categories.category",
     "pk": 1035,
     "fields": {
-      "pk": "1035",
-      "name": "Medieval"
+      "name": "Medieval",
+      "id": "1035"
     }
   },
   {
     "model": "categories.category",
     "pk": 1015,
     "fields": {
-      "pk": "1015",
-      "name": "Civilization"
+      "name": "Civilization",
+      "id": "1015"
     }
   },
   {
     "model": "categories.category",
     "pk": 1017,
     "fields": {
-      "pk": "1017",
-      "name": "Dice"
+      "name": "Dice",
+      "id": "1017"
     }
   },
   {
     "model": "categories.category",
     "pk": 1046,
     "fields": {
-      "pk": "1046",
-      "name": "Fighting"
+      "name": "Fighting",
+      "id": "1046"
     }
   },
   {
     "model": "categories.category",
     "pk": 1082,
     "fields": {
-      "pk": "1082",
-      "name": "Mythology"
+      "name": "Mythology",
+      "id": "1082"
     }
   },
   {
     "model": "categories.category",
     "pk": 1030,
     "fields": {
-      "pk": "1030",
-      "name": "Party Game"
+      "name": "Party Game",
+      "id": "1030"
     }
   },
   {
     "model": "categories.category",
     "pk": 1025,
     "fields": {
-      "pk": "1025",
-      "name": "Word Game"
+      "name": "Word Game",
+      "id": "1025"
     }
   },
   {
     "model": "categories.category",
     "pk": 1013,
     "fields": {
-      "pk": "1013",
-      "name": "Farming"
+      "name": "Farming",
+      "id": "1013"
     }
   },
   {
     "model": "categories.category",
     "pk": 1019,
     "fields": {
-      "pk": "1019",
-      "name": "Wargame"
+      "name": "Wargame",
+      "id": "1019"
     }
   },
   {
     "model": "categories.category",
     "pk": 2710,
     "fields": {
-      "pk": "2710",
-      "name": "Post-Napoleonic"
+      "name": "Post-Napoleonic",
+      "id": "2710"
     }
   },
   {
     "model": "categories.category",
     "pk": 1034,
     "fields": {
-      "pk": "1034",
-      "name": "Trains"
+      "name": "Trains",
+      "id": "1034"
     }
   },
   {
     "model": "categories.category",
     "pk": 1011,
     "fields": {
-      "pk": "1011",
-      "name": "Transportation"
+      "name": "Transportation",
+      "id": "1011"
     }
   },
   {
     "model": "categories.category",
     "pk": 1008,
     "fields": {
-      "pk": "1008",
-      "name": "Nautical"
+      "name": "Nautical",
+      "id": "1008"
     }
   },
   {
     "model": "categories.category",
     "pk": 1039,
     "fields": {
-      "pk": "1039",
-      "name": "Deduction"
+      "name": "Deduction",
+      "id": "1039"
     }
   },
   {
     "model": "categories.category",
     "pk": 1081,
     "fields": {
-      "pk": "1081",
-      "name": "Spies/Secret Agents"
+      "name": "Spies/Secret Agents",
+      "id": "1081"
     }
   },
   {
     "model": "categories.category",
     "pk": 1026,
     "fields": {
-      "pk": "1026",
-      "name": "Negotiation"
+      "name": "Negotiation",
+      "id": "1026"
     }
   },
   {
     "model": "categories.category",
     "pk": 1047,
     "fields": {
-      "pk": "1047",
-      "name": "Miniatures"
+      "name": "Miniatures",
+      "id": "1047"
     }
   },
   {
     "model": "categories.category",
     "pk": 1098,
     "fields": {
-      "pk": "1098",
-      "name": "Number"
+      "name": "Number",
+      "id": "1098"
     }
   },
   {
     "model": "categories.category",
     "pk": 1044,
     "fields": {
-      "pk": "1044",
-      "name": "Collectible Components"
+      "name": "Collectible Components",
+      "id": "1044"
     }
   },
   {
     "model": "categories.category",
     "pk": 1116,
     "fields": {
-      "pk": "1116",
-      "name": "Comic Book / Strip"
+      "name": "Comic Book / Strip",
+      "id": "1116"
     }
   },
   {
     "model": "categories.category",
     "pk": 2145,
     "fields": {
-      "pk": "2145",
-      "name": "Medical"
+      "name": "Medical",
+      "id": "2145"
     }
   },
   {
     "model": "categories.category",
     "pk": 1055,
     "fields": {
-      "pk": "1055",
-      "name": "American West"
+      "name": "American West",
+      "id": "1055"
     }
   },
   {
     "model": "categories.category",
     "pk": 1036,
     "fields": {
-      "pk": "1036",
-      "name": "Prehistoric"
+      "name": "Prehistoric",
+      "id": "1036"
     }
   },
   {
     "model": "categories.category",
     "pk": 1031,
     "fields": {
-      "pk": "1031",
-      "name": "Racing"
+      "name": "Racing",
+      "id": "1031"
     }
   },
   {
     "model": "categories.category",
     "pk": 1024,
     "fields": {
-      "pk": "1024",
-      "name": "Horror"
+      "name": "Horror",
+      "id": "1024"
     }
   },
   {
     "model": "categories.category",
     "pk": 1101,
     "fields": {
-      "pk": "1101",
-      "name": "Vpkeo Game Theme"
+      "name": "Vpkeo Game Theme",
+      "id": "1101"
     }
   },
   {
     "model": "categories.category",
     "pk": 1052,
     "fields": {
-      "pk": "1052",
-      "name": "Arabian"
+      "name": "Arabian",
+      "id": "1052"
     }
   },
   {
     "model": "categories.category",
     "pk": 1079,
     "fields": {
-      "pk": "1079",
-      "name": "Humor"
+      "name": "Humor",
+      "id": "1079"
     }
   },
   {
     "model": "categories.category",
     "pk": 1040,
     "fields": {
-      "pk": "1040",
-      "name": "Murder/Mystery"
+      "name": "Murder/Mystery",
+      "id": "1040"
     }
   },
   {
     "model": "categories.category",
     "pk": 1038,
     "fields": {
-      "pk": "1038",
-      "name": "Sports"
+      "name": "Sports",
+      "id": "1038"
     }
   },
   {
     "model": "categories.category",
     "pk": 1115,
     "fields": {
-      "pk": "1115",
-      "name": "Religious"
+      "name": "Religious",
+      "id": "1115"
     }
   },
   {
     "model": "categories.category",
     "pk": 1045,
     "fields": {
-      "pk": "1045",
-      "name": "Memory"
+      "name": "Memory",
+      "id": "1045"
     }
   },
   {
     "model": "categories.category",
     "pk": 1090,
     "fields": {
-      "pk": "1090",
-      "name": "Pirates"
+      "name": "Pirates",
+      "id": "1090"
     }
   },
   {
     "model": "categories.category",
     "pk": 1023,
     "fields": {
-      "pk": "1023",
-      "name": "Bluffing"
+      "name": "Bluffing",
+      "id": "1023"
     }
   },
   {
     "model": "categories.category",
     "pk": 1041,
     "fields": {
-      "pk": "1041",
-      "name": "Children's Game"
+      "name": "Children's Game",
+      "id": "1041"
     }
   },
   {
     "model": "categories.category",
     "pk": 1037,
     "fields": {
-      "pk": "1037",
-      "name": "Real-time"
+      "name": "Real-time",
+      "id": "1037"
     }
   },
   {
     "model": "categories.category",
     "pk": 1104,
     "fields": {
-      "pk": "1104",
-      "name": "Math"
+      "name": "Math",
+      "id": "1104"
     }
   },
   {
     "model": "categories.category",
     "pk": 1120,
     "fields": {
-      "pk": "1120",
-      "name": "Print & Play"
+      "name": "Print & Play",
+      "id": "1120"
     }
   },
   {
     "model": "categories.category",
     "pk": 1032,
     "fields": {
-      "pk": "1032",
-      "name": "Action / Dexterity"
+      "name": "Action / Dexterity",
+      "id": "1032"
     }
   },
   {
     "model": "categories.category",
     "pk": 1049,
     "fields": {
-      "pk": "1049",
-      "name": "World War II"
+      "name": "World War II",
+      "id": "1049"
     }
   },
   {
     "model": "categories.category",
     "pk": 1072,
     "fields": {
-      "pk": "1072",
-      "name": "Electronic"
+      "name": "Electronic",
+      "id": "1072"
     }
   },
   {
     "model": "categories.category",
     "pk": 1059,
     "fields": {
-      "pk": "1059",
-      "name": "Maze"
+      "name": "Maze",
+      "id": "1059"
     }
   },
   {
     "model": "categories.category",
     "pk": 1102,
     "fields": {
-      "pk": "1102",
-      "name": "Civil War"
+      "name": "Civil War",
+      "id": "1102"
     }
   },
   {
     "model": "categories.category",
     "pk": 1054,
     "fields": {
-      "pk": "1054",
-      "name": "Music"
+      "name": "Music",
+      "id": "1054"
     }
   },
   {
     "model": "categories.category",
     "pk": 2650,
     "fields": {
-      "pk": "2650",
-      "name": "Aviation / Flight"
+      "name": "Aviation / Flight",
+      "id": "2650"
     }
   },
   {
     "model": "categories.category",
     "pk": 1069,
     "fields": {
-      "pk": "1069",
-      "name": "Modern Warfare"
+      "name": "Modern Warfare",
+      "id": "1069"
     }
   },
   {
     "model": "categories.category",
     "pk": 1118,
     "fields": {
-      "pk": "1118",
-      "name": "Mature / Adult"
+      "name": "Mature / Adult",
+      "id": "1118"
     }
   },
   {
     "model": "categories.category",
     "pk": 2481,
     "fields": {
-      "pk": "2481",
-      "name": "Zombies"
+      "name": "Zombies",
+      "id": "2481"
     }
   }
 ]

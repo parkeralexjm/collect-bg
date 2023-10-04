@@ -1,0 +1,24 @@
+[
+  {
+    "model": "users.user",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$wil4WBgEbj1AtUgV6g1Zwl$pwKNBcPwE+5ZYazaQ8Oykrofo4GEW++oDs3itAfQD4w=",
+      "last_login": "2023-10-02T16:05:27.837Z",
+      "is_superuser": true,
+      "username": "parke",
+      "first_name": "",
+      "last_name": "",
+      "email": "parkeralexjm@gmail.com",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2023-10-02T13:52:33.146Z",
+      "collection": [],
+      "messages": [],
+      "friends": [],
+      "displayname": null,
+      "groups": [],
+      "user_permissions": []
+    }
+  }
+]

@@ -4,6 +4,12 @@ from django.contrib.auth import get_user_model
 User = get_user_model()
 
 
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ('id', 'username', 'email', 'collection')
+
+
 class RegistrationSerializer(serializers.ModelSerializer):
 
     # This is us specifying that we don't want password or password_confirmation to be serialized when querying the object

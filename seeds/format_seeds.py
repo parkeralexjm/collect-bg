@@ -1,11 +1,14 @@
 import json
 
-with open('./seeds/categories-seed.json', 'r', errors="ignore") as file:
+with open('./seeds/mechanics-seeds.json', 'r', errors="ignore") as file:
     data = json.load(file)
     number = 0
     new_game = []
     # data['item'] is the array of games, go over the array and for each game, return a dict
     for game in data:
+        game['fields']['id'] = game['fields']['pk']
+        del game['fields']['pk']
+
         # Delete any additional names except the primary one
         # del game['name'][1:]
 
@@ -56,7 +59,7 @@ with open('./seeds/categories-seed.json', 'r', errors="ignore") as file:
         # print(f"{number} {new_game['fields']['name']}")
         number += 1
 
-    newData = json.dumps(new_game, indent=2)
+    newData = json.dumps(data, indent=2)
 
 with open('categories-seeds.json', 'w') as file:
     file.write(newData)

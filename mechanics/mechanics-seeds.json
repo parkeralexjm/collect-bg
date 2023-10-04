@@ -3,1384 +3,1384 @@
     "model": "mechanics.mechanic",
     "pk": 2912,
     "fields": {
-      "pk": "2912",
-      "name": "Contracts"
+      "name": "Contracts",
+      "id": "2912"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2072,
     "fields": {
-      "pk": "2072",
-      "name": "Dice Rolling"
+      "name": "Dice Rolling",
+      "id": "2072"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2875,
     "fields": {
-      "pk": "2875",
-      "name": "End Game Bonuses"
+      "name": "End Game Bonuses",
+      "id": "2875"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2040,
     "fields": {
-      "pk": "2040",
-      "name": "Hand Management"
+      "name": "Hand Management",
+      "id": "2040"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2846,
     "fields": {
-      "pk": "2846",
-      "name": "Once-Per-Game Abilities"
+      "name": "Once-Per-Game Abilities",
+      "id": "2846"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2041,
     "fields": {
-      "pk": "2041",
-      "name": "Open Drafting"
+      "name": "Open Drafting",
+      "id": "2041"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2004,
     "fields": {
-      "pk": "2004",
-      "name": "Set Collection"
+      "name": "Set Collection",
+      "id": "2004"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2819,
     "fields": {
-      "pk": "2819",
-      "name": "Solo / Solitaire Game"
+      "name": "Solo / Solitaire Game",
+      "id": "2819"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2828,
     "fields": {
-      "pk": "2828",
-      "name": "Turn Order: Progressive"
+      "name": "Turn Order: Progressive",
+      "id": "2828"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2048,
     "fields": {
-      "pk": "2048",
-      "name": "Pattern Building"
+      "name": "Pattern Building",
+      "id": "2048"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2002,
     "fields": {
-      "pk": "2002",
-      "name": "Tile Placement"
+      "name": "Tile Placement",
+      "id": "2002"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2829,
     "fields": {
-      "pk": "2829",
-      "name": "Turn Order: Claim Action"
+      "name": "Turn Order: Claim Action",
+      "id": "2829"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2026,
     "fields": {
-      "pk": "2026",
-      "name": "Hexagon Grpk"
+      "name": "Hexagon Grpk",
+      "id": "2026"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2902,
     "fields": {
-      "pk": "2902",
-      "name": "Income"
+      "name": "Income",
+      "id": "2902"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2914,
     "fields": {
-      "pk": "2914",
-      "name": "Increase Value of Unchosen Resources"
+      "name": "Increase Value of Unchosen Resources",
+      "id": "2914"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 3100,
     "fields": {
-      "pk": "3100",
-      "name": "Tags"
+      "name": "Tags",
+      "id": "3100"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2015,
     "fields": {
-      "pk": "2015",
-      "name": "Variable Player Powers"
+      "name": "Variable Player Powers",
+      "id": "2015"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2897,
     "fields": {
-      "pk": "2897",
-      "name": "Variable Set-up"
+      "name": "Variable Set-up",
+      "id": "2897"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2874,
     "fields": {
-      "pk": "2874",
-      "name": "Victory Points as a Resource"
+      "name": "Victory Points as a Resource",
+      "id": "2874"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2664,
     "fields": {
-      "pk": "2664",
-      "name": "Deck, Bag, and Pool Building"
+      "name": "Deck, Bag, and Pool Building",
+      "id": "2664"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2900,
     "fields": {
-      "pk": "2900",
-      "name": "Market"
+      "name": "Market",
+      "id": "2900"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 3099,
     "fields": {
-      "pk": "3099",
-      "name": "Multi-Use Cards"
+      "name": "Multi-Use Cards",
+      "id": "3099"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2948,
     "fields": {
-      "pk": "2948",
-      "name": "Resource to Move"
+      "name": "Resource to Move",
+      "id": "2948"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2082,
     "fields": {
-      "pk": "2082",
-      "name": "Worker Placement"
+      "name": "Worker Placement",
+      "id": "2082"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2984,
     "fields": {
-      "pk": "2984",
-      "name": "Closed Drafting"
+      "name": "Closed Drafting",
+      "id": "2984"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2043,
     "fields": {
-      "pk": "2043",
-      "name": "Enclosure"
+      "name": "Enclosure",
+      "id": "2043"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2686,
     "fields": {
-      "pk": "2686",
-      "name": "Take That"
+      "name": "Take That",
+      "id": "2686"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2849,
     "fields": {
-      "pk": "2849",
-      "name": "Tech Trees / Tech Tracks"
+      "name": "Tech Trees / Tech Tracks",
+      "id": "2849"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2857,
     "fields": {
-      "pk": "2857",
-      "name": "Card Play Conflict Resolution"
+      "name": "Card Play Conflict Resolution",
+      "id": "2857"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2901,
     "fields": {
-      "pk": "2901",
-      "name": "Delayed Purchase"
+      "name": "Delayed Purchase",
+      "id": "2901"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2864,
     "fields": {
-      "pk": "2864",
-      "name": "Force Commitment"
+      "name": "Force Commitment",
+      "id": "2864"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2911,
     "fields": {
-      "pk": "2911",
-      "name": "Ownership"
+      "name": "Ownership",
+      "id": "2911"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2887,
     "fields": {
-      "pk": "2887",
-      "name": "Catch the Leader"
+      "name": "Catch the Leader",
+      "id": "2887"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2850,
     "fields": {
-      "pk": "2850",
-      "name": "Events"
+      "name": "Events",
+      "id": "2850"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2661,
     "fields": {
-      "pk": "2661",
-      "name": "Push Your Luck"
+      "name": "Push Your Luck",
+      "id": "2661"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2020,
     "fields": {
-      "pk": "2020",
-      "name": "Simultaneous Action Selection"
+      "name": "Simultaneous Action Selection",
+      "id": "2020"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 3001,
     "fields": {
-      "pk": "3001",
-      "name": "Layering"
+      "name": "Layering",
+      "id": "3001"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2011,
     "fields": {
-      "pk": "2011",
-      "name": "Modular Board"
+      "name": "Modular Board",
+      "id": "2011"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2884,
     "fields": {
-      "pk": "2884",
-      "name": "Sudden Death Ending"
+      "name": "Sudden Death Ending",
+      "id": "2884"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2888,
     "fields": {
-      "pk": "2888",
-      "name": "Tug of War"
+      "name": "Tug of War",
+      "id": "2888"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2876,
     "fields": {
-      "pk": "2876",
-      "name": "Race"
+      "name": "Race",
+      "id": "2876"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2080,
     "fields": {
-      "pk": "2080",
-      "name": "Area Majority / Influence"
+      "name": "Area Majority / Influence",
+      "id": "2080"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2959,
     "fields": {
-      "pk": "2959",
-      "name": "Map Addition"
+      "name": "Map Addition",
+      "id": "2959"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2060,
     "fields": {
-      "pk": "2060",
-      "name": "Pattern Recognition"
+      "name": "Pattern Recognition",
+      "id": "2060"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2978,
     "fields": {
-      "pk": "2978",
-      "name": "Grpk Coverage"
+      "name": "Grpk Coverage",
+      "id": "2978"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2813,
     "fields": {
-      "pk": "2813",
-      "name": "Rondel"
+      "name": "Rondel",
+      "id": "2813"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2940,
     "fields": {
-      "pk": "2940",
-      "name": "Square Grpk"
+      "name": "Square Grpk",
+      "id": "2940"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2826,
     "fields": {
-      "pk": "2826",
-      "name": "Turn Order: Stat-Based"
+      "name": "Turn Order: Stat-Based",
+      "id": "2826"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2663,
     "fields": {
-      "pk": "2663",
-      "name": "Turn Order: Time Track"
+      "name": "Turn Order: Time Track",
+      "id": "2663"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2676,
     "fields": {
-      "pk": "2676",
-      "name": "Grpk Movement"
+      "name": "Grpk Movement",
+      "id": "2676"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2886,
     "fields": {
-      "pk": "2886",
-      "name": "King of the Hill"
+      "name": "King of the Hill",
+      "id": "2886"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2947,
     "fields": {
-      "pk": "2947",
-      "name": "Movement Points"
+      "name": "Movement Points",
+      "id": "2947"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2974,
     "fields": {
-      "pk": "2974",
-      "name": "Zone of Control"
+      "name": "Zone of Control",
+      "id": "2974"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2839,
     "fields": {
-      "pk": "2839",
-      "name": "Action Retrieval"
+      "name": "Action Retrieval",
+      "id": "2839"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2903,
     "fields": {
-      "pk": "2903",
-      "name": "Automatic Resource Growth"
+      "name": "Automatic Resource Growth",
+      "id": "2903"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2018,
     "fields": {
-      "pk": "2018",
-      "name": "Campaign / Battle Card Driven"
+      "name": "Campaign / Battle Card Driven",
+      "id": "2018"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2023,
     "fields": {
-      "pk": "2023",
-      "name": "Cooperative Game"
+      "name": "Cooperative Game",
+      "id": "2023"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2893,
     "fields": {
-      "pk": "2893",
-      "name": "Communication Limits"
+      "name": "Communication Limits",
+      "id": "2893"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2843,
     "fields": {
-      "pk": "2843",
-      "name": "Follow"
+      "name": "Follow",
+      "id": "2843"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2939,
     "fields": {
-      "pk": "2939",
-      "name": "Track Movement"
+      "name": "Track Movement",
+      "id": "2939"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2079,
     "fields": {
-      "pk": "2079",
-      "name": "Variable Phase Order"
+      "name": "Variable Phase Order",
+      "id": "2079"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 3104,
     "fields": {
-      "pk": "3104",
-      "name": "Neighbor Scope"
+      "name": "Neighbor Scope",
+      "id": "3104"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2822,
     "fields": {
-      "pk": "2822",
-      "name": "Scenario / Mission / Campaign Game"
+      "name": "Scenario / Mission / Campaign Game",
+      "id": "2822"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2009,
     "fields": {
-      "pk": "2009",
-      "name": "Trick-taking"
+      "name": "Trick-taking",
+      "id": "2009"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2999,
     "fields": {
-      "pk": "2999",
-      "name": "Bingo"
+      "name": "Bingo",
+      "id": "2999"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2039,
     "fields": {
-      "pk": "2039",
-      "name": "Line Drawing"
+      "name": "Line Drawing",
+      "id": "2039"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2055,
     "fields": {
-      "pk": "2055",
-      "name": "Paper-and-Pencil"
+      "name": "Paper-and-Pencil",
+      "id": "2055"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2827,
     "fields": {
-      "pk": "2827",
-      "name": "Turn Order: Auction"
+      "name": "Turn Order: Auction",
+      "id": "2827"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2933,
     "fields": {
-      "pk": "2933",
-      "name": "Worker Placement, Different Worker Types"
+      "name": "Worker Placement, Different Worker Types",
+      "id": "2933"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2689,
     "fields": {
-      "pk": "2689",
-      "name": "Action Queue"
+      "name": "Action Queue",
+      "id": "2689"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2046,
     "fields": {
-      "pk": "2046",
-      "name": "Area Movement"
+      "name": "Area Movement",
+      "id": "2046"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2078,
     "fields": {
-      "pk": "2078",
-      "name": "Point to Point Movement"
+      "name": "Point to Point Movement",
+      "id": "2078"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2904,
     "fields": {
-      "pk": "2904",
-      "name": "Loans"
+      "name": "Loans",
+      "id": "2904"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2081,
     "fields": {
-      "pk": "2081",
-      "name": "Network and Route Building"
+      "name": "Network and Route Building",
+      "id": "2081"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2987,
     "fields": {
-      "pk": "2987",
-      "name": "Hpkden Victory Points"
+      "name": "Hpkden Victory Points",
+      "id": "2987"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2935,
     "fields": {
-      "pk": "2935",
-      "name": "Worker Placement with Dice Workers"
+      "name": "Worker Placement with Dice Workers",
+      "id": "2935"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2047,
     "fields": {
-      "pk": "2047",
-      "name": "Memory"
+      "name": "Memory",
+      "id": "2047"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2019,
     "fields": {
-      "pk": "2019",
-      "name": "Team-Based Game"
+      "name": "Team-Based Game",
+      "id": "2019"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2856,
     "fields": {
-      "pk": "2856",
-      "name": "Die Icon Resolution"
+      "name": "Die Icon Resolution",
+      "id": "2856"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2685,
     "fields": {
-      "pk": "2685",
-      "name": "Player Elimination"
+      "name": "Player Elimination",
+      "id": "2685"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2870,
     "fields": {
-      "pk": "2870",
-      "name": "Re-rolling and Locking"
+      "name": "Re-rolling and Locking",
+      "id": "2870"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2883,
     "fields": {
-      "pk": "2883",
-      "name": "Connections"
+      "name": "Connections",
+      "id": "2883"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2915,
     "fields": {
-      "pk": "2915",
-      "name": "Negotiation"
+      "name": "Negotiation",
+      "id": "2915"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2909,
     "fields": {
-      "pk": "2909",
-      "name": "Random Production"
+      "name": "Random Production",
+      "id": "2909"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2008,
     "fields": {
-      "pk": "2008",
-      "name": "Trading"
+      "name": "Trading",
+      "id": "2008"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2823,
     "fields": {
-      "pk": "2823",
-      "name": "Score-and-Reset Game"
+      "name": "Score-and-Reset Game",
+      "id": "2823"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2854,
     "fields": {
-      "pk": "2854",
-      "name": "Critical Hits and Failures"
+      "name": "Critical Hits and Failures",
+      "id": "2854"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 3004,
     "fields": {
-      "pk": "3004",
-      "name": "Deck Construction"
+      "name": "Deck Construction",
+      "id": "3004"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2824,
     "fields": {
-      "pk": "2824",
-      "name": "Legacy Game"
+      "name": "Legacy Game",
+      "id": "2824"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2975,
     "fields": {
-      "pk": "2975",
-      "name": "Line of Sight"
+      "name": "Line of Sight",
+      "id": "2975"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2001,
     "fields": {
-      "pk": "2001",
-      "name": "Action Points"
+      "name": "Action Points",
+      "id": "2001"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2889,
     "fields": {
-      "pk": "2889",
-      "name": "Highest-Lowest Scoring"
+      "name": "Highest-Lowest Scoring",
+      "id": "2889"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 3002,
     "fields": {
-      "pk": "3002",
-      "name": "Deduction"
+      "name": "Deduction",
+      "id": "3002"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2830,
     "fields": {
-      "pk": "2830",
-      "name": "Turn Order: Pass Order"
+      "name": "Turn Order: Pass Order",
+      "id": "2830"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2980,
     "fields": {
-      "pk": "2980",
-      "name": "Ladder Climbing"
+      "name": "Ladder Climbing",
+      "id": "2980"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2847,
     "fields": {
-      "pk": "2847",
-      "name": "Advantage Token"
+      "name": "Advantage Token",
+      "id": "2847"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2924,
     "fields": {
-      "pk": "2924",
-      "name": "Auction: Dutch"
+      "name": "Auction: Dutch",
+      "id": "2924"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2910,
     "fields": {
-      "pk": "2910",
-      "name": "Investment"
+      "name": "Investment",
+      "id": "2910"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2891,
     "fields": {
-      "pk": "2891",
-      "name": "Hpkden Roles"
+      "name": "Hpkden Roles",
+      "id": "2891"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2837,
     "fields": {
-      "pk": "2837",
-      "name": "Interrupts"
+      "name": "Interrupts",
+      "id": "2837"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2820,
     "fields": {
-      "pk": "2820",
-      "name": "Semi-Cooperative Game"
+      "name": "Semi-Cooperative Game",
+      "id": "2820"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2814,
     "fields": {
-      "pk": "2814",
-      "name": "Traitor Game"
+      "name": "Traitor Game",
+      "id": "2814"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 3098,
     "fields": {
-      "pk": "3098",
-      "name": "Auction Compensation"
+      "name": "Auction Compensation",
+      "id": "3098"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2012,
     "fields": {
-      "pk": "2012",
-      "name": "Auction/Bpkding"
+      "name": "Auction/Bpkding",
+      "id": "2012"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2931,
     "fields": {
-      "pk": "2931",
-      "name": "Auction: Fixed Placement"
+      "name": "Auction: Fixed Placement",
+      "id": "2931"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2927,
     "fields": {
-      "pk": "2927",
-      "name": "Auction: Multiple Lot"
+      "name": "Auction: Multiple Lot",
+      "id": "2927"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2922,
     "fields": {
-      "pk": "2922",
-      "name": "Constrained Bpkding"
+      "name": "Constrained Bpkding",
+      "id": "2922"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2926,
     "fields": {
-      "pk": "2926",
-      "name": "Selection Order Bpk"
+      "name": "Selection Order Bpk",
+      "id": "2926"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2981,
     "fields": {
-      "pk": "2981",
-      "name": "Melding and Splaying"
+      "name": "Melding and Splaying",
+      "id": "2981"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 3101,
     "fields": {
-      "pk": "3101",
-      "name": "Ordering"
+      "name": "Ordering",
+      "id": "3101"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 3103,
     "fields": {
-      "pk": "3103",
-      "name": "Resource Queue"
+      "name": "Resource Queue",
+      "id": "3103"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2928,
     "fields": {
-      "pk": "2928",
-      "name": "Closed Economy Auction"
+      "name": "Closed Economy Auction",
+      "id": "2928"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2961,
     "fields": {
-      "pk": "2961",
-      "name": "Map Deformation"
+      "name": "Map Deformation",
+      "id": "2961"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2028,
     "fields": {
-      "pk": "2028",
-      "name": "Role Playing"
+      "name": "Role Playing",
+      "id": "2028"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2853,
     "fields": {
-      "pk": "2853",
-      "name": "Stat Check Resolution"
+      "name": "Stat Check Resolution",
+      "id": "2853"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2960,
     "fields": {
-      "pk": "2960",
-      "name": "Map Reduction"
+      "name": "Map Reduction",
+      "id": "2960"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2955,
     "fields": {
-      "pk": "2955",
-      "name": "Mancala"
+      "name": "Mancala",
+      "id": "2955"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2027,
     "fields": {
-      "pk": "2027",
-      "name": "Storytelling"
+      "name": "Storytelling",
+      "id": "2027"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2866,
     "fields": {
-      "pk": "2866",
-      "name": "Targeted Clues"
+      "name": "Targeted Clues",
+      "id": "2866"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2017,
     "fields": {
-      "pk": "2017",
-      "name": "Voting"
+      "name": "Voting",
+      "id": "2017"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2833,
     "fields": {
-      "pk": "2833",
-      "name": "Turn Order: Role Order"
+      "name": "Turn Order: Role Order",
+      "id": "2833"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2840,
     "fields": {
-      "pk": "2840",
-      "name": "Action/Event"
+      "name": "Action/Event",
+      "id": "2840"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2920,
     "fields": {
-      "pk": "2920",
-      "name": "Auction: Sealed Bpk"
+      "name": "Auction: Sealed Bpk",
+      "id": "2920"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2919,
     "fields": {
-      "pk": "2919",
-      "name": "Auction: Turn Order Until Pass"
+      "name": "Auction: Turn Order Until Pass",
+      "id": "2919"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2014,
     "fields": {
-      "pk": "2014",
-      "name": "Betting and Bluffing"
+      "name": "Betting and Bluffing",
+      "id": "2014"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2851,
     "fields": {
-      "pk": "2851",
-      "name": "Narrative Choice / Paragraph"
+      "name": "Narrative Choice / Paragraph",
+      "id": "2851"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2944,
     "fields": {
-      "pk": "2944",
-      "name": "Three Dimensional Movement"
+      "name": "Three Dimensional Movement",
+      "id": "2944"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2838,
     "fields": {
-      "pk": "2838",
-      "name": "Action Drafting"
+      "name": "Action Drafting",
+      "id": "2838"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 3097,
     "fields": {
-      "pk": "3097",
-      "name": "Bpks As Wagers"
+      "name": "Bpks As Wagers",
+      "id": "3097"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2957,
     "fields": {
-      "pk": "2957",
-      "name": "Bias"
+      "name": "Bias",
+      "id": "2957"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2885,
     "fields": {
-      "pk": "2885",
-      "name": "Finale Ending"
+      "name": "Finale Ending",
+      "id": "2885"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 3000,
     "fields": {
-      "pk": "3000",
-      "name": "Hot Potato"
+      "name": "Hot Potato",
+      "id": "3000"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2010,
     "fields": {
-      "pk": "2010",
-      "name": "Crayon Rail System"
+      "name": "Crayon Rail System",
+      "id": "2010"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 3007,
     "fields": {
-      "pk": "3007",
-      "name": "Matching"
+      "name": "Matching",
+      "id": "3007"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2991,
     "fields": {
-      "pk": "2991",
-      "name": "Speed Matching"
+      "name": "Speed Matching",
+      "id": "2991"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2007,
     "fields": {
-      "pk": "2007",
-      "name": "Pick-up and Deliver"
+      "name": "Pick-up and Deliver",
+      "id": "2007"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2953,
     "fields": {
-      "pk": "2953",
-      "name": "Programmed Movement"
+      "name": "Programmed Movement",
+      "id": "2953"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2958,
     "fields": {
-      "pk": "2958",
-      "name": "Moving Multiple Units"
+      "name": "Moving Multiple Units",
+      "id": "2958"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 3006,
     "fields": {
-      "pk": "3006",
-      "name": "Predictive Bpk"
+      "name": "Predictive Bpk",
+      "id": "3006"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2962,
     "fields": {
-      "pk": "2962",
-      "name": "Move Through Deck"
+      "name": "Move Through Deck",
+      "id": "2962"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2005,
     "fields": {
-      "pk": "2005",
-      "name": "Stock Holding"
+      "name": "Stock Holding",
+      "id": "2005"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2070,
     "fields": {
-      "pk": "2070",
-      "name": "Simulation"
+      "name": "Simulation",
+      "id": "2070"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2057,
     "fields": {
-      "pk": "2057",
-      "name": "Chit-Pull System"
+      "name": "Chit-Pull System",
+      "id": "2057"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2035,
     "fields": {
-      "pk": "2035",
-      "name": "Roll / Spin and Move"
+      "name": "Roll / Spin and Move",
+      "id": "2035"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2916,
     "fields": {
-      "pk": "2916",
-      "name": "Alliances"
+      "name": "Alliances",
+      "id": "2916"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2871,
     "fields": {
-      "pk": "2871",
-      "name": "Kill Steal"
+      "name": "Kill Steal",
+      "id": "2871"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2021,
     "fields": {
-      "pk": "2021",
-      "name": "Area-Impulse"
+      "name": "Area-Impulse",
+      "id": "2021"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2835,
     "fields": {
-      "pk": "2835",
-      "name": "Passed Action Token"
+      "name": "Passed Action Token",
+      "id": "2835"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2013,
     "fields": {
-      "pk": "2013",
-      "name": "Commodity Speculation"
+      "name": "Commodity Speculation",
+      "id": "2013"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2906,
     "fields": {
-      "pk": "2906",
-      "name": "I Cut, You Choose"
+      "name": "I Cut, You Choose",
+      "id": "2906"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2946,
     "fields": {
-      "pk": "2946",
-      "name": "Pattern Movement"
+      "name": "Pattern Movement",
+      "id": "2946"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2861,
     "fields": {
-      "pk": "2861",
-      "name": "Static Capture"
+      "name": "Static Capture",
+      "id": "2861"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2003,
     "fields": {
-      "pk": "2003",
-      "name": "Rock-Paper-Scissors"
+      "name": "Rock-Paper-Scissors",
+      "id": "2003"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2860,
     "fields": {
-      "pk": "2860",
-      "name": "Flicking"
+      "name": "Flicking",
+      "id": "2860"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2016,
     "fields": {
-      "pk": "2016",
-      "name": "Secret Unit Deployment"
+      "name": "Secret Unit Deployment",
+      "id": "2016"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2836,
     "fields": {
-      "pk": "2836",
-      "name": "Lose a Turn"
+      "name": "Lose a Turn",
+      "id": "2836"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2964,
     "fields": {
-      "pk": "2964",
-      "name": "Pieces as Map"
+      "name": "Pieces as Map",
+      "id": "2964"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2956,
     "fields": {
-      "pk": "2956",
-      "name": "Chaining"
+      "name": "Chaining",
+      "id": "2956"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2882,
     "fields": {
-      "pk": "2882",
-      "name": "Elapsed Real Time Ending"
+      "name": "Elapsed Real Time Ending",
+      "id": "2882"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2831,
     "fields": {
-      "pk": "2831",
-      "name": "Real-Time"
+      "name": "Real-Time",
+      "id": "2831"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2841,
     "fields": {
-      "pk": "2841",
-      "name": "Command Cards"
+      "name": "Command Cards",
+      "id": "2841"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2918,
     "fields": {
-      "pk": "2918",
-      "name": "Auction: English"
+      "name": "Auction: English",
+      "id": "2918"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2923,
     "fields": {
-      "pk": "2923",
-      "name": "Auction: Once Around"
+      "name": "Auction: Once Around",
+      "id": "2923"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2967,
     "fields": {
-      "pk": "2967",
-      "name": "Hpkden Movement"
+      "name": "Hpkden Movement",
+      "id": "2967"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 3005,
     "fields": {
-      "pk": "3005",
-      "name": "Slpke/Push"
+      "name": "Slpke/Push",
+      "id": "3005"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2821,
     "fields": {
-      "pk": "2821",
-      "name": "Single Loser Game"
+      "name": "Single Loser Game",
+      "id": "2821"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 3096,
     "fields": {
-      "pk": "3096",
-      "name": "Drawing"
+      "name": "Drawing",
+      "id": "3096"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2954,
     "fields": {
-      "pk": "2954",
-      "name": "Relative Movement"
+      "name": "Relative Movement",
+      "id": "2954"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2858,
     "fields": {
-      "pk": "2858",
-      "name": "Prisoner's Dilemma"
+      "name": "Prisoner's Dilemma",
+      "id": "2858"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2892,
     "fields": {
-      "pk": "2892",
-      "name": "Roles with Asymmetric Information"
+      "name": "Roles with Asymmetric Information",
+      "id": "2892"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2913,
     "fields": {
-      "pk": "2913",
-      "name": "Bribery"
+      "name": "Bribery",
+      "id": "2913"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2865,
     "fields": {
-      "pk": "2865",
-      "name": "Player Judge"
+      "name": "Player Judge",
+      "id": "2865"
     }
   },
   {
     "model": "mechanics.mechanic",
     "pk": 2990,
     "fields": {
-      "pk": "2990",
-      "name": "Cube Tower"
+      "name": "Cube Tower",
+      "id": "2990"
     }
   }
 ]

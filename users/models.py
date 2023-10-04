@@ -5,5 +5,11 @@ from django.contrib.auth.models import AbstractUser
 
 
 class User(AbstractUser):
-    bio = models.TextField(max_length=300, blank=True, null=True)
-    favourites = models.JSONField(default=list)
+    collection = models.ManyToManyField(
+        'games.Game',
+        related_name='collected_games',
+        blank=True
+    )
+    messages = models.JSONField(default=list, blank=True)
+    friends = models.JSONField(default=list, blank=True)
+    displayname = models.CharField(max_length=30, blank=True, null=True)
