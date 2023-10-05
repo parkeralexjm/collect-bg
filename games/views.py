@@ -2,9 +2,10 @@
 from rest_framework.generics import (
     RetrieveUpdateDestroyAPIView,
     UpdateAPIView,
-    GenericAPIView
+    GenericAPIView,
+    ListCreateAPIView
 )
-from lib.views import UserListCreateAPIView
+# from lib.views import UserListCreateAPIView
 
 # Permissions
 from rest_framework.permissions import IsAuthenticated, IsAuthenticatedOrReadOnly
@@ -28,7 +29,8 @@ class GameView(GenericAPIView):
 
 
 # Endpoint for view: /Games
-class GameListView(GameView, UserListCreateAPIView):
+class GameListView(GameView, ListCreateAPIView):
+    # Change this to Is Authenticated after development
     permission_classes = [IsAuthenticatedOrReadOnly]
 
 
