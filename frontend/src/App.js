@@ -14,7 +14,7 @@ export default function App() {
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<Landing />} />
-        <Route path='/gamesdisplay' element={<GamesDisplay />} />
+        <Route path='/games' element={<GamesDisplay />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
     </BrowserRouter>

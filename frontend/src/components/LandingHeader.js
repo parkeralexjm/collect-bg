@@ -1,6 +1,7 @@
 // React imports
 import { useState } from 'react'
 // Component imports
+import { loginForm, registerForm } from '../lib/forms'
 
 // Bootstrap imports
 import Nav from 'react-bootstrap/Nav'
@@ -13,17 +14,27 @@ import Modal from 'react-bootstrap/Modal'
 
 // Generic import
 import logo from '../images/Logo-Light.png'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import LandingModal from './LandingModal'
+import { tokenIsValid } from '../lib/auth'
 
 export default function LandingHeader() {
   const [show, setShow] = useState(false)
-  const [formType, setFormType] = useState('register')
+  const [formType, setFormType] = useState()
+  const navigate = useNavigate()
 
   const handleClose = () => setShow(false)
   const handleShow = (e) => {
+    if (tokenIsValid('collect-access-token')) {
+      navigate('/games')
+      return
+    }
+    if (e.target.innerText === 'Log In') {
+      setFormType(loginForm)
+    } else {
+      setFormType(registerForm)
+    }
     setShow(true)
-    setFormType(e.target.innerText)
   }
 
   return (
@@ -37,18 +48,26 @@ export default function LandingHeader() {
           <i className="fa-solid fa-bars" style={{ color: '#4eaca2' }}></i>
         </Dropdown.Toggle>
         <Dropdown.Menu>
-          <Dropdown.Item onClick={handleShow}>Log In</Dropdown.Item>
-          <Dropdown.Item onClick={handleShow}>Register</Dropdown.Item>
+          {tokenIsValid('collect-access-token') ?
+            <Dropdown.Item onClick={handleShow}>Enter Collection</Dropdown.Item>
+            :
+            <>
+              <Dropdown.Item onClick={handleShow}>Log In</Dropdown.Item>
+              <Dropdown.Item onClick={handleShow}>Register</Dropdown.Item>
+            </>
+          }
         </Dropdown.Menu>
       </Dropdown>
       {/* Desktop display links*/}
-      <Row className='align-items-center landing-header-links'>
-        <Col>
-          <Nav.Link href="#login">Log In</Nav.Link>
-        </Col>
-        <Col>
-          <Button className='btn-warning' href="#register">Register</Button>
-        </Col>
+      <Row className='align-items-center landing-header-links justify-content-end flex-nowrap'>
+        {tokenIsValid('collect-access-token') ?
+          <Button className='btn-warning' onClick={handleShow}>Enter Collection</Button>
+          :
+          <>
+            <Nav.Link onClick={handleShow}>Log In</Nav.Link>
+            <Button className='btn-warning' onClick={handleShow}>Register</Button>
+          </>
+        }
       </Row>
       {/* Login/Register modal */}
       <Modal show={show} onHide={handleClose} animation={false}>
