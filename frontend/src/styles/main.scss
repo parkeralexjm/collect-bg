@@ -22,7 +22,9 @@ $border-radius-sm: .15rem;
 @import './variables.scss',
 './components/landing.scss',
 './components/landingheader.scss',
-'./components/landingfooter.scss';
+'./components/landingfooter.scss',
+'./components/landingmodal.scss',
+'./components/gamesdisplay.scss';
 
 * {
   font-family: 'Outfit', sans-serif;
