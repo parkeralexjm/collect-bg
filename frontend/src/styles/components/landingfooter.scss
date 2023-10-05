@@ -1,0 +1,32 @@
+footer {
+  padding: 1rem;
+}
+
+.landing-footer {
+  background-color: $teal;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+
+.landing-footer-inner {
+  background-color: rgba($grey, 0.25);
+  padding: 0.5rem;
+
+  img {
+    width: 125px;
+  }
+
+  h5 {
+    color: white;
+    font-size: 0.8rem;
+  }
+
+  i {
+    color: $teal;
+    margin-right: 0.5rem;
+  }
+
+  .socials {
+    width: auto;
+  }
+}
