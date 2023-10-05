@@ -31,3 +31,12 @@ $border-radius-sm: .15rem;
   font-family: 'Outfit', sans-serif;
   box-sizing: border-box;
 }
+
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  height: 100%;
+}

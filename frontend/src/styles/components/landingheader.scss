@@ -1,11 +1,13 @@
 .landing-header {
   height: 90px;
   padding: 0 1rem;
+
+  .logo {
+    width: 200px;
+  }
 }
 
-.logo {
-  width: 200px;
-}
+
 
 .dropstart .dropdown-toggle::before {
   display: none; // This removes the small arrow on the dropdown button

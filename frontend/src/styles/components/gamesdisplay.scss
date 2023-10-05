@@ -1,0 +1,78 @@
+.display-background {
+  background-image: url('../../images/ffflux.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100%;
+  padding: 0.75rem;
+
+  .display {
+    background-color: $teal;
+    border-radius: 1rem;
+    height: 100%;
+    max-width: 1440px;
+    padding: 0;
+  }
+
+  .row>* {
+    padding: 0;
+  }
+
+  .row {
+    flex-direction: column-reverse;
+    margin: 0;
+  }
+
+  .col {
+    background-color: white;
+  }
+
+  .left-col {
+    display: none;
+    padding: 10px;
+
+    .logo {
+      width: 100%;
+    }
+  }
+}
+
+@media only screen and (min-width: $sm) {
+  .display-background {
+
+    .col {
+      background-color: white;
+    }
+  }
+}
+
+@media only screen and (min-width: $md) {
+  .display-background {
+
+    .row {
+      flex-direction: row;
+      height: 100%;
+    }
+
+    .left-col {
+      display: none;
+    }
+
+  }
+}
+
+@media only screen and (min-width: $lg) {
+  .display-background {
+
+    .row {
+      flex-direction: row;
+      height: 100%;
+    }
+
+    .left-col,
+    .right-col {
+      display: block;
+    }
+
+  }
+}
