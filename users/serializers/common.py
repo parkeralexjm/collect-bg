@@ -7,7 +7,8 @@ User = get_user_model()
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ('id', 'username', 'email', 'collection')
+        fields = ('id', 'username', 'displayname', 'email',
+                  'first_name', 'last_name', 'collection', 'image')
 
 
 class RegistrationSerializer(serializers.ModelSerializer):
@@ -19,7 +20,7 @@ class RegistrationSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ('id', 'username', 'email', 'password',
-                  'password_confirmation')
+                  'password_confirmation',)
 
     def validate(self, data):
         # Validate method passes in the request body data, so in this case things username, password & password_confirmation

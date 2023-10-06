@@ -89,10 +89,7 @@
 
 .right-col {
   padding-right: 0;
-}
-
-@media only screen and (min-width: $sm) {
-  .display-background {}
+  padding-left: 0;
 }
 
 @media only screen and (min-width: $md) {
@@ -107,6 +104,11 @@
       display: none;
     }
 
+    .right-col {
+      padding-left: $edge-padding;
+      display: flex;
+      flex-direction: column;
+    }
   }
 }
 
@@ -118,8 +120,7 @@
       height: 100%;
     }
 
-    .left-col,
-    .right-col {
+    .left-col {
       display: block;
     }
 

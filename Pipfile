@@ -11,6 +11,7 @@ autopep8 = "*"
 djangorestframework = "*"
 django-environ = "*"
 djangorestframework-simplejwt = "*"
+pillow = "*"
 
 [dev-packages]
 

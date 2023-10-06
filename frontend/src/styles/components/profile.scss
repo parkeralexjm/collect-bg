@@ -1,0 +1,17 @@
+.profile {
+  background-color: $secondary;
+
+  border-radius: $games-border-radius;
+
+  img {
+    width: 60px;
+    border-radius: $games-border-radius;
+    margin: $inside-edge-padding;
+  }
+
+  .row:last-of-type {
+    margin: 0;
+    background-color: $danger;
+    border-radius: 0 0 8px 8px;
+  }
+}

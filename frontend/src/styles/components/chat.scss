@@ -1,0 +1,21 @@
+.chat-mobile {
+  display: block;
+  background-color: white;
+}
+
+.chat-desktop {
+  display: none;
+}
+
+@media only screen and (min-width: $sm) {
+  .chat-mobile {
+    display: none;
+  }
+
+  .chat-desktop {
+    display: block;
+    background-color: $secondary;
+    border-radius: $games-border-radius;
+    flex: 1;
+  }
+}

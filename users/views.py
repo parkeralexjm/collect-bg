@@ -9,6 +9,7 @@ User = get_user_model()
 
 class UserView(GenericAPIView):
     queryset = User.objects.all()
+    print(queryset)
 
 
 class RegisterView(UserView, CreateAPIView):

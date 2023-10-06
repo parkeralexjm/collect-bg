@@ -5,6 +5,10 @@ import { Link } from 'react-router-dom'
 import GameCarousel from './Carousel'
 import CategoryCards from './CategoryCards'
 import GameCards from './GameCards'
+import Profile from './Profile'
+import Feature from './Feature'
+import ChatDesktop from './ChatDesktop'
+import ChatMobile from './ChatMobile'
 
 // Bootstrap imports
 import Container from 'react-bootstrap/Container'
@@ -109,17 +113,15 @@ export default function GamesDisplay() {
           </Col>
           <Col xs={12} md={9} lg={6} xxl={7} className='center-col'>
             <GameCarousel gamesData={allGames.slice(0, 5)} />
-            {/* <CategoryCards categoriesData={allCategories.slice(0, 4)} /> */}
             <GameCards allGames={allGames} allCategories={allCategories} allMechanics={allMechanics} />
           </Col>
           <Col xs={0} md={3} lg={3} className='right-col'>
-            <p>Profile</p>
-            <p>Feature</p>
-            <p>Chat/Friend</p>
+            <Profile user={user} />
+            <Feature />
+            <ChatDesktop />
+            <ChatMobile />
           </Col>
         </Row>
-
-
       </div>
     </section>
   )
