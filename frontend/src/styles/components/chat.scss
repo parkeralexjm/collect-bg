@@ -7,15 +7,31 @@
   display: none;
 }
 
-@media only screen and (min-width: $sm) {
+@media only screen and (min-width: $md) {
   .chat-mobile {
     display: none;
   }
 
   .chat-desktop {
-    display: block;
+    display: flex;
+    flex-direction: column;
     background-color: $secondary;
     border-radius: $games-border-radius;
     flex: 1;
+  }
+
+  .chat-information {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+
+    .chat {
+      width: 100%;
+      padding: $edge-padding;
+      flex: 1;
+      display: flex;
+      flex-direction: column-reverse;
+    }
   }
 }

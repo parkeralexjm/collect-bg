@@ -6,6 +6,7 @@ import Form from 'react-bootstrap/Form'
 import FloatingLabel from 'react-bootstrap/FloatingLabel'
 import { useEffect, useState } from 'react'
 import ReactPaginate from 'react-paginate'
+import { useDebouncedCallback } from 'use-debounce'
 
 export default function GameCards({ allGames, allCategories, allMechanics }) {
   const [filter, setFilter] = useState({
@@ -20,6 +21,12 @@ export default function GameCards({ allGames, allCategories, allMechanics }) {
   const [currentPage, setCurrentPage] = useState(0)
   const [totalPages, setTotalPages] = useState(0)
   const [itemsPerPage, setItemsPerPage] = useState(12)
+
+  const debounced = useDebouncedCallback((value) => {
+    setNewSearch(value)
+    const newFilteredState = { ...filter, search: value }
+    setFilter(newFilteredState)
+  }, 500)
 
   function resetFilters() {
     setNewSearch('')
@@ -56,7 +63,7 @@ export default function GameCards({ allGames, allCategories, allMechanics }) {
     setFilteredGames(filteredArray)
     setTotalPages(Math.ceil(filteredArray.length / itemsPerPage))
     subset = filteredGames.slice(startIndex, endIndex)
-  }, [filter, allGames, itemsPerPage])
+  }, [filter, allGames, itemsPerPage, newSearch])
 
   function handleChange(e) {
     const newFilteredState = { ...filter, [e.target.name]: e.target.value }
@@ -90,7 +97,7 @@ export default function GameCards({ allGames, allCategories, allMechanics }) {
       <Row as={Form} onSubmit={handleSubmit} className='game-card-search'>
         <Col>
           <FloatingLabel label='Search game'>
-            <Form.Control className="form-control" size="sm" type="search" placeholder="Search games..." name="search" value={newSearch} onChange={handleChange} />
+            <Form.Control className="form-control" size="sm" type="search" placeholder="Search games..." name="search" defaultValue={newSearch} onChange={(e) => debounced(e.target.value)} />
           </FloatingLabel>
         </Col>
         <Col>

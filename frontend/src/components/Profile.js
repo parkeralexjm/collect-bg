@@ -7,7 +7,7 @@ export default function Profile({ user }) {
     <div className="profile">
       <Row>
         <Col>
-          <img src={user.image} alt="profile-picture" />
+          <img className='chat-profile-image' src={user.image} alt="profile-picture" />
         </Col>
         <Col>
           <h2>{user.username}</h2>

@@ -1,5 +1,5 @@
 #  Views
-from rest_framework.generics import RetrieveUpdateDestroyAPIView
+from rest_framework.generics import RetrieveUpdateDestroyAPIView, ListCreateAPIView
 from lib.views import UserListCreateAPIView
 
 # Permissions
@@ -11,14 +11,15 @@ from .models import ChatMessage
 
 # Serializer
 from .serializers.common import ChatMessageSerializer
+from .serializers.populated import PopulatedChatMessageSerializer
 
 # Class Views
 
 
-class ChatMessageListView(UserListCreateAPIView):
+class ChatMessageListView(ListCreateAPIView):
     permission_classes = [IsAuthenticatedOrReadOnly]
     queryset = ChatMessage.objects.all()
-    serializer_class = ChatMessageSerializer
+    serializer_class = PopulatedChatMessageSerializer
 
 
 class ChatMessageDetailView(RetrieveUpdateDestroyAPIView):

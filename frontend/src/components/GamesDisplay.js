@@ -30,6 +30,7 @@ export default function GamesDisplay() {
   const [allCategories, setAllCategories] = useState([])
   const [allMechanics, setAllMechanics] = useState([])
   const [user, setUser] = useState({})
+  const [messageList, setMessageList] = useState([])
 
   useEffect(() => {
     async function getGamesData() {
@@ -77,6 +78,15 @@ export default function GamesDisplay() {
         console.log(error)
       }
     }
+    async function getMessageData() {
+      try {
+        const { data } = await axios.get('/api/chatmessage')
+        setMessageList(data)
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    getMessageData()
     getUserData()
     getMechanicsData()
     getCategoriesData()
@@ -118,7 +128,7 @@ export default function GamesDisplay() {
           <Col xs={0} md={3} lg={3} className='right-col'>
             <Profile user={user} />
             <Feature />
-            <ChatDesktop />
+            <ChatDesktop messageList={messageList} />
             <ChatMobile />
           </Col>
         </Row>
