@@ -14,6 +14,7 @@ import ChatMobile from './ChatMobile'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
+import ProgressBar from 'react-bootstrap/ProgressBar'
 
 // Axios imports
 import axiosAuth from '../lib/axios'
@@ -31,61 +32,77 @@ export default function GamesDisplay() {
   const [allMechanics, setAllMechanics] = useState([])
   const [user, setUser] = useState({})
   const [messageList, setMessageList] = useState([])
+  const [loadingGames, setLoadingGames] = useState(false)
+  const [gamesProgress, setGamesProgress] = useState(0)
+
+  async function getGamesData() {
+    try {
+      setLoadingGames(true)
+      // const { data } = await axiosAuth.get('/api/games/') // This is authorised route for testing.
+      const { data } = await axios.get('/api/games/', {
+        onDownloadProgress: (progressEvent) => {
+          console.log(progressEvent)
+          const percentage = Math.round((progressEvent.loaded * 100) / progressEvent.total)
+          setGamesProgress(setInterval(percentage, 10))
+          //   if (percentage === 100) {
+          //     setTimeout(() => {
+          //       setLoadingGames(false)
+          //     }, 2000)
+          //   }
+          // },
+        },
+      }) // This is unauthorised for testing
+      setAllGames(data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+  async function getCategoriesData() {
+    try {
+      // const { data } = await axiosAuth.get('/api/games/') // This is authorised route for testing.
+      const { data } = await axios.get('/api/categories/') // This is unauthorised for testing
+      setAllCategories(data.sort((a, b) => a.name.localeCompare(b.name)))
+    } catch (error) {
+      console.log(error)
+    }
+  }
+  async function getMechanicsData() {
+    try {
+      // const { data } = await axiosAuth.get('/api/games/') // This is authorised route for testing.
+      const { data } = await axios.get('/api/mechanics/') // This is unauthorised for testing
+      setAllMechanics(data.sort((a, b) => a.name.localeCompare(b.name)))
+    } catch (error) {
+      console.log(error)
+    }
+  }
+  async function getTopGamesData() {
+    try {
+      // const { data } = await axiosAuth.get('/api/games/') // This is authorised route for testing.
+      const { data } = await axios.get('https://boardgamegeek.com/xmlapi2/hot?type=boardgame&count=10') // This is unauthorised for testing
+      const convertedData = new XMLParser().parseFromString(data)
+      setTopGames(convertedData.children.slice(0, 10))
+    } catch (error) {
+      console.log(error)
+    }
+  }
+  async function getUserData() {
+    try {
+      const { data } = await axiosAuth.get(`/api/auth/user/${userId('collect-refresh-token')}`)
+      setUser(data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
+  async function getMessageData() {
+    try {
+      const { data } = await axios.get('/api/chatmessage')
+      setMessageList(data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   useEffect(() => {
-    async function getGamesData() {
-      try {
-        // const { data } = await axiosAuth.get('/api/games/') // This is authorised route for testing.
-        const { data } = await axios.get('/api/games/') // This is unauthorised for testing
-        setAllGames(data)
-      } catch (error) {
-        console.log(error)
-      }
-    }
-    async function getCategoriesData() {
-      try {
-        // const { data } = await axiosAuth.get('/api/games/') // This is authorised route for testing.
-        const { data } = await axios.get('/api/categories/') // This is unauthorised for testing
-        setAllCategories(data.sort((a, b) => a.name.localeCompare(b.name)))
-      } catch (error) {
-        console.log(error)
-      }
-    }
-    async function getMechanicsData() {
-      try {
-        // const { data } = await axiosAuth.get('/api/games/') // This is authorised route for testing.
-        const { data } = await axios.get('/api/mechanics/') // This is unauthorised for testing
-        setAllMechanics(data.sort((a, b) => a.name.localeCompare(b.name)))
-      } catch (error) {
-        console.log(error)
-      }
-    }
-    async function getTopGamesData() {
-      try {
-        // const { data } = await axiosAuth.get('/api/games/') // This is authorised route for testing.
-        const { data } = await axios.get('https://boardgamegeek.com/xmlapi2/hot?type=boardgame&count=10') // This is unauthorised for testing
-        const convertedData = new XMLParser().parseFromString(data)
-        setTopGames(convertedData.children.slice(0, 10))
-      } catch (error) {
-        console.log(error)
-      }
-    }
-    async function getUserData() {
-      try {
-        const { data } = await axiosAuth.get(`/api/auth/user/${userId('collect-refresh-token')}`)
-        setUser(data)
-      } catch (error) {
-        console.log(error)
-      }
-    }
-    async function getMessageData() {
-      try {
-        const { data } = await axios.get('/api/chatmessage')
-        setMessageList(data)
-      } catch (error) {
-        console.log(error)
-      }
-    }
     getMessageData()
     getUserData()
     getMechanicsData()
@@ -123,6 +140,7 @@ export default function GamesDisplay() {
           </Col>
           <Col xs={12} md={9} lg={6} xxl={7} className='center-col'>
             <GameCarousel gamesData={allGames.slice(0, 5)} />
+            {loadingGames && <ProgressBar now={gamesProgress} />}
             <GameCards allGames={allGames} allCategories={allCategories} allMechanics={allMechanics} />
           </Col>
           <Col xs={0} md={3} lg={3} className='right-col'>
