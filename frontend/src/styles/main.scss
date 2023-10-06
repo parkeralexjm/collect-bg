@@ -10,11 +10,15 @@ $spacer: 0.5rem;
 $border-radius: 0.2rem;
 $border-radius-lg: .2rem;
 $border-radius-sm: .15rem;
+$edge-padding: 10px;
+$inside-edge-padding: 5px;
+$games-border-radius: 8px;
 // $dropdown-etc
 
 // Rules for styling:
 // Alignment: jsx/react code
 // Padding/Margins: SASS
+// Outside padding 10px, inside paddings minimum 5px
 
 // import bootstrap
 @import '../../node_modules/bootstrap/scss/bootstrap.scss';
@@ -25,7 +29,10 @@ $border-radius-sm: .15rem;
 './components/landingfooter.scss',
 './components/landingmodal.scss',
 './components/gamesdisplay.scss',
-'./components/notfound.scss';
+'./components/notfound.scss',
+'./components/carousel.scss',
+'./components/categorycards.scss',
+'./components/gamecards.scss';
 
 * {
   font-family: 'Outfit', sans-serif;

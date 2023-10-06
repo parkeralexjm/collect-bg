@@ -18,3 +18,11 @@ export const tokenIsValid = (tokenName) => {
     return true
   }
 }
+
+export const userId = (tokenName) => {
+  const token = getToken(tokenName)
+
+  if (!token) return false
+  return JSON.parse(atob(token.split('.')[1])).user_id
+
+}

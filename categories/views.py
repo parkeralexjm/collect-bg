@@ -6,8 +6,4 @@ from .serializers.populated import PopulatedCategorySerializer
 
 class CategoryListView(ListCreateAPIView):
     queryset = Category.objects.all()
-
-    def get_serializer_class(self):
-        if self.request.method == 'POST':
-            return CategorySerializer
-        return PopulatedCategorySerializer
+    serializer_class = PopulatedCategorySerializer

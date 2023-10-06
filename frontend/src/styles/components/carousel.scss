@@ -1,0 +1,15 @@
+.carousel {
+  height: 33vh;
+  margin-top: $edge-padding;
+}
+
+.carousel-item {
+  text-align: center;
+
+  img {
+    height: 33vh;
+    max-width: 100%;
+    margin: auto;
+  }
+
+}
