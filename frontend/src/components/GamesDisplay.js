@@ -41,7 +41,6 @@ export default function GamesDisplay() {
       // const { data } = await axiosAuth.get('/api/games/') // This is authorised route for testing.
       const { data } = await axios.get('/api/games/', {
         onDownloadProgress: (progressEvent) => {
-          console.log(progressEvent)
           const percentage = Math.round((progressEvent.loaded * 100) / progressEvent.total)
           setGamesProgress(setInterval(percentage, 10))
           //   if (percentage === 100) {

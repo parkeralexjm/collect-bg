@@ -49,5 +49,16 @@ body,
   margin: 0;
   padding: 0;
   border: 0;
-  height: 100%;
+}
+
+@media only screen and (min-width: $md) {
+
+  html,
+  body,
+  #root {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    height: 100%;
+  }
 }

@@ -7,6 +7,7 @@ import FloatingLabel from 'react-bootstrap/FloatingLabel'
 import { useEffect, useState } from 'react'
 import ReactPaginate from 'react-paginate'
 import { useDebouncedCallback } from 'use-debounce'
+import debounce from 'debounce'
 
 export default function GameCards({ allGames, allCategories, allMechanics }) {
   const [filter, setFilter] = useState({
@@ -22,6 +23,7 @@ export default function GameCards({ allGames, allCategories, allMechanics }) {
   const [totalPages, setTotalPages] = useState(0)
   const [itemsPerPage, setItemsPerPage] = useState(12)
 
+  //  This function debounces the search so that the cards do not 'jump' around with user inputs
   const debounced = useDebouncedCallback((value) => {
     setNewSearch(value)
     const newFilteredState = { ...filter, search: value }
@@ -62,6 +64,7 @@ export default function GameCards({ allGames, allCategories, allMechanics }) {
     })
     setFilteredGames(filteredArray)
     setTotalPages(Math.ceil(filteredArray.length / itemsPerPage))
+    reassignItemsPerPage()
     subset = filteredGames.slice(startIndex, endIndex)
   }, [filter, allGames, itemsPerPage, newSearch])
 
@@ -83,9 +86,18 @@ export default function GameCards({ allGames, allCategories, allMechanics }) {
   }
 
   const handlePageChange = (selectedPage) => {
-    setCurrentPage(selectedPage.selected)
     reassignItemsPerPage()
+    setCurrentPage(selectedPage.selected)
   }
+
+  window.onresize = debounce(resize, 200)
+
+  function resize() {
+    // This function is only called using the debounce to prevent it triggering on every pixel of resizing
+    const selectedPage = { selected: 0 }
+    handlePageChange(selectedPage)
+  }
+
   // Pagination 
   let startIndex = currentPage * itemsPerPage
   let endIndex = startIndex + itemsPerPage
