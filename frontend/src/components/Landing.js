@@ -2,14 +2,14 @@
 
 // Component imports
 import LandingFooter from './LandingFooter'
-import LandingHeader from './LandingHeader'
+import Header from './Header'
 // Bootstrap imports
 
 export default function Landing() {
   return (
-    <section className='landing'>
-      <LandingHeader />
-      <section className="container">main</section>
+    <section className='landing landing-container'>
+      <Header version='landing' />
+      <section className="container landing-info">main</section>
       <LandingFooter />
     </section>
   )

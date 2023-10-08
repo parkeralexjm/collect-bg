@@ -23,10 +23,6 @@ export default function ChatDesktop({ messageList }) {
   return (
     <div className='chat-desktop'>
       <div className='chat-information'>
-        <div className='chat-following-switch'>
-          <Button>Chat</Button>
-          <Button>Following</Button>
-        </div>
         <div className='chat'>
           {
             messageList.length > 0 ?

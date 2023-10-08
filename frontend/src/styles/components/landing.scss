@@ -5,3 +5,13 @@
   background-size: cover;
   height: 100vh;
 }
+
+.landing-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%
+}
+
+.landing-info {
+  flex-grow: 1;
+}

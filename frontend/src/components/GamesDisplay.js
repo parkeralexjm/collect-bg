@@ -9,13 +9,13 @@ import Profile from './Profile'
 import Feature from './Feature'
 import ChatDesktop from './ChatDesktop'
 import ChatMobile from './ChatMobile'
-
+import FollowingList from './FollowingList'
 // Bootstrap imports
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import ProgressBar from 'react-bootstrap/ProgressBar'
-
+import Button from 'react-bootstrap/Button'
 // Axios imports
 import axiosAuth from '../lib/axios'
 import axios, { all } from 'axios'
@@ -32,6 +32,7 @@ export default function GamesDisplay() {
   const [allMechanics, setAllMechanics] = useState([])
   const [user, setUser] = useState({})
   const [messageList, setMessageList] = useState([])
+  const [chatMode, setChatMode] = useState(true)
   const [loadingGames, setLoadingGames] = useState(false)
   const [gamesProgress, setGamesProgress] = useState(0)
 
@@ -110,6 +111,13 @@ export default function GamesDisplay() {
     getTopGamesData()
   }, [])
 
+  function activateChatMode() {
+    setChatMode(true)
+  }
+  function activateFollowingMode() {
+    setChatMode(false)
+  }
+
   return (
     <section className='display-background'>
       <div className='display container'>
@@ -139,13 +147,22 @@ export default function GamesDisplay() {
           </Col>
           <Col xs={12} md={9} lg={6} xxl={7} className='center-col'>
             <GameCarousel gamesData={allGames.slice(0, 5)} />
-            {loadingGames && <ProgressBar now={gamesProgress} />}
+            {/* {loadingGames && <ProgressBar now={gamesProgress} />} */}
             <GameCards allGames={allGames} allCategories={allCategories} allMechanics={allMechanics} />
           </Col>
           <Col xs={0} md={3} lg={3} className='right-col'>
             <Profile user={user} />
             <Feature />
-            <ChatDesktop messageList={messageList} />
+            <div className='chat-following-switch'>
+              <Button onClick={activateChatMode} variant={chatMode ? 'warning' : 'primary'}>Chat</Button>
+              <Button onClick={activateFollowingMode} variant={chatMode ? 'primary' : 'warning'}>Following</Button>
+            </div>
+            {
+              chatMode ?
+                <ChatDesktop messageList={messageList} />
+                :
+                <FollowingList user={user} />
+            }
             <ChatMobile />
           </Col>
         </Row>

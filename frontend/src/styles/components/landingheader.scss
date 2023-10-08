@@ -7,9 +7,8 @@
   }
 }
 
-
-
-.dropstart .dropdown-toggle::before {
+.dropstart .dropdown-toggle::before,
+.desktop-notfound-button {
   display: none; // This removes the small arrow on the dropdown button
 }
 
@@ -25,7 +24,12 @@
     height: 180px;
   }
 
-  .dropdown-toggle {
+  .dropdown-toggle,
+  .mobile-notfound-button {
     display: none;
+  }
+
+  .desktop-notfound-button {
+    display: block;
   }
 }
