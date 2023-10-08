@@ -9,7 +9,7 @@ import ReactPaginate from 'react-paginate'
 import { useDebouncedCallback } from 'use-debounce'
 import debounce from 'debounce'
 
-export default function GameCards({ allGames, allCategories, allMechanics }) {
+export default function GameCards({ games, allCategories, allMechanics }) {
   const [filter, setFilter] = useState({
     search: '',
     category: 'All',
@@ -55,7 +55,7 @@ export default function GameCards({ allGames, allCategories, allMechanics }) {
 
   useEffect(() => {
     const regex = new RegExp(filter.search, 'i')
-    const filteredArray = allGames.filter(game => {
+    const filteredArray = games.filter(game => {
       return (
         (regex.test(game.name)) &&
         (game.categories.some(category => category.name === filter.category) || filter.category === 'All') &&
@@ -66,7 +66,7 @@ export default function GameCards({ allGames, allCategories, allMechanics }) {
     setTotalPages(Math.ceil(filteredArray.length / itemsPerPage))
     reassignItemsPerPage()
     subset = filteredGames.slice(startIndex, endIndex)
-  }, [filter, allGames, itemsPerPage, newSearch])
+  }, [filter, games, itemsPerPage, newSearch])
 
   function handleChange(e) {
     const newFilteredState = { ...filter, [e.target.name]: e.target.value }

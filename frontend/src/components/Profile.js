@@ -2,7 +2,7 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
 
-export default function Profile({ user }) {
+export default function Profile({ user, handleCollectionDisplay }) {
   return (
     <div className="profile">
       <Row>
@@ -15,7 +15,7 @@ export default function Profile({ user }) {
       </Row>
       <Row>
         <Col >
-          <Button variant='danger'>Collection</Button>
+          <Button variant='danger' onClick={handleCollectionDisplay}>Collection</Button>
         </Col>
       </Row>
     </div>

@@ -10,6 +10,7 @@ import Feature from './Feature'
 import ChatDesktop from './ChatDesktop'
 import ChatMobile from './ChatMobile'
 import FollowingList from './FollowingList'
+import UserCollection from './UserCollection'
 // Bootstrap imports
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
@@ -33,6 +34,7 @@ export default function GamesDisplay() {
   const [user, setUser] = useState({})
   const [messageList, setMessageList] = useState([])
   const [chatMode, setChatMode] = useState(true)
+  const [collectionMode, setCollectionMode] = useState(false)
   const [loadingGames, setLoadingGames] = useState(false)
   const [gamesProgress, setGamesProgress] = useState(0)
 
@@ -118,6 +120,12 @@ export default function GamesDisplay() {
     setChatMode(false)
   }
 
+  function handleCollectionDisplay() {
+    setCollectionMode(!collectionMode)
+  }
+  console.log(user.collection)
+  console.log(allGames)
+
   return (
     <section className='display-background'>
       <div className='display container'>
@@ -146,12 +154,19 @@ export default function GamesDisplay() {
             </div>
           </Col>
           <Col xs={12} md={9} lg={6} xxl={7} className='center-col'>
-            <GameCarousel gamesData={allGames.slice(0, 5)} />
-            {/* {loadingGames && <ProgressBar now={gamesProgress} />} */}
-            <GameCards allGames={allGames} allCategories={allCategories} allMechanics={allMechanics} />
+            {
+              !collectionMode ?
+                <>
+                  <GameCarousel gamesData={allGames.slice(0, 5)} />
+                  {/* {loadingGames && <ProgressBar now={gamesProgress} />} */}
+                  <GameCards games={allGames} allCategories={allCategories} allMechanics={allMechanics} />
+                </>
+                :
+                <UserCollection games={user.collection} allCategories={allCategories} allMechanics={allMechanics} />
+            }
           </Col>
           <Col xs={0} md={3} lg={3} className='right-col'>
-            <Profile user={user} />
+            <Profile user={user} handleCollectionDisplay={handleCollectionDisplay} />
             <Feature />
             <div className='chat-following-switch'>
               <Button onClick={activateChatMode} variant={chatMode ? 'warning' : 'primary'}>Chat</Button>

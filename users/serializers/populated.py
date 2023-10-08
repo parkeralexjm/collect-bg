@@ -1,6 +1,6 @@
-from games.serializers.common import GameSerializer
+from games.serializers.populated import PopulatedGameSerializer
 from users.serializers.common import UserSerializer
 
 
 class PopulatedUserSerializer(UserSerializer):
-    collection = GameSerializer(many=True)
+    collection = PopulatedGameSerializer(many=True)
