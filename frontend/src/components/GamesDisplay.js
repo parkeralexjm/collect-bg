@@ -123,8 +123,6 @@ export default function GamesDisplay() {
   function handleCollectionDisplay() {
     setCollectionMode(!collectionMode)
   }
-  console.log(user.collection)
-  console.log(allGames)
 
   return (
     <section className='display-background'>
@@ -174,7 +172,7 @@ export default function GamesDisplay() {
             </div>
             {
               chatMode ?
-                <ChatDesktop messageList={messageList} />
+                <ChatDesktop messageList={messageList} refresh={getMessageData} />
                 :
                 <FollowingList user={user} />
             }

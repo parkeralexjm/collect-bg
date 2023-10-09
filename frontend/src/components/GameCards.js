@@ -9,7 +9,7 @@ import ReactPaginate from 'react-paginate'
 import { useDebouncedCallback } from 'use-debounce'
 import debounce from 'debounce'
 
-export default function GameCards({ games, allCategories, allMechanics }) {
+export default function GameCards({ games, allCategories, allMechanics, collectionMode = false }) {
   const [filter, setFilter] = useState({
     search: '',
     category: 'All',
@@ -42,12 +42,12 @@ export default function GameCards({ games, allCategories, allMechanics }) {
   }
 
   function reassignItemsPerPage() {
-    if (window.innerWidth >= 1200) {
-      setItemsPerPage(12)
-    } else if (window.innerWidth < 1200 && window.innerWidth >= 768) {
-      setItemsPerPage(8)
+    if (window.innerWidth >= 1400) {
+      collectionMode ? setItemsPerPage(18) : setItemsPerPage(12)
+    } else if (window.innerWidth < 1400 && window.innerWidth >= 768) {
+      collectionMode ? setItemsPerPage(12) : setItemsPerPage(8)
     } else if (window.innerWidth < 768 && window.innerWidth >= 567) {
-      setItemsPerPage(6)
+      collectionMode ? setItemsPerPage(24) : setItemsPerPage(6)
     }
     startIndex = currentPage * itemsPerPage
     endIndex = startIndex + itemsPerPage
@@ -91,12 +91,15 @@ export default function GameCards({ games, allCategories, allMechanics }) {
   }
 
   window.onresize = debounce(resize, 200)
-
   function resize() {
     // This function is only called using the debounce to prevent it triggering on every pixel of resizing
     const selectedPage = { selected: 0 }
     handlePageChange(selectedPage)
   }
+  // This useEffect sets the page back to 1 when changing the category or mechanic selection
+  useEffect(() => {
+    resize()
+  }, [newCategory, newMechanic])
 
   // Pagination 
   let startIndex = currentPage * itemsPerPage
@@ -133,28 +136,29 @@ export default function GameCards({ games, allCategories, allMechanics }) {
           </FloatingLabel>
         </Col>
       </Row>
-      <Row className='game-card-display'>
-
-        {
-          filteredGames.length > 0 ?
-            <>
-              <div>
-                {subset.map((item) => (
-                  <div key={item.id}>{item.title}</div>
-                ))}
-                <ReactPaginate className='react-paginate'
-                  pageCount={totalPages}
-                  onPageChange={handlePageChange}
-                  forcePage={currentPage}
-                  pageRangeDisplayed={1}
-                />
-              </div>
+      {
+        filteredGames.length > 0 ?
+          <>
+            <div className='pagination'>
+              {subset.map((item) => (
+                <div key={item.id}>{item.title}</div>
+              ))}
+              <ReactPaginate className='react-paginate'
+                pageCount={totalPages}
+                onPageChange={handlePageChange}
+                forcePage={currentPage}
+                pageRangeDisplayed={1}
+              />
+            </div>
+            <Row className='game-card-display'>
               {subset.map(({ name, image }, index) => {
                 return (
-                  <Col key={index} xs={6} sm={4} md={3} xl={2} >
-                    <Card className="text-center">
-                      <Card.Img variant='top' src={image} />
-                      <Card.Body>
+                  <Col key={index} xs={6} sm={4} md={3} xxl={2} className='px-2 pb-4' >
+                    <Card className="text-center game-card h-100">
+                      <div className='img-container'>
+                        <Card.Img variant='top' src={image} />
+                      </div>
+                      <Card.Body className='d-flex flex-column justify-content-center'>
                         <Card.Text>
                           {name}
                         </Card.Text>
@@ -163,11 +167,11 @@ export default function GameCards({ games, allCategories, allMechanics }) {
                   </Col>
                 )
               })}
-            </>
-            :
-            <h2>Loading...</h2>
-        }
-      </Row>
+            </Row>
+          </>
+          :
+          <h2>Loading...</h2>
+      }
     </Container>
   )
 }

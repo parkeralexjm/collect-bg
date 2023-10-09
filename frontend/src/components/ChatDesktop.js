@@ -3,9 +3,10 @@ import Button from 'react-bootstrap/Button'
 import { useState } from 'react'
 import ChatMessage from './ChatMessage'
 import { userId } from '../lib/auth'
+import axiosAuth from '../lib/axios'
 
 
-export default function ChatDesktop({ messageList }) {
+export default function ChatDesktop({ messageList, refresh }) {
   const [message, setMessage] = useState({
     content: '',
     user: `${userId('collect-refresh-token')}`,
@@ -13,7 +14,16 @@ export default function ChatDesktop({ messageList }) {
 
   function handleSubmit(e) {
     e.preventDefault()
-    // do axiosAuth
+    async function postMessage() {
+      try {
+        const { data } = await axiosAuth.post('api/chatmessage/post/', message)
+        refresh()
+      } catch (error) {
+        console.log(error)
+      }
+      setMessage({ ...message, content: '' })
+    }
+    postMessage()
   }
 
   function handleChange(e) {
@@ -26,9 +36,9 @@ export default function ChatDesktop({ messageList }) {
         <div className='chat'>
           {
             messageList.length > 0 ?
-              messageList.map((info, index) => {
+              messageList.sort((a, b) => new Date(b.posted) - new Date(a.posted)).slice(0, 7).map((message, index) => {
                 return (
-                  <ChatMessage key={index} info={info} />
+                  <ChatMessage key={index} message={message} />
                 )
               })
               :
@@ -42,7 +52,7 @@ export default function ChatDesktop({ messageList }) {
             <Form.Label>Message</Form.Label>
             <Form.Control as="textarea" rows={3} name='content' value={message.content} onChange={handleChange} />
           </Form.Group>
-          <Button ><i className="fa-regular fa-paper-plane"></i></Button>
+          <Button type='submit'><i className="fa-regular fa-paper-plane"></i></Button>
         </Form>
 
       </div>

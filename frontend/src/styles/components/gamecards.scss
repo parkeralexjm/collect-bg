@@ -2,12 +2,15 @@
   padding-top: $edge-padding;
 }
 
-.game-card-display {
-  padding: $edge-padding 0;
-}
+.game-card-display {}
 
 .form-control {
   padding: 0;
+}
+
+.pagination {
+  margin-top: $edge-padding;
+  justify-content: center;
 }
 
 ul.react-paginate {
@@ -48,4 +51,8 @@ ul.react-paginate li.disabled a {
 ul.react-paginate li.disable,
 ul.react-paginate li.disabled a {
   cursor: default;
+}
+
+.game-card {
+  height: 248px;
 }

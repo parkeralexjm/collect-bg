@@ -22,7 +22,7 @@ class ChatMessageListView(ListCreateAPIView):
     serializer_class = PopulatedChatMessageSerializer
 
 
-class ChatMessageDetailView(RetrieveUpdateDestroyAPIView):
-    permission_classes = [IsOwnerOrReadOnly]
+class ChatMessageDetailView(ListCreateAPIView):
+    permission_classes = [IsAuthenticatedOrReadOnly]
     queryset = ChatMessage.objects.all()
     serializer_class = ChatMessageSerializer

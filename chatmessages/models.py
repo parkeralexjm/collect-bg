@@ -5,6 +5,7 @@ from django.db import models
 
 class ChatMessage(models.Model):
     content = models.CharField(max_length=280)
+    posted = models.DateTimeField(auto_now_add=True)
     user = models.ForeignKey(
         'users.User',
         related_name='chatmessages',
