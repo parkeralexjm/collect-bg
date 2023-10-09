@@ -8,7 +8,14 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ('id', 'username', 'displayname', 'email',
-                  'first_name', 'last_name', 'collection', 'image')
+                  'first_name', 'last_name', 'collection', 'image', 'following')
+
+
+class AllUsersSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ('id', 'username', 'email',
+                  'first_name', 'last_name', 'image')
 
 
 class RegistrationSerializer(serializers.ModelSerializer):

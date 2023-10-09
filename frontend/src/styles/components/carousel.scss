@@ -13,3 +13,9 @@
   }
 
 }
+
+@include media-breakpoint-up(md) {
+  .carousel {
+    height: 320px;
+  }
+}

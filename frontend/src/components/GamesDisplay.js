@@ -32,11 +32,13 @@ export default function GamesDisplay() {
   const [allCategories, setAllCategories] = useState([])
   const [allMechanics, setAllMechanics] = useState([])
   const [user, setUser] = useState({})
+  const [collectionUser, setCollectionUser] = useState({})
   const [messageList, setMessageList] = useState([])
   const [chatMode, setChatMode] = useState(true)
   const [collectionMode, setCollectionMode] = useState(false)
   const [loadingGames, setLoadingGames] = useState(false)
   const [gamesProgress, setGamesProgress] = useState(0)
+  const [allUsers, setAllUsers] = useState([])
 
   async function getGamesData() {
     try {
@@ -103,8 +105,17 @@ export default function GamesDisplay() {
       console.log(error)
     }
   }
+  async function getAllUserData() {
+    try {
+      const { data } = await axios.get('/api/auth/users')
+      setAllUsers(data)
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   useEffect(() => {
+    getAllUserData()
     getMessageData()
     getUserData()
     getMechanicsData()
@@ -160,11 +171,11 @@ export default function GamesDisplay() {
                   <GameCards games={allGames} allCategories={allCategories} allMechanics={allMechanics} />
                 </>
                 :
-                <UserCollection games={user.collection} allCategories={allCategories} allMechanics={allMechanics} />
+                <UserCollection user={collectionUser} games={collectionUser.collection} allCategories={allCategories} allMechanics={allMechanics} setCollectionUser={setCollectionUser} />
             }
           </Col>
           <Col xs={0} md={3} lg={3} className='right-col'>
-            <Profile user={user} handleCollectionDisplay={handleCollectionDisplay} />
+            <Profile user={user} handleCollectionDisplay={handleCollectionDisplay} setCollectionUser={setCollectionUser} />
             <Feature />
             <div className='chat-following-switch'>
               <Button onClick={activateChatMode} variant={chatMode ? 'warning' : 'primary'}>Chat</Button>
@@ -174,7 +185,7 @@ export default function GamesDisplay() {
               chatMode ?
                 <ChatDesktop messageList={messageList} refresh={getMessageData} />
                 :
-                <FollowingList user={user} />
+                <FollowingList user={user} setCollectionUser={setCollectionUser} handleCollectionDisplay={handleCollectionDisplay} allUsers={allUsers} />
             }
             <ChatMobile />
           </Col>

@@ -12,6 +12,9 @@ class User(AbstractUser):
     )
     image = models.ImageField(default='default.jpg',
                               upload_to='profile_images')
-    messages = models.JSONField(default=list, blank=True)
-    friends = models.JSONField(default=list, blank=True)
+    following = models.ManyToManyField(
+        'users.User',
+        related_name='following_users',
+        blank=True
+    )
     displayname = models.CharField(max_length=30, blank=True, null=True)

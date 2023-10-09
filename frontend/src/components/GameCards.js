@@ -111,29 +111,29 @@ export default function GameCards({ games, allCategories, allMechanics, collecti
     <Container className='center-cards'>
       <Row as={Form} onSubmit={handleSubmit} className='game-card-search'>
         <Col>
-          <FloatingLabel label='Search game'>
-            <Form.Control className="form-control" size="sm" type="search" placeholder="Search games..." name="search" defaultValue={newSearch} onChange={(e) => debounced(e.target.value)} />
-          </FloatingLabel>
+          <Form.Label label='Search game'>
+            <Form.Control type="search" placeholder="Search games..." name="search" defaultValue={newSearch} onChange={(e) => debounced(e.target.value)} />
+          </Form.Label>
         </Col>
         <Col>
-          <FloatingLabel label='Category'>
-            <Form.Control as='select' size="sm" className="form-control" name="category" value={newCategory} onChange={handleChange} aria-label="Floating label select" >
+          <Form.Label label='Category'>
+            <Form.Control as='select' name="category" value={newCategory} onChange={handleChange} aria-label="Floating label select" >
               <option value='All'>- Category -</option>
               {allCategories.map(({ name }, index) => {
                 return (<option key={index} value={name}>{name}</option>)
               })}
             </Form.Control>
-          </FloatingLabel>
+          </Form.Label>
         </Col>
         <Col>
-          <FloatingLabel label='Mechanic'>
-            <Form.Control as='select' size="sm" className="form-control" name="mechanic" value={newMechanic} onChange={handleChange} aria-label="Floating label select" >
+          <Form.Label label='Mechanic'>
+            <Form.Control as='select' name="mechanic" value={newMechanic} onChange={handleChange} aria-label="Floating label select" >
               <option value='All'>- Mechanic -</option>
               {allMechanics.map(({ name }, index) => {
                 return (<option key={index} value={name}>{name}</option>)
               })}
             </Form.Control>
-          </FloatingLabel>
+          </Form.Label>
         </Col>
       </Row>
       {
@@ -150,28 +150,30 @@ export default function GameCards({ games, allCategories, allMechanics, collecti
                 pageRangeDisplayed={1}
               />
             </div>
-            <Row className='game-card-display'>
-              {subset.map(({ name, image }, index) => {
-                return (
-                  <Col key={index} xs={6} sm={4} md={3} xxl={2} className='px-2 pb-4' >
-                    <Card className="text-center game-card h-100">
-                      <div className='img-container'>
-                        <Card.Img variant='top' src={image} />
-                      </div>
-                      <Card.Body className='d-flex flex-column justify-content-center'>
-                        <Card.Text>
-                          {name}
-                        </Card.Text>
-                      </Card.Body>
-                    </Card>
-                  </Col>
-                )
-              })}
+            <Row className={collectionMode ? 'game-card-display-collection' : 'game-card-display'} >
+              {
+                subset.map(({ name, image }, index) => {
+                  return (
+                    <Col key={index} xs={6} sm={4} md={3} xxl={2} className='px-2 pb-4' >
+                      <Card className="text-center game-card h-100">
+                        <div className='img-container'>
+                          <Card.Img variant='top' src={image} />
+                        </div>
+                        <Card.Body className='d-flex flex-column justify-content-center'>
+                          <Card.Text>
+                            {name}
+                          </Card.Text>
+                        </Card.Body>
+                      </Card>
+                    </Col>
+                  )
+                })
+              }
             </Row>
           </>
           :
           <h2>Loading...</h2>
       }
-    </Container>
+    </Container >
   )
 }

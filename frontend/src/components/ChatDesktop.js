@@ -36,7 +36,7 @@ export default function ChatDesktop({ messageList, refresh }) {
         <div className='chat'>
           {
             messageList.length > 0 ?
-              messageList.sort((a, b) => new Date(b.posted) - new Date(a.posted)).slice(0, 7).map((message, index) => {
+              messageList.sort((a, b) => new Date(b.posted) - new Date(a.posted)).map((message, index) => {
                 return (
                   <ChatMessage key={index} message={message} />
                 )

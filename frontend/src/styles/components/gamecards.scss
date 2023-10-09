@@ -2,14 +2,12 @@
   padding-top: $edge-padding;
 }
 
-.game-card-display {}
 
-.form-control {
-  padding: 0;
-}
+
+.form-control {}
 
 .pagination {
-  margin-top: $edge-padding;
+  padding-top: $edge-padding;
   justify-content: center;
 }
 
@@ -55,4 +53,14 @@ ul.react-paginate li.disabled a {
 
 .game-card {
   height: 248px;
+}
+
+@include media-breakpoint-up(md) {
+  .game-card-display-collection {
+    height: calc(100vh - 198px);
+  }
+
+  .game-card-display {
+    height: calc(100vh - 473px);
+  }
 }

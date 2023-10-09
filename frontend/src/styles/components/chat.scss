@@ -3,13 +3,18 @@
   background-color: white;
 }
 
-.chat-desktop {
+.chat-desktop,
+.chat-following-switch {
   display: none;
 }
 
 @media only screen and (min-width: $md) {
   .chat-mobile {
     display: none;
+  }
+
+  .chat-following-switch {
+    display: block;
   }
 
   .chat-desktop {
