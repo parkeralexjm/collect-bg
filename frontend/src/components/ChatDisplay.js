@@ -4,7 +4,8 @@ import { useState } from 'react'
 
 import FollowingList from './FollowingList'
 
-export default function ChatMobile({ messageList, getMessageData, user, setCollectionUser, handleCollectionDisplay, allUsers, setUser }) {
+export default function ChatDisplay({ messageList, getMessageData, user, setCollectionUser, handleCollectionDisplay, allUsers, setUser }) {
+  console.log(user)
   const [chatMode, setChatMode] = useState(true)
 
   function activateChatMode() {
@@ -14,7 +15,7 @@ export default function ChatMobile({ messageList, getMessageData, user, setColle
     setChatMode(false)
   }
   return (
-    <div className='mobile-chat-following'>
+    <div className='desktop-chat-following'>
       <div className='chat-following-switch'>
         <Button onClick={activateChatMode} variant={chatMode ? 'warning' : 'primary'}>Chat</Button>
         <Button onClick={activateFollowingMode} variant={chatMode ? 'primary' : 'warning'}>Following</Button>

@@ -7,16 +7,13 @@ import CategoryCards from './CategoryCards'
 import GameCards from './GameCards'
 import Profile from './Profile'
 import Feature from './Feature'
-import ChatDesktop from './ChatDesktop'
+import ChatDisplay from './ChatDisplay'
 import ChatMobile from './ChatMobile'
-import FollowingList from './FollowingList'
 import UserCollection from './UserCollection'
 // Bootstrap imports
-import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-import ProgressBar from 'react-bootstrap/ProgressBar'
-import Button from 'react-bootstrap/Button'
+import Modal from 'react-bootstrap/Modal'
 // Axios imports
 import axiosAuth from '../lib/axios'
 import axios, { all } from 'axios'
@@ -34,28 +31,18 @@ export default function GamesDisplay() {
   const [user, setUser] = useState({})
   const [collectionUser, setCollectionUser] = useState({})
   const [messageList, setMessageList] = useState([])
-  const [chatMode, setChatMode] = useState(true)
   const [collectionMode, setCollectionMode] = useState(false)
   const [loadingGames, setLoadingGames] = useState(false)
   const [gamesProgress, setGamesProgress] = useState(0)
   const [allUsers, setAllUsers] = useState([])
+  const [show, setShow] = useState(false)
+
 
   async function getGamesData() {
     try {
       setLoadingGames(true)
       // const { data } = await axiosAuth.get('/api/games/') // This is authorised route for testing.
-      const { data } = await axios.get('/api/games/', {
-        onDownloadProgress: (progressEvent) => {
-          const percentage = Math.round((progressEvent.loaded * 100) / progressEvent.total)
-          setGamesProgress(setInterval(percentage, 10))
-          //   if (percentage === 100) {
-          //     setTimeout(() => {
-          //       setLoadingGames(false)
-          //     }, 2000)
-          //   }
-          // },
-        },
-      }) // This is unauthorised for testing
+      const { data } = await axios.get('/api/games/') // This is unauthorised for testing
       setAllGames(data)
     } catch (error) {
       console.log(error)
@@ -124,15 +111,12 @@ export default function GamesDisplay() {
     getTopGamesData()
   }, [])
 
-  function activateChatMode() {
-    setChatMode(true)
-  }
-  function activateFollowingMode() {
-    setChatMode(false)
-  }
-
   function handleCollectionDisplay() {
     setCollectionMode(!collectionMode)
+  }
+
+  function handleShow() {
+    setShow(true)
   }
 
   return (
@@ -177,20 +161,21 @@ export default function GamesDisplay() {
           <Col xs={0} md={3} lg={3} className='right-col'>
             <Profile user={user} handleCollectionDisplay={handleCollectionDisplay} setCollectionUser={setCollectionUser} />
             <Feature />
-            <div className='chat-following-switch'>
-              <Button onClick={activateChatMode} variant={chatMode ? 'warning' : 'primary'}>Chat</Button>
-              <Button onClick={activateFollowingMode} variant={chatMode ? 'primary' : 'warning'}>Following</Button>
+            <ChatDisplay user={user} setCollectionUser={setCollectionUser} handleCollectionDisplay={handleCollectionDisplay} allUsers={allUsers} setUser={setUser} messageList={messageList} refresh={getMessageData} />
+            <div className="me-2 mb-2" onClick={handleShow}>
+              <i className="fa-regular fa-message fa-lg" style={{ color: '#ffffff' }}></i>
             </div>
-            {
-              chatMode ?
-                <ChatDesktop messageList={messageList} refresh={getMessageData} />
-                :
-                <FollowingList user={user} setCollectionUser={setCollectionUser} handleCollectionDisplay={handleCollectionDisplay} allUsers={allUsers} setUser={setUser} />
-            }
-            <ChatMobile />
+            <Modal show={show} fullscreen={true} onHide={() => setShow(false)}>
+              <Modal.Header closeButton>
+                <Modal.Title>Modal</Modal.Title>
+              </Modal.Header>
+              <Modal.Body>
+                <ChatMobile user={user} setCollectionUser={setCollectionUser} handleCollectionDisplay={handleCollectionDisplay} allUsers={allUsers} setUser={setUser} messageList={messageList} refresh={getMessageData} />
+              </Modal.Body>
+            </Modal>
           </Col>
         </Row>
       </div>
-    </section>
+    </section >
   )
 }

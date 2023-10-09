@@ -3,9 +3,24 @@
   background-color: white;
 }
 
-.chat-desktop,
-.chat-following-switch {
+.desktop-chat-following {
   display: none;
+}
+
+.chat-information {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+
+  .chat {
+    width: 100%;
+    padding: $edge-padding;
+    display: flex;
+    flex-direction: column-reverse;
+    overflow-x: hidden;
+    overflow-y: scroll;
+  }
 }
 
 @media only screen and (min-width: $md) {
@@ -13,7 +28,7 @@
     display: none;
   }
 
-  .chat-following-switch {
+  .desktop-chat-following {
     display: block;
   }
 
@@ -25,20 +40,8 @@
     flex: 1;
   }
 
-  .chat-information {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    flex: 1;
-
-    .chat {
-      width: 100%;
-      padding: $edge-padding;
-      display: flex;
-      flex-direction: column-reverse;
-      height: 507px;
-      overflow-x: hidden;
-      overflow-y: scroll;
-    }
+  .chat {
+    height: 507px;
   }
+
 }
