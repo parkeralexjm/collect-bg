@@ -185,7 +185,7 @@ export default function GamesDisplay() {
               chatMode ?
                 <ChatDesktop messageList={messageList} refresh={getMessageData} />
                 :
-                <FollowingList user={user} setCollectionUser={setCollectionUser} handleCollectionDisplay={handleCollectionDisplay} allUsers={allUsers} />
+                <FollowingList user={user} setCollectionUser={setCollectionUser} handleCollectionDisplay={handleCollectionDisplay} allUsers={allUsers} setUser={setUser} />
             }
             <ChatMobile />
           </Col>
