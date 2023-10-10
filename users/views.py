@@ -1,5 +1,5 @@
 from rest_framework.generics import CreateAPIView, GenericAPIView, ListAPIView, RetrieveUpdateAPIView, UpdateAPIView
-from .serializers.common import RegistrationSerializer, AllUsersSerializer
+from .serializers.common import RegistrationSerializer, AllUsersSerializer, UserSerializer
 from .serializers.populated import PopulatedUserSerializer
 from django.contrib.auth import get_user_model
 from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAuthenticated
@@ -10,7 +10,6 @@ User = get_user_model()
 
 class UserView(GenericAPIView):
     queryset = User.objects.all()
-    print(queryset)
 
 
 class RegisterView(UserView, CreateAPIView):
@@ -18,6 +17,7 @@ class RegisterView(UserView, CreateAPIView):
 
 
 class UsersView(UserView, ListAPIView):
+
     serializer_class = AllUsersSerializer
     permission_classes = [IsAuthenticatedOrReadOnly]
 

@@ -47,6 +47,29 @@ ul.react-paginate li.disabled a {
   cursor: default;
 }
 
+.card-col {
+  height: 300px;
+}
+
+.game-card {
+  .img-container {
+    max-height: 80%;
+
+    img {
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  .card-body {
+    height: 30%;
+
+    p {
+      overflow: hidden;
+    }
+  }
+}
+
 @include media-breakpoint-up(md) {
   .game-card-display-collection {
     height: calc(100vh - 210px);
@@ -61,6 +84,25 @@ ul.react-paginate li.disabled a {
 
     .card-col {
       height: 50%;
+    }
+  }
+
+  .game-card {
+    .img-container {
+      max-height: 70%;
+
+      img {
+        height: 100%;
+        object-fit: contain;
+      }
+    }
+
+    .card-body {
+      height: 30%;
+
+      p {
+        overflow: hidden;
+      }
     }
   }
 }

@@ -95,10 +95,14 @@ export default function GameCards({ games, allCategories, allMechanics, collecti
   }
 
   window.onresize = debounce(resize, 200)
+  let width = window.innerWidth
+  // This function is only called using the debounce to prevent it triggering on every pixel of resizing
   function resize() {
-    // This function is only called using the debounce to prevent it triggering on every pixel of resizing
-    const selectedPage = { selected: 0 }
-    handlePageChange(selectedPage)
+    if (width !== window.innerWidth) {
+      const selectedPage = { selected: 0 }
+      handlePageChange(selectedPage)
+      width = window.innerWidth
+    }
   }
   // This useEffect sets the page back to 1 when changing the category or mechanic selection
   useEffect(() => {

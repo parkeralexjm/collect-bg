@@ -16,7 +16,7 @@ export default function Profile({ user, activateCollectionMode, setCollectionUse
         </Col>
       </Row>
       <Row>
-        <Col >
+        <Col>
           <Button variant='danger' onClick={() => {
             setCollectionUser(user)
             activateCollectionMode()
