@@ -11,7 +11,7 @@ export default function ChatMessage({ message }) {
         </Col>
         <Col xs={10}>
           <h5>{message.user.username}</h5>
-          <p>{message.content}</p>
+          <p className='text-justify'>{message.content}</p>
         </Col>
       </Row>
     </div>

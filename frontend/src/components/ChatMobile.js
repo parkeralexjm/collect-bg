@@ -4,7 +4,7 @@ import { useState } from 'react'
 
 import FollowingList from './FollowingList'
 
-export default function ChatMobile({ messageList, getMessageData, user, setCollectionUser, handleCollectionDisplay, allUsers, setUser }) {
+export default function ChatMobile({ messageList, getMessageData, user, setCollectionUser, activateCollectionMode, allUsers, setUser }) {
   const [chatMode, setChatMode] = useState(true)
 
   function activateChatMode() {
@@ -21,9 +21,9 @@ export default function ChatMobile({ messageList, getMessageData, user, setColle
       </div>
       {
         chatMode ?
-          <ChatDesktop messageList={messageList} refresh={getMessageData} />
+          <ChatDesktop messageList={messageList} getMessageData={getMessageData} />
           :
-          <FollowingList user={user} setCollectionUser={setCollectionUser} handleCollectionDisplay={handleCollectionDisplay} allUsers={allUsers} setUser={setUser} />
+          <FollowingList user={user} setCollectionUser={setCollectionUser} activateCollectionMode={activateCollectionMode} allUsers={allUsers} setUser={setUser} />
       }
     </div>
   )

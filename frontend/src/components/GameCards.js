@@ -8,6 +8,8 @@ import { useEffect, useState } from 'react'
 import ReactPaginate from 'react-paginate'
 import { useDebouncedCallback } from 'use-debounce'
 import debounce from 'debounce'
+import GameModal from './GameModal'
+
 
 export default function GameCards({ games, allCategories, allMechanics, collectionMode = false }) {
   const [filter, setFilter] = useState({
@@ -22,6 +24,8 @@ export default function GameCards({ games, allCategories, allMechanics, collecti
   const [currentPage, setCurrentPage] = useState(0)
   const [totalPages, setTotalPages] = useState(0)
   const [itemsPerPage, setItemsPerPage] = useState(12)
+  const [show, setShow] = useState(false)
+  const [detail, setDetail] = useState({})
 
   //  This function debounces the search so that the cards do not 'jump' around with user inputs
   const debounced = useDebouncedCallback((value) => {
@@ -101,6 +105,11 @@ export default function GameCards({ games, allCategories, allMechanics, collecti
     resize()
   }, [newCategory, newMechanic])
 
+  function handleShow(game) {
+    setDetail(game)
+    setShow(true)
+  }
+
   // Pagination 
   let startIndex = currentPage * itemsPerPage
   let endIndex = startIndex + itemsPerPage
@@ -152,16 +161,16 @@ export default function GameCards({ games, allCategories, allMechanics, collecti
             </div>
             <Row className={collectionMode ? 'game-card-display-collection' : 'game-card-display'} >
               {
-                subset.map(({ name, image }, index) => {
+                subset.map((game, index) => {
                   return (
-                    <Col key={index} xs={6} sm={4} md={3} xxl={2} className='px-2 pb-4' >
-                      <Card className="text-center game-card h-100">
+                    <Col key={index} xs={6} sm={4} md={3} xxl={2} className='px-2 pb-4 card-col' >
+                      <Card className="text-center game-card h-100" onClick={() => handleShow(game)}>
                         <div className='img-container'>
-                          <Card.Img variant='top' src={image} />
+                          <Card.Img variant='top' src={game.image} />
                         </div>
                         <Card.Body className='d-flex flex-column justify-content-center'>
                           <Card.Text>
-                            {name}
+                            {game.name}
                           </Card.Text>
                         </Card.Body>
                       </Card>
@@ -170,10 +179,15 @@ export default function GameCards({ games, allCategories, allMechanics, collecti
                 })
               }
             </Row>
+            {
+              detail &&
+              <GameModal detail={detail} show={show} setShow={setShow} />
+            }
           </>
           :
           <h2>Loading...</h2>
       }
+
     </Container >
   )
 }

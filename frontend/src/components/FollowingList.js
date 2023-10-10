@@ -3,7 +3,7 @@ import Form from 'react-bootstrap/Form'
 import { useState } from 'react'
 import axiosAuth from '../lib/axios'
 
-export default function FollowingList({ user, setCollectionUser, handleCollectionDisplay, allUsers, setUser }) {
+export default function FollowingList({ user, setCollectionUser, activateCollectionMode, allUsers, setUser }) {
   const [follow, setFollow] = useState({ id: 0 })
   const [userKey, setUserKey] = useState(0)
 
@@ -30,7 +30,7 @@ export default function FollowingList({ user, setCollectionUser, handleCollectio
         return <Button variant='danger' className='m-2' key={index} onClick={() => {
           // console.log(user)
           setCollectionUser(user)
-          handleCollectionDisplay()
+          activateCollectionMode()
         }}>{user.username}</Button>
       })}
       <Form onSubmit={handleSubmit}>

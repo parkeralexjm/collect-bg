@@ -6,7 +6,7 @@ import { userId } from '../lib/auth'
 import axiosAuth from '../lib/axios'
 
 
-export default function ChatDesktop({ messageList, refresh }) {
+export default function ChatDesktop({ messageList, getMessageData }) {
   const [message, setMessage] = useState({
     content: '',
     user: `${userId('collect-refresh-token')}`,
@@ -17,7 +17,7 @@ export default function ChatDesktop({ messageList, refresh }) {
     async function postMessage() {
       try {
         const { data } = await axiosAuth.post('api/chatmessage/post/', message)
-        refresh()
+        getMessageData()
       } catch (error) {
         console.log(error)
       }

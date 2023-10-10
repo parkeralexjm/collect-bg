@@ -31,7 +31,7 @@
     width: 75%;
   }
 
-  .display-top-games:not(:last-child) {
+  .display-top-games:not(:nth-child(-1)) {
     margin-bottom: 5px;
   }
 
@@ -49,48 +49,74 @@
       border-radius: $games-border-radius;
     }
 
-    div {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-evenly;
-      padding-left: $inside-edge-padding;
+  }
+}
 
-      h3 {
-        font-size: 0.9rem;
-      }
+.top-games-information {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: $inside-edge-padding;
+  flex: 1;
 
-      h4 {
-        font-size: 0.8rem;
-      }
-    }
+  h3 {
+    font-size: 0.9rem;
   }
 
-  .socials {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    display: flex;
-    width: 100%;
-    margin-bottom: 15px;
-    justify-content: center;
+  h4 {
+    font-size: 0.8rem;
+  }
 
-    i {
-      padding: $edge-padding;
-      color: $secondary;
-    }
+  .top-games-rank {
+    display: inline-block;
+    text-align: center;
+    width: 35px;
+    height: 35px;
+    margin-left: 3px;
+    padding: 3px 6px;
+  }
+}
+
+.socials {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  width: 100%;
+  margin-bottom: 15px;
+  justify-content: center;
+
+  i {
+    padding: $edge-padding;
+    color: $secondary;
   }
 }
 
 .center-col {
   background-color: $warning;
   border-radius: $games-border-radius;
-  padding: 0;
+  padding: $edge-padding;
   height: 100%;
 }
 
 .right-col {
   padding-right: 0;
   padding-left: 0;
+}
+
+.modal-button {
+  background-color: $teal;
+  height: 4rem;
+  width: 4rem;
+  position: fixed;
+  left: 15px;
+  bottom: 15px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 }
 
 @media only screen and (min-width: $md) {

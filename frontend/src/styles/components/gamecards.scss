@@ -2,10 +2,6 @@
   padding-top: $edge-padding;
 }
 
-
-
-.form-control {}
-
 .pagination {
   padding-top: $edge-padding;
   justify-content: center;
@@ -51,16 +47,20 @@ ul.react-paginate li.disabled a {
   cursor: default;
 }
 
-.game-card {
-  height: 248px;
-}
-
 @include media-breakpoint-up(md) {
   .game-card-display-collection {
-    height: calc(100vh - 198px);
+    height: calc(100vh - 210px);
+
+    .card-col {
+      height: 33%;
+    }
   }
 
   .game-card-display {
-    height: calc(100vh - 473px);
+    height: calc(100vh - 478px);
+
+    .card-col {
+      height: 50%;
+    }
   }
 }

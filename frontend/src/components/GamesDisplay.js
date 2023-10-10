@@ -22,6 +22,7 @@ import XMLParser from 'react-xml-parser'
 // Generic Imports
 import logo from '../images/Logo-Light.png'
 import { userId } from '../lib/auth'
+import Button from 'react-bootstrap/esm/Button'
 
 export default function GamesDisplay() {
   const [allGames, setAllGames] = useState([])
@@ -36,7 +37,6 @@ export default function GamesDisplay() {
   const [gamesProgress, setGamesProgress] = useState(0)
   const [allUsers, setAllUsers] = useState([])
   const [show, setShow] = useState(false)
-
 
   async function getGamesData() {
     try {
@@ -111,8 +111,11 @@ export default function GamesDisplay() {
     getTopGamesData()
   }, [])
 
-  function handleCollectionDisplay() {
-    setCollectionMode(!collectionMode)
+  function activateCollectionMode() {
+    setCollectionMode(true)
+  }
+  function deactivateCollectionMode() {
+    setCollectionMode(false)
   }
 
   function handleShow() {
@@ -129,15 +132,20 @@ export default function GamesDisplay() {
             </Link>
             {topGames.map((game, index) => {
               return (
-                <Fragment key={index}>
+                <Link to={'https://boardgamegeek.com/boardgame/' + game.attributes.id} key={index}>
                   <div className='display-top-games'>
                     <img src={game.children[0].attributes.value} alt={game.children[1].attributes.value} />
-                    <div>
-                      <h3>{game.children[1].attributes.value}</h3>
-                      <h4>{game.children[2].attributes.value}</h4>
+                    <div className='top-games-information'>
+                      <div>
+                        <h3>{game.children[1].attributes.value}</h3>
+                        <h4>{game.children[2].attributes.value}</h4>
+                      </div>
+                      <div>
+                        <Button variant='outline-warning' size='sm' className='top-games-rank'>{game.attributes.rank}</Button>
+                      </div>
                     </div>
                   </div>
-                </Fragment>)
+                </Link>)
             })}
             <div className='socials'>
               <Link to='#https://twitter.com/home'><i className="fa-brands fa-xl fa-x-twitter"></i></Link>
@@ -155,22 +163,22 @@ export default function GamesDisplay() {
                   <GameCards games={allGames} allCategories={allCategories} allMechanics={allMechanics} />
                 </>
                 :
-                <UserCollection user={collectionUser} games={collectionUser.collection} allCategories={allCategories} allMechanics={allMechanics} setCollectionUser={setCollectionUser} />
+                <UserCollection deactivateCollectionMode={deactivateCollectionMode} user={collectionUser} games={collectionUser.collection} allCategories={allCategories} allMechanics={allMechanics} />
             }
           </Col>
           <Col xs={0} md={3} lg={3} className='right-col'>
-            <Profile user={user} handleCollectionDisplay={handleCollectionDisplay} setCollectionUser={setCollectionUser} />
+            <Profile user={user} activateCollectionMode={activateCollectionMode} setCollectionUser={setCollectionUser} collectionMode />
             <Feature />
-            <ChatDisplay user={user} setCollectionUser={setCollectionUser} handleCollectionDisplay={handleCollectionDisplay} allUsers={allUsers} setUser={setUser} messageList={messageList} refresh={getMessageData} />
-            <div className="me-2 mb-2" onClick={handleShow}>
+            <ChatDisplay user={user} setCollectionUser={setCollectionUser} activateCollectionMode={activateCollectionMode} allUsers={allUsers} setUser={setUser} messageList={messageList} getMessageData={getMessageData} />
+            <div className="me-2 mb-2 modal-button" onClick={handleShow}>
               <i className="fa-regular fa-message fa-lg" style={{ color: '#ffffff' }}></i>
             </div>
-            <Modal show={show} fullscreen={true} onHide={() => setShow(false)}>
+            <Modal show={show} fullscreen={false} onHide={() => setShow(false)}>
               <Modal.Header closeButton>
-                <Modal.Title>Modal</Modal.Title>
+                <Modal.Title></Modal.Title>
               </Modal.Header>
               <Modal.Body>
-                <ChatMobile user={user} setCollectionUser={setCollectionUser} handleCollectionDisplay={handleCollectionDisplay} allUsers={allUsers} setUser={setUser} messageList={messageList} refresh={getMessageData} />
+                <ChatMobile user={user} setCollectionUser={setCollectionUser} activateCollectionMode={activateCollectionMode} allUsers={allUsers} setUser={setUser} messageList={messageList} getMessageData={getMessageData} />
               </Modal.Body>
             </Modal>
           </Col>

@@ -1,7 +1,6 @@
 .chat-message {
   background-color: $teal;
   border-radius: $games-border-radius;
-  width: 100%;
 
   &:not(:last-of-type) {
     margin-top: $edge-padding;

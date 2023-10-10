@@ -12,21 +12,42 @@
   flex-direction: column;
   align-items: center;
   flex: 1;
+}
 
-  .chat {
-    width: 100%;
-    padding: $edge-padding;
-    display: flex;
-    flex-direction: column-reverse;
-    overflow-x: hidden;
-    overflow-y: scroll;
+.chat-following-switch {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .btn:first-of-type {
+    margin-right: 10px;
+  }
+
+  .btn:last-of-type {
+    margin-left: 10px;
   }
 }
 
+.chat,
+.following-display {
+  width: 100%;
+  padding: $edge-padding;
+  display: flex;
+  flex-direction: column-reverse;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  height: calc(100vh - (8px + 8px + 53px + 38px + 156px)); // height: calc(100vh - 262px)
+  height: calc((var(--vh, 1vh) * 100) - (8px + 8px + 51px + 42px + 156px))
+}
+
+
 @media only screen and (min-width: $md) {
-  .chat-mobile {
+
+  .chat-mobile,
+  .modal-button {
     display: none;
   }
+
 
   .desktop-chat-following {
     display: block;
@@ -40,7 +61,8 @@
     flex: 1;
   }
 
-  .chat {
+  .chat,
+  .following-display {
     height: 507px;
   }
 
