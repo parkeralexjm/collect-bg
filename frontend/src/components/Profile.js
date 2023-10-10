@@ -13,6 +13,7 @@ export default function Profile({ user, activateCollectionMode, setCollectionUse
         </Col>
         <Col>
           <h2>{user.username}</h2>
+          <h4>{user.first_name} {user.last_name}</h4>
         </Col>
       </Row>
       <Row>

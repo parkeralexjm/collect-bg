@@ -123,12 +123,11 @@ export default function GameCards({ games, allCategories, allMechanics, collecti
   return (
     <Container className='center-cards'>
       <Row as={Form} onSubmit={handleSubmit} className='game-card-search'>
-        <Col>
-          <Form.Label label='Search game'>
-            <Form.Control type="search" placeholder="Search games..." name="search" defaultValue={newSearch} onChange={(e) => debounced(e.target.value)} />
-          </Form.Label>
+        <Col xs={12} md={4}>
+          <Form.Label hidden label='Search game' />
+          <Form.Control className='search-input' type="search" placeholder="Search games..." name="search" defaultValue={newSearch} onChange={(e) => debounced(e.target.value)} />
         </Col>
-        <Col>
+        <Col xs={6} md={4}>
           <Form.Label label='Category'>
             <Form.Control as='select' name="category" value={newCategory} onChange={handleChange} aria-label="Floating label select" >
               <option value='All'>- Category -</option>
@@ -138,7 +137,7 @@ export default function GameCards({ games, allCategories, allMechanics, collecti
             </Form.Control>
           </Form.Label>
         </Col>
-        <Col>
+        <Col xs={6} md={4}>
           <Form.Label label='Mechanic'>
             <Form.Control as='select' name="mechanic" value={newMechanic} onChange={handleChange} aria-label="Floating label select" >
               <option value='All'>- Mechanic -</option>

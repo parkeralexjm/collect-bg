@@ -6,7 +6,6 @@ import GameCarousel from './Carousel'
 import CategoryCards from './CategoryCards'
 import GameCards from './GameCards'
 import Profile from './Profile'
-import Feature from './Feature'
 import ChatDisplay from './ChatDisplay'
 import ChatMobile from './ChatMobile'
 import UserCollection from './UserCollection'
@@ -168,7 +167,6 @@ export default function GamesDisplay() {
           </Col>
           <Col xs={0} md={3} lg={3} className='right-col'>
             <Profile user={user} activateCollectionMode={activateCollectionMode} setCollectionUser={setCollectionUser} collectionMode />
-            <Feature />
             <ChatDisplay user={user} setCollectionUser={setCollectionUser} activateCollectionMode={activateCollectionMode} allUsers={allUsers} setUser={setUser} messageList={messageList} getMessageData={getMessageData} />
             <div className="me-2 mb-2 modal-button" onClick={handleShow}>
               <i className="fa-regular fa-message fa-lg" style={{ color: '#ffffff' }}></i>

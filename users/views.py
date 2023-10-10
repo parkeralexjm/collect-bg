@@ -32,7 +32,7 @@ class UserFollowView(UserView, UpdateAPIView):
 
     def patch(self, request, *args, **kwargs):
         user = self.get_object()  # get the single user
-        print(user.following.all())
+        print(user)
         if request.data['id'] in user.following.all():
             user.following.remove(request.data['id'])
             user.save()

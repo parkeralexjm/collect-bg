@@ -26,7 +26,7 @@ export default function LandingFooter() {
           </Col>
         </Row>
         <Row className='justify-content-end'>
-          <div className='socials'>
+          <div className='landing-socials'>
             <i className="fa-brands fa-xl fa-x-twitter"></i>
             <i className="fa-brands fa-xl fa-facebook-f"></i>
             <i className="fa-brands fa-xl fa-github"></i>

@@ -1,0 +1,26 @@
+.following-display {
+  overflow: auto;
+
+  >form>button {
+    width: 100%;
+    margin-top: 5px;
+  }
+
+
+}
+
+.following-collection {
+  display: flex;
+  flex-direction: row;
+  margin-top: 5px;
+
+  .btn:first-of-type {
+    margin-right: 5px;
+    flex: 1;
+  }
+
+
+  .btn:last-of-type {
+    width: 40px;
+  }
+}
