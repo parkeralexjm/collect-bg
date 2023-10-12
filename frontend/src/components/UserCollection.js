@@ -7,7 +7,8 @@ export default function UserCollection({ allGames, getUserData, user, collection
   return (
     <>
       <div className='collection-header'>
-        <h1>{collectionUser.username}&apos;s collection</h1>
+        {/* eslint-disable-next-line quotes */}
+        <h1>{collectionUser.username === user.username ? 'My collection' : collectionUser.username + "'s collection"}</h1>
         <Button variant='danger' onClick={deactivateCollectionMode}>Exit</Button>
       </div>
       <GameCards allGames={allGames} user={user} getUserData={getUserData} games={collectionUser.collection} allCategories={allCategories} allMechanics={allMechanics} collectionMode={true} />

@@ -37,7 +37,7 @@ export default function Profile({ user, activateCollectionMode, setCollectionUse
       <Button className='collection-button' variant='danger' onClick={() => {
         setCollectionUser(user)
         activateCollectionMode()
-      }}>Collection</Button>
+      }}>My Collection</Button>
     </div >
   )
 }

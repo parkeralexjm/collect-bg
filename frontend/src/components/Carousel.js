@@ -4,7 +4,7 @@ import Image from 'react-bootstrap/Image'
 
 export default function GameCarousel({ gamesData }) {
   return (
-    <Carousel>
+    <Carousel style={{ position: 'relative' }} fade={true}>
       {
         gamesData.map((game, index) => {
           return (

@@ -4,6 +4,13 @@
 
 .carousel-item {
   text-align: center;
+  opacity: 0;
+  transition: opacity 1s !important;
+
+  .active {
+    opacity: 1;
+    transition: opacity 1s !important
+  }
 
   img {
     height: 33vh;
@@ -12,6 +19,8 @@
   }
 
 }
+
+
 
 @include media-breakpoint-up(md) {
   .carousel {

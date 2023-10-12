@@ -34,6 +34,7 @@ export default function GamesDisplay() {
   const [gamesProgress, setGamesProgress] = useState(0)
   const [allUsers, setAllUsers] = useState([])
   const [show, setShow] = useState(false)
+  let messageRefresh
 
 
   async function getGamesData() {
@@ -99,12 +100,16 @@ export default function GamesDisplay() {
 
   useEffect(() => {
     getAllUserData()
-    getMessageData()
     getUserData()
     getMechanicsData()
     getCategoriesData()
     getGamesData()
     getTopGamesData()
+    clearInterval(messageRefresh)
+    setInterval(() => {
+      getMessageData()
+    }, 10000)
+
   }, [])
 
   function activateCollectionMode() {
