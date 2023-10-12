@@ -40,6 +40,7 @@
 .chat {
   height: calc((var(--vh, 1vh) * 100) - 265px);
   padding: $edge-padding;
+  flex-direction: column-reverse;
 }
 
 .following-display {
@@ -62,9 +63,7 @@
   }
 }
 
-.chat {
-  flex-direction: column-reverse;
-}
+.chat {}
 
 .following-display {
   flex-direction: column;
@@ -103,7 +102,7 @@
   }
 
   .following-users {
-    height: calc(100vh - 287px);
+    height: calc(100vh - 291px);
     overflow-x: hidden;
     overflow-y: auto;
   }

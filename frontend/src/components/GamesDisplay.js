@@ -153,7 +153,7 @@ export default function GamesDisplay() {
               <Link to='#https://www.linkedin.com/in/parkeralexjm/'><i className="fa-brands fa-xl fa-linkedin"></i></Link>
             </div>
           </Col>
-          <Col xs={12} md={9} lg={6} xxl={7} className='center-col'>
+          <Col xs={12} md={9} lg={6} xxl={7} className={!collectionMode ? 'center-col' : 'center-col-collection'}>
             {
               !collectionMode ?
                 <>

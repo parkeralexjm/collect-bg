@@ -31,7 +31,7 @@
   }
 
   .top-games-container {
-    height: calc(100vh - 145px);
+    height: calc(100vh - 147px);
     overflow-x: hidden;
     overflow-y: auto;
   }
@@ -98,7 +98,14 @@
   background-color: $warning;
   border-radius: $games-border-radius;
   padding: $edge-padding $edge-padding 0 $edge-padding;
-  min-height: 750px;
+  min-height: 615px;
+}
+
+.center-col-collection {
+  background-color: $warning;
+  border-radius: $games-border-radius;
+  padding: $edge-padding $edge-padding 0 $edge-padding;
+  min-height: 941px;
 }
 
 .center-cards {
@@ -137,7 +144,8 @@
       display: none;
     }
 
-    .center-col {
+    .center-col,
+    .center-col-collection {
       height: 100%;
     }
 

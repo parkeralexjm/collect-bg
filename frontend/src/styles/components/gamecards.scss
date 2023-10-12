@@ -94,7 +94,7 @@ ul.react-paginate li.disabled a {
 
 @include media-breakpoint-up(md) {
   .game-card-display-collection {
-    height: calc(100vh - 210px);
+    height: calc(100vh - 214px);
 
     .card-col {
       height: 33%;
@@ -102,7 +102,7 @@ ul.react-paginate li.disabled a {
   }
 
   .game-card-display {
-    height: calc(100vh - 482px);
+    height: calc(66vh - 156px);
 
     .card-col {
       height: 50%;
