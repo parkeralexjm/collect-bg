@@ -35,6 +35,7 @@ export default function GamesDisplay() {
   const [allUsers, setAllUsers] = useState([])
   const [show, setShow] = useState(false)
 
+
   async function getGamesData() {
     try {
       setLoadingGames(true)
@@ -157,10 +158,10 @@ export default function GamesDisplay() {
               !collectionMode ?
                 <>
                   <GameCarousel gamesData={allGames.slice(0, 5)} />
-                  <GameCards user={user} getUserData={getUserData} games={allGames} allCategories={allCategories} allMechanics={allMechanics} />
+                  <GameCards allGames={allGames} user={user} getUserData={getUserData} games={allGames} allCategories={allCategories} allMechanics={allMechanics} />
                 </>
                 :
-                <UserCollection deactivateCollectionMode={deactivateCollectionMode} user={user} collectionUser={collectionUser} allCategories={allCategories} allMechanics={allMechanics} getUserData={getUserData} />
+                <UserCollection allGames={allGames} deactivateCollectionMode={deactivateCollectionMode} user={user} collectionUser={collectionUser} allCategories={allCategories} allMechanics={allMechanics} getUserData={getUserData} />
             }
           </Col>
           <Col xs={0} md={3} lg={3} className='right-col'>

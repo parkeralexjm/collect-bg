@@ -14,7 +14,7 @@ import GameModal from './GameModal'
 import axiosAuth from '../lib/axios'
 
 
-export default function GameCards({ user, getUserData, games, allCategories, allMechanics, collectionMode = false }) {
+export default function GameCards({ allGames, user, getUserData, games, allCategories, allMechanics, collectionMode = false }) {
   const [filter, setFilter] = useState({
     search: '',
     category: 'All',
@@ -228,7 +228,10 @@ export default function GameCards({ user, getUserData, games, allCategories, all
             }
           </>
           :
-          <h2>Loading...</h2>
+          allGames.length > 0 ?
+            <h2>No Games Found</h2>
+            :
+            <h2>Loading...</h2>
       }
 
     </Container >

@@ -32,18 +32,19 @@
 .chat,
 .following-display {
   width: 100%;
-  padding: $edge-padding;
   display: flex;
   overflow-x: hidden;
   overflow-y: scroll;
 }
 
 .chat {
-  height: calc((var(--vh, 1vh) * 100) - 265px)
+  height: calc((var(--vh, 1vh) * 100) - 265px);
+  padding: $edge-padding;
 }
 
 .following-display {
-  height: calc((var(--vh, 1vh) * 100) - 125px)
+  height: calc((var(--vh, 1vh) * 100) - 125px);
+  padding-top: 10px;
 }
 
 

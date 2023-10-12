@@ -32,17 +32,12 @@ class RegisterView(APIView):
             if user_to_register.is_valid():
                 user_to_register.save()
 
-                print(user_to_register.data)
-                print(User.objects.get(pk=1))
                 tokens = get_tokens_for_user(
                     User.objects.get(pk=user_to_register.data['id']))
-                print(tokens)
                 return Response(tokens, status.HTTP_201_CREATED)
 
-            print(user_to_register.errors)
             return Response(user_to_register.errors, status.HTTP_422_UNPROCESSABLE_ENTITY)
         except Exception as e:
-            print('Exception -', e)
             return Response({'detail': str(e)}, status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 

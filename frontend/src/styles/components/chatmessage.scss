@@ -2,6 +2,8 @@
   background-color: $teal;
   border-radius: $games-border-radius;
   display: flex;
+  align-items: center;
+  padding: 5px;
 
 
   &:not(:last-of-type) {
@@ -12,13 +14,17 @@
     width: 40px;
     height: 40px;
     border-radius: $games-border-radius;
-    margin: $inside-edge-padding;
+    margin-right: 5px;
+  }
+
+  h4 {
+    font-size: 0.9rem;
   }
 
   h5 {
     font-size: 1rem;
     text-overflow: ellipsis;
-    width: calc(100vw - 127px);
+    // width: calc(100vw - 127px);
     overflow: hidden;
   }
 
@@ -29,11 +35,10 @@
 }
 
 @media only screen and (min-width: $md) {
-  .chat-message {
-    h5 {
-      width: calc(100vw - 706px);
-
-    }
+  .message-author {
+    width: 12vw;
   }
+
+
 
 }

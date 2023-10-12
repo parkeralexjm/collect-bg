@@ -3,13 +3,11 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  height: 100%;
   padding: 0.75rem;
 
   .display {
     background-color: $teal;
     border-radius: $games-border-radius;
-    height: 100%;
     max-width: 1440px;
     padding: 0;
   }
@@ -86,13 +84,9 @@
 }
 
 .socials {
-  position: absolute;
-  bottom: 0;
-  left: 0;
   display: flex;
-  width: 100%;
-  margin-bottom: 15px;
   justify-content: center;
+  margin-top: 10px;
 
   i {
     padding: $edge-padding;
@@ -103,7 +97,11 @@
 .center-col {
   background-color: $warning;
   border-radius: $games-border-radius;
-  padding: $edge-padding;
+  padding: $edge-padding $edge-padding 0 $edge-padding;
+  min-height: 750px;
+}
+
+.center-cards {
   height: 100%;
 }
 
@@ -139,12 +137,17 @@
       display: none;
     }
 
+    .center-col {
+      height: 100%;
+    }
+
     .right-col {
       padding-left: $edge-padding;
       display: flex;
       flex-direction: column;
     }
   }
+
 }
 
 @media only screen and (min-width: $lg) {
@@ -156,7 +159,8 @@
     }
 
     .left-col {
-      display: block;
+      display: flex;
+      flex-direction: column;
     }
 
   }

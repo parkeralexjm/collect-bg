@@ -14,9 +14,17 @@ import { loginForm } from '../lib/forms'
 export default function LandingModal({ handleClose, formType, setFormType, setIsAuth }) {
   const [formData, setFormData] = useState()
   const [message, setMessage] = useState('')
+  const [validated, setValidated] = useState(false)
   const navigate = useNavigate()
 
   const handleSubmit = async (e) => {
+    const form = e.currentTarget
+    if (form.checkValidity() === false) {
+      e.preventDefault()
+      e.stopPropagation()
+    }
+    setValidated(true)
+
     e.preventDefault()
     try {
       const { data } = await axios.post(formType.request, formData)
@@ -26,6 +34,11 @@ export default function LandingModal({ handleClose, formType, setFormType, setIs
       setMessage('Login successful')
       navigate('/games')
     } catch (error) {
+      if (error.response.data.detail) {
+        setMessage(error.response.data.detail)
+      } else if (error.response.status === 422) {
+        setMessage(error.response.data.non_field_errors)
+      }
       console.log(error)
     }
   }
@@ -35,9 +48,13 @@ export default function LandingModal({ handleClose, formType, setFormType, setIs
     setMessage('')
   }
 
+  const resetInput = (e) => {
+    e.target.value = ''
+  }
+
   return (
     <>
-      <Form onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit} noValidate validated={validated}>
         <Modal.Header closeButton>
           <Modal.Title>{formType.title}</Modal.Title>
         </Modal.Header>
@@ -47,7 +64,8 @@ export default function LandingModal({ handleClose, formType, setFormType, setIs
               return (
                 <Form.Group key={i} controlId={name.toLowerCase().replace(' ', '_')}>
                   <Form.Label>{name}</Form.Label>
-                  <Form.Control name={name.toLowerCase().replace(' ', '_')} type={type} onChange={handleChange} autoComplete={name === 'Password' ? 'current-password' : 'new-password'} />
+                  <Form.Control onFocus={resetInput} name={name.toLowerCase().replace(' ', '_')} type={type} onChange={handleChange} autoComplete={name === 'Password' ? 'current-password' : 'new-password'} required />
+                  <Form.Control.Feedback type="invalid">Please provide a valid {name.toLowerCase().replace(' ', '_')}</Form.Control.Feedback>
                 </Form.Group>
               )
             })
