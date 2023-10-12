@@ -17,10 +17,23 @@
 
   h5 {
     font-size: 1rem;
+    text-overflow: ellipsis;
+    width: calc(100vw - 127px);
+    overflow: hidden;
   }
 
   p,
   h5 {
     margin: 0;
   }
+}
+
+@media only screen and (min-width: $md) {
+  .chat-message {
+    h5 {
+      width: calc(100vw - 706px);
+
+    }
+  }
+
 }

@@ -5,7 +5,6 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 
 export default function GameModal({ detail, show, setShow }) {
-  console.log(detail)
 
   return (
     <Modal show={show} fullscreen={false} onHide={() => setShow(false)} className='game-modal'>

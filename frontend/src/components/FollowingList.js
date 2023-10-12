@@ -1,5 +1,6 @@
 // React imports
 import { useState } from 'react'
+import Select from 'react-select'
 // Bootstrap imports
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
@@ -9,27 +10,37 @@ import axiosAuth from '../lib/axios'
 export default function FollowingList({ user, setCollectionUser, activateCollectionMode, allUsers, getUserData }) {
   const [follow, setFollow] = useState({ id: 0, type: 'add' })
   const [userKey, setUserKey] = useState(0)
-  console.log(user)
+  const options = [
+    allUsers.map((user) => {
+      return (
+        { value: user.username, label: user.username.charAt(0).toUpperCase() + user.username.slice(1) }
+      )
+    })
+  ]
+  console.log(options)
+
 
   function handleChange(e) {
-    setFollow({ ...follow, id: e.target.value })
+    console.log(typeof (e.target.value))
+    Number.isInteger(parseInt(e.target.value)) && setFollow({ ...follow, id: e.target.value })
   }
 
   function handleSubmit(e) {
     e.preventDefault()
     async function addFollowingUser() {
-      try {
-        const { data } = await axiosAuth.patch(`api/auth/${user.id}/follow/`, follow)
-        getUserData()
-      } catch (error) {
-        console.log(error)
+      if (follow.id !== 0) {
+        try {
+          const { data } = await axiosAuth.patch(`api/auth/${user.id}/follow/`, follow)
+          getUserData()
+        } catch (error) {
+          console.log(error)
+        }
       }
     }
     addFollowingUser()
   }
 
   function handleRemove(e) {
-    console.log({ id: e.target.value })
     async function removeFollowingUser() {
       try {
         const { data } = await axiosAuth.patch(`api/auth/${user.id}/follow/`, { id: e.target.value, type: 'remove' })
@@ -59,7 +70,6 @@ export default function FollowingList({ user, setCollectionUser, activateCollect
         {user.following.map((user, index) => {
           return <div key={index} className='following-collection'>
             <Button variant='warning' onClick={() => {
-              // console.log(user)
               setCollectionUser(user)
               activateCollectionMode()
             }}>{user.username}</Button>

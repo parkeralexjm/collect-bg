@@ -7,7 +7,6 @@ import ChatDesktop from './ChatDesktop'
 import FollowingList from './FollowingList'
 
 export default function ChatDisplay({ messageList, getMessageData, user, setCollectionUser, activateCollectionMode, allUsers, setUser, getUserData }) {
-  console.log(user)
   const [chatMode, setChatMode] = useState(true)
 
   function activateChatMode() {
