@@ -1,9 +1,8 @@
 // React imports
-import { Fragment, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 // Component imports
 import GameCarousel from './Carousel'
-import CategoryCards from './CategoryCards'
 import GameCards from './GameCards'
 import Profile from './Profile'
 import ChatDisplay from './ChatDisplay'
@@ -17,7 +16,6 @@ import Modal from 'react-bootstrap/Modal'
 import axiosAuth from '../lib/axios'
 import axios, { all } from 'axios'
 import XMLParser from 'react-xml-parser'
-
 // Generic Imports
 import logo from '../images/Logo-Light.png'
 import { userId } from '../lib/auth'
@@ -40,8 +38,8 @@ export default function GamesDisplay() {
   async function getGamesData() {
     try {
       setLoadingGames(true)
-      // const { data } = await axiosAuth.get('/api/games/') // This is authorised route for testing.
-      const { data } = await axios.get('/api/games/') // This is unauthorised for testing
+      const { data } = await axiosAuth.get('/api/games/') // This is authorised route for testing.
+      // const { data } = await axios.get('/api/games/') // This is unauthorised for testing
       setAllGames(data)
     } catch (error) {
       console.log(error)
@@ -49,7 +47,6 @@ export default function GamesDisplay() {
   }
   async function getCategoriesData() {
     try {
-      // const { data } = await axiosAuth.get('/api/games/') // This is authorised route for testing.
       const { data } = await axios.get('/api/categories/') // This is unauthorised for testing
       setAllCategories(data.sort((a, b) => a.name.localeCompare(b.name)))
     } catch (error) {
@@ -58,7 +55,6 @@ export default function GamesDisplay() {
   }
   async function getMechanicsData() {
     try {
-      // const { data } = await axiosAuth.get('/api/games/') // This is authorised route for testing.
       const { data } = await axios.get('/api/mechanics/') // This is unauthorised for testing
       setAllMechanics(data.sort((a, b) => a.name.localeCompare(b.name)))
     } catch (error) {
@@ -67,7 +63,6 @@ export default function GamesDisplay() {
   }
   async function getTopGamesData() {
     try {
-      // const { data } = await axiosAuth.get('/api/games/') // This is authorised route for testing.
       const { data } = await axios.get('https://boardgamegeek.com/xmlapi2/hot?type=boardgame&count=10') // This is unauthorised for testing
       const convertedData = new XMLParser().parseFromString(data)
       setTopGames(convertedData.children.slice(0, 10))
@@ -85,7 +80,7 @@ export default function GamesDisplay() {
   }
   async function getMessageData() {
     try {
-      const { data } = await axios.get('/api/chatmessage')
+      const { data } = await axiosAuth.get('/api/chatmessage')
       setMessageList(data)
     } catch (error) {
       console.log(error)
@@ -93,12 +88,13 @@ export default function GamesDisplay() {
   }
   async function getAllUserData() {
     try {
-      const { data } = await axios.get('/api/auth/users')
+      const { data } = await axiosAuth.get('/api/auth/users')
       setAllUsers(data)
     } catch (error) {
       console.log(error)
     }
   }
+
 
   useEffect(() => {
     getAllUserData()
@@ -120,6 +116,8 @@ export default function GamesDisplay() {
   function handleShow() {
     setShow(true)
   }
+
+
 
   return (
     <section className='display-background'>
@@ -158,16 +156,15 @@ export default function GamesDisplay() {
               !collectionMode ?
                 <>
                   <GameCarousel gamesData={allGames.slice(0, 5)} />
-                  {/* {loadingGames && <ProgressBar now={gamesProgress} />} */}
-                  <GameCards games={allGames} allCategories={allCategories} allMechanics={allMechanics} />
+                  <GameCards user={user} getUserData={getUserData} games={allGames} allCategories={allCategories} allMechanics={allMechanics} />
                 </>
                 :
-                <UserCollection deactivateCollectionMode={deactivateCollectionMode} user={collectionUser} games={collectionUser.collection} allCategories={allCategories} allMechanics={allMechanics} />
+                <UserCollection deactivateCollectionMode={deactivateCollectionMode} user={user} collectionUser={collectionUser} allCategories={allCategories} allMechanics={allMechanics} getUserData={getUserData} />
             }
           </Col>
           <Col xs={0} md={3} lg={3} className='right-col'>
             <Profile user={user} activateCollectionMode={activateCollectionMode} setCollectionUser={setCollectionUser} collectionMode />
-            <ChatDisplay user={user} setCollectionUser={setCollectionUser} activateCollectionMode={activateCollectionMode} allUsers={allUsers} setUser={setUser} messageList={messageList} getMessageData={getMessageData} />
+            <ChatDisplay user={user} setCollectionUser={setCollectionUser} activateCollectionMode={activateCollectionMode} allUsers={allUsers} setUser={setUser} messageList={messageList} getMessageData={getMessageData} getUserData={getUserData} />
             <div className="me-2 mb-2 modal-button" onClick={handleShow}>
               <i className="fa-regular fa-message fa-lg" style={{ color: '#ffffff' }}></i>
             </div>
@@ -176,7 +173,7 @@ export default function GamesDisplay() {
                 <Modal.Title></Modal.Title>
               </Modal.Header>
               <Modal.Body>
-                <ChatMobile user={user} setCollectionUser={setCollectionUser} activateCollectionMode={activateCollectionMode} allUsers={allUsers} setUser={setUser} messageList={messageList} getMessageData={getMessageData} />
+                <ChatMobile user={user} setCollectionUser={setCollectionUser} activateCollectionMode={activateCollectionMode} allUsers={allUsers} setUser={setUser} messageList={messageList} getMessageData={getMessageData} getUserData={getUserData} />
               </Modal.Body>
             </Modal>
           </Col>

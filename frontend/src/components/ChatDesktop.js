@@ -1,10 +1,14 @@
+// React imports
+import { useState } from 'react'
+// Bootstrap imports
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
-import { useState } from 'react'
+// Component imports
 import ChatMessage from './ChatMessage'
-import { userId } from '../lib/auth'
+// Axios imports
 import axiosAuth from '../lib/axios'
-
+// Generic Imports
+import { userId } from '../lib/auth'
 
 export default function ChatDesktop({ messageList, getMessageData }) {
   const [message, setMessage] = useState({

@@ -1,0 +1,26 @@
+.login-modal {
+  .modal-content {
+    background-color: $secondary;
+    border-radius: 8px;
+
+    .modal-header {
+      background-color: $danger;
+      color: white;
+      border-bottom: 1px solid $primary;
+      border-radius: 8px 8px 0 0;
+    }
+
+    .modal-body {
+
+
+      .form-control {
+        background-color: $secondary;
+        border: 2px solid $primary;
+      }
+    }
+
+    .modal-footer {
+      border-top: 1px solid $primary;
+    }
+  }
+}

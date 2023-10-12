@@ -1,17 +1,16 @@
 footer {
-  padding: 1rem;
-  margin-bottom: 2rem;
+  padding: $edge-padding;
 }
 
 .landing-footer {
   background-color: $teal;
   border-radius: 0.5rem;
-  padding: 1rem;
+  padding: $edge-padding;
 }
 
 .landing-footer-inner {
   background-color: rgba($grey, 0.25);
-  padding: 0.5rem;
+  padding: $edge-padding;
 
   .logo {
     width: 125px;

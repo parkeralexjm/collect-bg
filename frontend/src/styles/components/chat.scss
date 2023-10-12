@@ -34,7 +34,6 @@
   width: 100%;
   padding: $edge-padding;
   display: flex;
-  flex-direction: column-reverse;
   overflow-x: hidden;
   overflow-y: scroll;
   height: calc(100vh - (8px + 8px + 53px + 38px + 156px)); // height: calc(100vh - 262px)
@@ -53,6 +52,14 @@
       bottom: 0;
     }
   }
+}
+
+.chat {
+  flex-direction: column-reverse;
+}
+
+.following-display {
+  flex-direction: column;
 }
 
 
@@ -83,7 +90,6 @@
 
   .following-display {
     height: 764px;
-    flex-direction: column;
   }
 
 }

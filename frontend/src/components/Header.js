@@ -2,7 +2,6 @@
 import { useState } from 'react'
 // Component imports
 import { loginForm, registerForm } from '../lib/forms'
-
 // Bootstrap imports
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
@@ -11,7 +10,6 @@ import Col from 'react-bootstrap/Col'
 import Dropdown from 'react-bootstrap/Dropdown'
 import Button from 'react-bootstrap/Button'
 import Modal from 'react-bootstrap/Modal'
-
 // Generic import
 import logo from '../images/Logo-Light.png'
 import four04 from '../images/404-light.png'
@@ -19,7 +17,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import LandingModal from './LandingModal'
 import { tokenIsValid } from '../lib/auth'
 
-export default function Header({ version }) {
+export default function Header({ version, setIsAuth }) {
   const [show, setShow] = useState(false)
   const [formType, setFormType] = useState()
   const navigate = useNavigate()
@@ -50,7 +48,7 @@ export default function Header({ version }) {
       {/* Mobile display dropdown */}
       {version === 'landing' ?
         <Dropdown drop='start'>
-          <Dropdown.Toggle id="login">
+          <Dropdown.Toggle id="login" className='login-dropdown'>
             <i className="fa-solid fa-bars" style={{ color: '#4eaca2' }}></i>
           </Dropdown.Toggle>
           <Dropdown.Menu>
@@ -84,8 +82,8 @@ export default function Header({ version }) {
 
       }
       {/* Login/Register modal */}
-      <Modal show={show} onHide={handleClose} animation={false}>
-        <LandingModal handleClose={handleClose} formType={formType} />
+      <Modal show={show} onHide={handleClose} animation={false} className="login-modal">
+        <LandingModal handleClose={handleClose} formType={formType} setFormType={setFormType} setIsAuth={setIsAuth} />
       </Modal>
     </Navbar>
   )

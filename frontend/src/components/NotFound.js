@@ -1,5 +1,3 @@
-// React imports
-
 // Component imports
 import Header from './Header'
 import { Link } from 'react-router-dom'

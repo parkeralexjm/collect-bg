@@ -1,13 +1,17 @@
+// React imports
 import { useState } from 'react'
-
+// Bootstrap imports
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
-import axios from 'axios'
-import { setToken } from '../lib/auth'
 import { useNavigate } from 'react-router-dom'
+// Axios imports
+import axios from 'axios'
+// Generic Imports
+import { setToken } from '../lib/auth'
+import { loginForm } from '../lib/forms'
 
-export default function LandingModal({ handleClose, formType }) {
+export default function LandingModal({ handleClose, formType, setFormType, setIsAuth }) {
   const [formData, setFormData] = useState()
   const [message, setMessage] = useState('')
   const navigate = useNavigate()
@@ -15,16 +19,20 @@ export default function LandingModal({ handleClose, formType }) {
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      const { data } = await axios.post(formType.request, formData)
-      setToken('collect-access-token', data.access)
-      setToken('collect-refresh-token', data.refresh)
-      handleClose()
-      setMessage('Login Successful')
-      navigate('/games')
-      // console.log(data)
+      if (formType.request === '/api/auth/login/') {
+        const { data } = await axios.post(formType.request, formData)
+        setToken('collect-access-token', data.access)
+        setToken('collect-refresh-token', data.refresh)
+        handleClose()
+        setMessage('Login successful')
+        navigate('/games')
+      } else {
+        const { data } = await axios.post(formType.request, formData)
+        setFormType(loginForm)
+        setMessage('Registration successful please log in')
+      }
     } catch (error) {
       console.log(error)
-      // setMessage(error.response.data.detail)
     }
   }
 
@@ -55,7 +63,7 @@ export default function LandingModal({ handleClose, formType }) {
           </h3>
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" type='submit'>
+          <Button variant="warning" type='submit'>
             {formType.title}
           </Button>
           <Button variant="primary" onClick={handleClose}>

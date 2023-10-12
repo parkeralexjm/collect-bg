@@ -99,8 +99,7 @@
     "model": "mechanics.mechanic",
     "pk": 2026,
     "fields": {
-      "name": "Hexagon Grpk",
-      "id": "2026"
+      "name": "Hexagon Grid"
     }
   },
   {
@@ -355,7 +354,7 @@
     "model": "mechanics.mechanic",
     "pk": 2978,
     "fields": {
-      "name": "Grpk Coverage",
+      "name": "Grid Coverage",
       "id": "2978"
     }
   },
@@ -371,8 +370,7 @@
     "model": "mechanics.mechanic",
     "pk": 2940,
     "fields": {
-      "name": "Square Grpk",
-      "id": "2940"
+      "name": "Square Grid"
     }
   },
   {
@@ -395,7 +393,7 @@
     "model": "mechanics.mechanic",
     "pk": 2676,
     "fields": {
-      "name": "Grpk Movement",
+      "name": "Grid Movement",
       "id": "2676"
     }
   },
@@ -595,7 +593,7 @@
     "model": "mechanics.mechanic",
     "pk": 2987,
     "fields": {
-      "name": "Hpkden Victory Points",
+      "name": "Hidden Victory Points",
       "id": "2987"
     }
   },
@@ -787,7 +785,7 @@
     "model": "mechanics.mechanic",
     "pk": 2891,
     "fields": {
-      "name": "Hpkden Roles",
+      "name": "Hidden Roles",
       "id": "2891"
     }
   },
@@ -827,7 +825,7 @@
     "model": "mechanics.mechanic",
     "pk": 2012,
     "fields": {
-      "name": "Auction/Bpkding",
+      "name": "Auction/Bidding",
       "id": "2012"
     }
   },
@@ -851,7 +849,7 @@
     "model": "mechanics.mechanic",
     "pk": 2922,
     "fields": {
-      "name": "Constrained Bpkding",
+      "name": "Constrained Bidding",
       "id": "2922"
     }
   },
@@ -859,8 +857,7 @@
     "model": "mechanics.mechanic",
     "pk": 2926,
     "fields": {
-      "name": "Selection Order Bpk",
-      "id": "2926"
+      "name": "Selection Order Bid"
     }
   },
   {
@@ -979,8 +976,7 @@
     "model": "mechanics.mechanic",
     "pk": 2920,
     "fields": {
-      "name": "Auction: Sealed Bpk",
-      "id": "2920"
+      "name": "Auction: Sealed Bid"
     }
   },
   {
@@ -1027,7 +1023,7 @@
     "model": "mechanics.mechanic",
     "pk": 3097,
     "fields": {
-      "name": "Bpks As Wagers",
+      "name": "Bids As Wagers",
       "id": "3097"
     }
   },
@@ -1107,8 +1103,7 @@
     "model": "mechanics.mechanic",
     "pk": 3006,
     "fields": {
-      "name": "Predictive Bpk",
-      "id": "3006"
+      "name": "Predictive Bid"
     }
   },
   {
@@ -1307,7 +1302,7 @@
     "model": "mechanics.mechanic",
     "pk": 2967,
     "fields": {
-      "name": "Hpkden Movement",
+      "name": "Hidden Movement",
       "id": "2967"
     }
   },
@@ -1315,7 +1310,7 @@
     "model": "mechanics.mechanic",
     "pk": 3005,
     "fields": {
-      "name": "Slpke/Push",
+      "name": "Slide/Push",
       "id": "3005"
     }
   },

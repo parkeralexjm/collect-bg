@@ -1,10 +1,13 @@
+// React imports
+import { useState } from 'react'
+// Bootstrap imports
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
-import { useState } from 'react'
+// Axios imports
 import axiosAuth from '../lib/axios'
 
-export default function FollowingList({ user, setCollectionUser, activateCollectionMode, allUsers, setUser }) {
-  const [follow, setFollow] = useState({ id: 0 })
+export default function FollowingList({ user, setCollectionUser, activateCollectionMode, allUsers, getUserData }) {
+  const [follow, setFollow] = useState({ id: 0, type: 'add' })
   const [userKey, setUserKey] = useState(0)
   console.log(user)
 
@@ -17,6 +20,7 @@ export default function FollowingList({ user, setCollectionUser, activateCollect
     async function addFollowingUser() {
       try {
         const { data } = await axiosAuth.patch(`api/auth/${user.id}/follow/`, follow)
+        getUserData()
       } catch (error) {
         console.log(error)
       }
@@ -28,7 +32,8 @@ export default function FollowingList({ user, setCollectionUser, activateCollect
     console.log({ id: e.target.value })
     async function removeFollowingUser() {
       try {
-        const { data } = await axiosAuth.patch(`api/auth/${user.id}/follow/`, { id: e.target.value })
+        const { data } = await axiosAuth.patch(`api/auth/${user.id}/follow/`, { id: e.target.value, type: 'remove' })
+        getUserData()
       } catch (error) {
         console.log(error)
       }
@@ -40,7 +45,7 @@ export default function FollowingList({ user, setCollectionUser, activateCollect
     <div className='following-display' data-customattribute={userKey}>
       <Form onSubmit={handleSubmit}>
         <Form.Control as='select' value={follow.id} onChange={handleChange} aria-label='Default select '>
-          <option selected disabled>- Username -</option>
+          <option selected>- Username -</option>
           {allUsers.map(({ username, id }, index) => {
             const found = user.following.some(el => el.username === username)
             return !found && <option value={id} key={index} >{username}</option>

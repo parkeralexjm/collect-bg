@@ -371,7 +371,7 @@
     "model": "categories.category",
     "pk": 1101,
     "fields": {
-      "name": "Vpkeo Game Theme",
+      "name": "Video Game Theme",
       "id": "1101"
     }
   },

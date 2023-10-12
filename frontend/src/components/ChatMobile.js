@@ -1,10 +1,12 @@
-import Button from 'react-bootstrap/Button'
-import ChatDesktop from './ChatDesktop'
+// React imports
 import { useState } from 'react'
-
+// Component imports
+import ChatDesktop from './ChatDesktop'
 import FollowingList from './FollowingList'
+// Bootstrap imports
+import Button from 'react-bootstrap/Button'
 
-export default function ChatMobile({ messageList, getMessageData, user, setCollectionUser, activateCollectionMode, allUsers, setUser }) {
+export default function ChatMobile({ messageList, getMessageData, user, setCollectionUser, activateCollectionMode, allUsers, setUser, getUserData }) {
   const [chatMode, setChatMode] = useState(true)
 
   function activateChatMode() {
@@ -23,7 +25,7 @@ export default function ChatMobile({ messageList, getMessageData, user, setColle
         chatMode ?
           <ChatDesktop messageList={messageList} getMessageData={getMessageData} />
           :
-          <FollowingList user={user} setCollectionUser={setCollectionUser} activateCollectionMode={activateCollectionMode} allUsers={allUsers} setUser={setUser} />
+          <FollowingList user={user} setCollectionUser={setCollectionUser} activateCollectionMode={activateCollectionMode} allUsers={allUsers} setUser={setUser} getUserData={getUserData} />
       }
     </div>
   )

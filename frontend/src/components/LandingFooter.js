@@ -1,11 +1,8 @@
 // React imports
 import { Link } from 'react-router-dom'
-// Component imports
-
 // Bootstrap imports
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-
 // Generic import
 import logo from '../images/Logo-Light.png'
 
@@ -22,17 +19,16 @@ export default function LandingFooter() {
 
             <h5>Copyright &copy; 2023</h5>
           </Col>
-          <Col>
+          <Col className='d-flex justify-content-end align-items-end'>
+            <div className='landing-socials'>
+              <i className="fa-brands fa-xl fa-x-twitter"></i>
+              <i className="fa-brands fa-xl fa-facebook-f"></i>
+              <i className="fa-brands fa-xl fa-github"></i>
+              <i className="fa-brands fa-xl fa-linkedin"></i>
+            </div>
           </Col>
         </Row>
-        <Row className='justify-content-end'>
-          <div className='landing-socials'>
-            <i className="fa-brands fa-xl fa-x-twitter"></i>
-            <i className="fa-brands fa-xl fa-facebook-f"></i>
-            <i className="fa-brands fa-xl fa-github"></i>
-            <i className="fa-brands fa-xl fa-linkedin"></i>
-          </div>
-        </Row>
+
       </div>
     </footer>
   )

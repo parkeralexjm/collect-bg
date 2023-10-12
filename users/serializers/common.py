@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from django.contrib.auth import get_user_model
+from rest_framework_simplejwt.tokens import RefreshToken
 
 User = get_user_model()
 
@@ -27,7 +28,7 @@ class RegistrationSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ('id', 'username', 'email', 'password',
-                  'password_confirmation',)
+                  'password_confirmation')
 
     def validate(self, data):
         # Validate method passes in the request body data, so in this case things username, password & password_confirmation

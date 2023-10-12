@@ -1,14 +1,16 @@
-import Button from 'react-bootstrap/esm/Button'
+// Component imports
 import GameCards from './GameCards'
+// Bootstrap imports
+import Button from 'react-bootstrap/esm/Button'
 
-export default function UserCollection({ user, games, allCategories, allMechanics, deactivateCollectionMode }) {
+export default function UserCollection({ getUserData, user, collectionUser, allCategories, allMechanics, deactivateCollectionMode }) {
   return (
     <>
       <div className='collection-header'>
-        <h1>{user.username}&apos;s collection</h1>
+        <h1>{collectionUser.username}&apos;s collection</h1>
         <Button variant='danger' onClick={deactivateCollectionMode}>Exit</Button>
       </div>
-      <GameCards games={games} allCategories={allCategories} allMechanics={allMechanics} collectionMode={true} />
+      <GameCards user={user} getUserData={getUserData} games={collectionUser.collection} allCategories={allCategories} allMechanics={allMechanics} collectionMode={true} />
     </>
   )
 }

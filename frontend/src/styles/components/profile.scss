@@ -2,11 +2,25 @@
   background-color: $secondary;
   border-radius: $games-border-radius;
   margin-bottom: 10px;
+  position: relative;
 
   img {
     width: 60px;
     border-radius: $games-border-radius;
     margin: $inside-edge-padding;
+  }
+
+  .profile-ellipsis {
+    position: absolute;
+    right: 12px;
+    top: 3px;
+    width: 30px;
+    height: 30px;
+    z-index: 100;
+
+    ::after {
+      display: none;
+    }
   }
 
   .row:last-of-type {

@@ -1,17 +1,20 @@
+// React imports
+import { useEffect, useState } from 'react'
+// Bootstrap imports
 import Card from 'react-bootstrap/Card'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Container from 'react-bootstrap/Container'
 import Form from 'react-bootstrap/Form'
-import FloatingLabel from 'react-bootstrap/FloatingLabel'
-import { useEffect, useState } from 'react'
+// Generic Imports
 import ReactPaginate from 'react-paginate'
 import { useDebouncedCallback } from 'use-debounce'
 import debounce from 'debounce'
 import GameModal from './GameModal'
+import axiosAuth from '../lib/axios'
 
 
-export default function GameCards({ games, allCategories, allMechanics, collectionMode = false }) {
+export default function GameCards({ user, getUserData, games, allCategories, allMechanics, collectionMode = false }) {
   const [filter, setFilter] = useState({
     search: '',
     category: 'All',
@@ -114,6 +117,19 @@ export default function GameCards({ games, allCategories, allMechanics, collecti
     setShow(true)
   }
 
+  function handleCollect(game, option) {
+    async function patchCollection() {
+      try {
+        const { data } = await axiosAuth.patch(`/api/auth/${user.id}/collection/`, { id: game.id, type: option })
+        // refresh here
+        getUserData()
+      } catch (error) {
+        console.log(error)
+      }
+    }
+    patchCollection()
+  }
+
   // Pagination 
   let startIndex = currentPage * itemsPerPage
   let endIndex = startIndex + itemsPerPage
@@ -159,14 +175,26 @@ export default function GameCards({ games, allCategories, allMechanics, collecti
                 pageCount={totalPages}
                 onPageChange={handlePageChange}
                 forcePage={currentPage}
-                pageRangeDisplayed={1}
+                pageRangeDisplayed={3}
+                marginPagesDisplayed={1}
               />
             </div>
             <Row className={collectionMode ? 'game-card-display-collection' : 'game-card-display'} >
               {
                 subset.map((game, index) => {
+                  const found = user.collection.some(el => el.id === game.id)
                   return (
                     <Col key={index} xs={6} sm={4} md={3} xxl={2} className='px-2 pb-4 card-col' >
+                      {
+                        found ?
+                          <div className='collect' onClick={() => handleCollect(game, 'remove')}>
+                            <i className="fa-solid fa-minus collect-minus" style={{ color: '#ffffff' }}></i>
+                          </div>
+                          :
+                          <div className='collect' onClick={() => handleCollect(game, 'add')}>
+                            <i className="fa-solid fa-plus collect-plus" style={{ color: '#ffffff' }}></i>
+                          </div>
+                      }
                       <Card className="text-center game-card h-100" onClick={() => handleShow(game)}>
                         <div className='img-container'>
                           <Card.Img variant='top' src={game.image} />
@@ -182,6 +210,18 @@ export default function GameCards({ games, allCategories, allMechanics, collecti
                 })
               }
             </Row>
+            <div className='pagination pagination-bottom'>
+              {subset.map((item) => (
+                <div key={item.id}>{item.title}</div>
+              ))}
+              <ReactPaginate className='react-paginate'
+                pageCount={totalPages}
+                onPageChange={handlePageChange}
+                forcePage={currentPage}
+                pageRangeDisplayed={3}
+                marginPagesDisplayed={1}
+              />
+            </div>
             {
               detail &&
               <GameModal detail={detail} show={show} setShow={setShow} />

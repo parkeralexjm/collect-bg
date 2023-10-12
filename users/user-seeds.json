@@ -1,24 +1,214 @@
 [
-  {
-    "model": "users.user",
-    "pk": 1,
-    "fields": {
-      "password": "pbkdf2_sha256$600000$wil4WBgEbj1AtUgV6g1Zwl$pwKNBcPwE+5ZYazaQ8Oykrofo4GEW++oDs3itAfQD4w=",
-      "last_login": "2023-10-02T16:05:27.837Z",
-      "is_superuser": true,
-      "username": "parke",
-      "first_name": "",
-      "last_name": "",
-      "email": "parkeralexjm@gmail.com",
-      "is_staff": true,
-      "is_active": true,
-      "date_joined": "2023-10-02T13:52:33.146Z",
-      "collection": [],
-      "messages": [],
-      "friends": [],
-      "displayname": null,
-      "groups": [],
-      "user_permissions": []
-    }
+{
+  "model": "users.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$yoH6j8Sxzkwn7GvHwDAffn$NWisa1+WY85G6WtWgUsGC+gyPaMJax4sf7zbfKTNEuQ=",
+    "last_login": "2023-10-06T16:02:49Z",
+    "is_superuser": true,
+    "username": "alex",
+    "first_name": "Alex",
+    "last_name": "",
+    "email": "parkeralexjm@gmail.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2023-10-06T15:59:06Z",
+    "image": "profile_images/Aparker.jpg",
+    "displayname": null,
+    "groups": [],
+    "user_permissions": [],
+    "collection": [
+      342942,
+      295947,
+      230802,
+      266192
+    ],
+    "following": [
+      36
+    ]
   }
+},
+{
+  "model": "users.user",
+  "pk": 13,
+  "fields": {
+    "password": "pass",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "gary",
+    "first_name": "Alex",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-10-09T13:21:36Z",
+    "image": "default.jpg",
+    "displayname": null,
+    "groups": [],
+    "user_permissions": [],
+    "collection": [
+      312484,
+      295947,
+      266192,
+      199792,
+      230802,
+      342942
+    ],
+    "following": [
+      13
+    ]
+  }
+},
+{
+  "model": "users.user",
+  "pk": 14,
+  "fields": {
+    "password": "steve",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "steve",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-10-09T17:19:50Z",
+    "image": "default.jpg",
+    "displayname": null,
+    "groups": [],
+    "user_permissions": [],
+    "collection": [],
+    "following": []
+  }
+},
+{
+  "model": "users.user",
+  "pk": 15,
+  "fields": {
+    "password": "barry",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "barry",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-10-09T17:20:02Z",
+    "image": "default.jpg",
+    "displayname": null,
+    "groups": [],
+    "user_permissions": [],
+    "collection": [],
+    "following": []
+  }
+},
+{
+  "model": "users.user",
+  "pk": 16,
+  "fields": {
+    "password": "stephanie",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "stephanie",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-10-09T17:20:09Z",
+    "image": "default.jpg",
+    "displayname": null,
+    "groups": [],
+    "user_permissions": [],
+    "collection": [],
+    "following": []
+  }
+},
+{
+  "model": "users.user",
+  "pk": 35,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$g8J9wAhxvgTWR5tPATYtwW$uTbp9CC+AvO5T6AS9ju1o1qqBpjFwf/ScFJfV+A6vp0=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "briparker",
+    "first_name": "",
+    "last_name": "",
+    "email": "bri.parker@hello.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-10-11T15:42:21.496Z",
+    "image": "default.jpg",
+    "displayname": null,
+    "groups": [],
+    "user_permissions": [],
+    "collection": [
+      68448,
+      54043,
+      287954,
+      233867,
+      244522,
+      219513,
+      266524,
+      201808,
+      244992,
+      221194,
+      167791,
+      199792,
+      173346
+    ],
+    "following": [
+      1,
+      36
+    ]
+  }
+},
+{
+  "model": "users.user",
+  "pk": 36,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$uqMFqQwViCy8RDg2sQwTXp$8qGkLvFhM2R7AJ+zi528N5sc0mdCSkcOHTqwH3GzQlE=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "NewG",
+    "first_name": "",
+    "last_name": "",
+    "email": "fakeemail@alex.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-10-11T15:45:08.295Z",
+    "image": "default.jpg",
+    "displayname": null,
+    "groups": [],
+    "user_permissions": [],
+    "collection": [
+      266192,
+      230802,
+      295947,
+      244521,
+      173346,
+      822,
+      163412,
+      254640,
+      162886,
+      68448,
+      328871,
+      266524,
+      281259,
+      178900,
+      9209,
+      13,
+      54043,
+      14996,
+      201808,
+      244522,
+      30549,
+      133473,
+      262543,
+      265736
+    ],
+    "following": []
+  }
+}
 ]

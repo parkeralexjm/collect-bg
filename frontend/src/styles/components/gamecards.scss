@@ -53,6 +53,24 @@ ul.react-paginate li.disabled a {
 
 .card-col {
   height: 300px;
+  position: relative;
+}
+
+.collect {
+  background-color: $danger;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  position: absolute;
+  right: 10px;
+  top: 5px;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .collect-plus,
+  .collect-minus {}
 }
 
 .game-card {
@@ -108,5 +126,9 @@ ul.react-paginate li.disabled a {
         overflow: hidden;
       }
     }
+  }
+
+  .pagination-bottom {
+    display: none
   }
 }

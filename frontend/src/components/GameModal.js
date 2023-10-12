@@ -1,18 +1,21 @@
+// Bootstrap imports
 import Modal from 'react-bootstrap/Modal'
 import Button from 'react-bootstrap/Button'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 
 export default function GameModal({ detail, show, setShow }) {
+  console.log(detail)
 
   return (
-    <Modal show={show} fullscreen={false} onHide={() => setShow(false)}>
+    <Modal show={show} fullscreen={false} onHide={() => setShow(false)} className='game-modal'>
       <Modal.Header closeButton>
         <Modal.Title>{detail.name}</Modal.Title>
       </Modal.Header>
       <Modal.Body classname='detail'>
         <Row>
-          <Col classname='detail-image' style={{ backgroundImage: detail.image }}>
+          <Col classname='detail-image'>
+            <img src={detail.thumbnail} />
           </Col>
           <Col className='detail-info'>
             <h4>Year: {detail.yearpublished}</h4>

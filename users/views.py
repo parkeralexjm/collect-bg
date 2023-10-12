@@ -13,6 +13,7 @@ class UserView(GenericAPIView):
 
 
 class RegisterView(UserView, CreateAPIView):
+    queryset = User.objects.all()
     serializer_class = RegistrationSerializer
 
 
@@ -32,8 +33,7 @@ class UserFollowView(UserView, UpdateAPIView):
 
     def patch(self, request, *args, **kwargs):
         user = self.get_object()  # get the single user
-        print(user)
-        if request.data['id'] in user.following.all():
+        if request.data['type'] == "remove":
             user.following.remove(request.data['id'])
             user.save()
             return Response(status=204)
@@ -41,3 +41,18 @@ class UserFollowView(UserView, UpdateAPIView):
             user.following.add(request.data['id'])
             user.save()
         return Response(status=201)
+
+
+class UserCollectionUpdateView(UserView, UpdateAPIView):
+    permission_classes = [IsAuthenticated]
+
+    def patch(self, request, *args, **kwargs):
+        user = self.get_object()
+        if request.data['type'] == 'add':
+            user.collection.add(request.data['id'])
+            user.save()
+            return Response(status=201)
+        else:
+            user.collection.remove(request.data['id'])
+            user.save()
+        return Response(status=204)
