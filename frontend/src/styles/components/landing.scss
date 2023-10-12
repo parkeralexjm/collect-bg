@@ -92,10 +92,22 @@
 }
 
 
-@media only screen and (min-width: $sm) {
+@media only screen and (min-width: $md) {
   .landing-info {
-    h1 {
+    .hero {
       font-size: 5rem;
     }
+  }
+
+  .landing-info-box {
+    h3 {
+      font-size: 1.75rem;
+    }
+  }
+
+  .info-box-1,
+  .info-box-2,
+  .info-box-3 {
+    max-width: 500px;
   }
 }

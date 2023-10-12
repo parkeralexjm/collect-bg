@@ -16,9 +16,9 @@ export default function Landing() {
           {/* <div className='landing-decoration'>
           </div> */}
           <Row className='landing-info-row'>
-            <Col xs={2}>
+            <Col xs={2} md={4}>
             </Col>
-            <Col xs={10} className='d-flex justify-content-center'>
+            <Col xs={10} md={8} className='d-flex justify-content-center'>
               <div className='info-box-1'>
                 <div className='landing-info-box'>
                   <div className='info-box-image'></div>
@@ -28,7 +28,7 @@ export default function Landing() {
             </Col>
           </Row>
           <Row className='landing-info-row'>
-            <Col xs={10} className='d-flex justify-content-center'>
+            <Col xs={10} md={8} className='d-flex justify-content-center'>
               <div className='info-box-2'>
                 <div className='landing-info-box'>
                   <h3>Follow and chat with other board game collectors</h3>
@@ -36,13 +36,13 @@ export default function Landing() {
                 </div>
               </div>
             </Col>
-            <Col xs={2}>
+            <Col xs={2} md={4}>
             </Col>
           </Row>
           <Row className='landing-info-row'>
-            <Col xs={2}>
+            <Col xs={2} md={4}>
             </Col>
-            <Col xs={10} className='d-flex justify-content-center'>
+            <Col xs={10} md={8} className='d-flex justify-content-center'>
               <div className='info-box-3'>
                 <div className='landing-info-box'>
                   <div className='info-box-image'></div>
