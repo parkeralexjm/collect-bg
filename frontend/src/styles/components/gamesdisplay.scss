@@ -26,9 +26,16 @@
   display: none;
   position: relative;
   padding-left: 0;
+  height: 100%;
 
   .logo {
     width: 75%;
+  }
+
+  .top-games-container {
+    height: calc(100vh - 145px);
+    overflow-x: hidden;
+    overflow-y: auto;
   }
 
   .display-top-games:not(:nth-child(-1)) {
@@ -103,6 +110,7 @@
 .right-col {
   padding-right: 0;
   padding-left: 0;
+  height: 100%;
 }
 
 .modal-button {

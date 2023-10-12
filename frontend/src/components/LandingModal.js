@@ -19,18 +19,12 @@ export default function LandingModal({ handleClose, formType, setFormType, setIs
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      if (formType.request === '/api/auth/login/') {
-        const { data } = await axios.post(formType.request, formData)
-        setToken('collect-access-token', data.access)
-        setToken('collect-refresh-token', data.refresh)
-        handleClose()
-        setMessage('Login successful')
-        navigate('/games')
-      } else {
-        const { data } = await axios.post(formType.request, formData)
-        setFormType(loginForm)
-        setMessage('Registration successful please log in')
-      }
+      const { data } = await axios.post(formType.request, formData)
+      setToken('collect-access-token', data.access)
+      setToken('collect-refresh-token', data.refresh)
+      handleClose()
+      setMessage('Login successful')
+      navigate('/games')
     } catch (error) {
       console.log(error)
     }

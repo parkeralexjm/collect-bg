@@ -18,7 +18,7 @@ export default function Profile({ user, activateCollectionMode, setCollectionUse
   return (
     <div className="profile">
       <Dropdown className='profile-ellipsis'>
-        <Dropdown.Toggle variant="success" id="dropdown-basic">
+        <Dropdown.Toggle variant="secondary" id="dropdown-basic">
           <i className="fa-solid fa-ellipsis" style={{ color: '#ffffff' }}></i>
         </Dropdown.Toggle>
 
@@ -26,24 +26,18 @@ export default function Profile({ user, activateCollectionMode, setCollectionUse
           <Dropdown.Item onClick={handleLogout}>Log Out</Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>
-      <Row>
-        <Col xs={3}>
+      <div>
+        <div className='profile-info'>
           <img className='chat-profile-image' src={user.image} alt="profile-picture" />
-        </Col>
-        <Col xs={9}>
-          <h2>{user.username}</h2>
-          <h4>{user.first_name} {user.last_name}</h4>
-        </Col>
-
-      </Row>
-      <Row>
-        <Col>
-          <Button variant='danger' onClick={() => {
-            setCollectionUser(user)
-            activateCollectionMode()
-          }}>Collection</Button>
-        </Col>
-      </Row>
+          <h4>{user.username}</h4>
+        </div>
+        {/* <div>
+        </div> */}
+      </div>
+      <Button className='collection-button' variant='danger' onClick={() => {
+        setCollectionUser(user)
+        activateCollectionMode()
+      }}>Collection</Button>
     </div >
   )
 }

@@ -43,26 +43,30 @@ export default function FollowingList({ user, setCollectionUser, activateCollect
 
   return (
     <div className='following-display' data-customattribute={userKey}>
-      <Form onSubmit={handleSubmit}>
-        <Form.Control as='select' value={follow.id} onChange={handleChange} aria-label='Default select '>
-          <option selected>- Username -</option>
-          {allUsers.map(({ username, id }, index) => {
-            const found = user.following.some(el => el.username === username)
-            return !found && <option value={id} key={index} >{username}</option>
-          })}
-        </Form.Control >
-        <Button type='submit' variant='secondary' onClick={() => setUserKey(userKey => userKey + 1)}>Follow user</Button>
-      </Form>
-      {user.following.map((user, index) => {
-        return <div key={index} className='following-collection'>
-          <Button variant='warning' onClick={() => {
-            // console.log(user)
-            setCollectionUser(user)
-            activateCollectionMode()
-          }}>{user.username}</Button>
-          <Button variant='danger' className='following-remove' value={user.id} onClick={handleRemove}>X</Button>
-        </div>
-      })}
+      <div className='following-form'>
+        <Form onSubmit={handleSubmit}>
+          <Form.Control as='select' value={follow.id} onChange={handleChange} aria-label='Default select '>
+            <option selected>- Username -</option>
+            {allUsers.map(({ username, id }, index) => {
+              const found = user.following.some(el => el.username === username)
+              return !found && <option value={id} key={index} >{username}</option>
+            })}
+          </Form.Control >
+          <Button type='submit' variant='secondary' onClick={() => setUserKey(userKey => userKey + 1)}>Follow user</Button>
+        </Form>
+      </div>
+      <div className='following-users'>
+        {user.following.map((user, index) => {
+          return <div key={index} className='following-collection'>
+            <Button variant='warning' onClick={() => {
+              // console.log(user)
+              setCollectionUser(user)
+              activateCollectionMode()
+            }}>{user.username}</Button>
+            <Button variant='danger' className='following-remove' value={user.id} onClick={handleRemove}>X</Button>
+          </div>
+        })}
+      </div>
     </div >
   )
 }

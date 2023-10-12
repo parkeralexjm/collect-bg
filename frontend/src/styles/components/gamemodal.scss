@@ -9,3 +9,30 @@
   }
 
 }
+
+.detail-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.detail-category,
+.detail-mechanic {
+  margin: 0.1rem;
+  cursor: default !important;
+
+  &:hover {
+    background-color: transparent !important;
+  }
+}
+
+.detail-category:hover {
+  color: $warning !important;
+}
+
+.detail-mechanic {
+
+  &:hover {
+    color: $danger !important;
+  }
+}

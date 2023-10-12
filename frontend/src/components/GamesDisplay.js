@@ -118,7 +118,6 @@ export default function GamesDisplay() {
   }
 
 
-
   return (
     <section className='display-background'>
       <div className='display container'>
@@ -127,23 +126,25 @@ export default function GamesDisplay() {
             <Link to={''}>
               <img className='logo' src={logo} alt="collect-dot-bg-logo" />
             </Link>
-            {topGames.map((game, index) => {
-              return (
-                <Link to={'https://boardgamegeek.com/boardgame/' + game.attributes.id} key={index}>
-                  <div className='display-top-games'>
-                    <img src={game.children[0].attributes.value} alt={game.children[1].attributes.value} />
-                    <div className='top-games-information'>
-                      <div>
-                        <h3>{game.children[1].attributes.value}</h3>
-                        <h4>{game.children[2].attributes.value}</h4>
-                      </div>
-                      <div>
-                        <Button variant='outline-warning' size='sm' className='top-games-rank'>{game.attributes.rank}</Button>
+            <div className='top-games-container'>
+              {topGames.map((game, index) => {
+                return (
+                  <Link to={'https://boardgamegeek.com/boardgame/' + game.attributes.id} key={index}>
+                    <div className='display-top-games'>
+                      <img src={game.children[0].attributes.value} alt={game.children[1].attributes.value} />
+                      <div className='top-games-information'>
+                        <div>
+                          <h3>{game.children[1].attributes.value}</h3>
+                          <h4>{game.children[2].attributes.value}</h4>
+                        </div>
+                        <div>
+                          <Button variant='outline-warning' size='sm' className='top-games-rank'>{game.attributes.rank}</Button>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </Link>)
-            })}
+                  </Link>)
+              })}
+            </div>
             <div className='socials'>
               <Link to='#https://twitter.com/home'><i className="fa-brands fa-xl fa-x-twitter"></i></Link>
               <Link to='#https://www.facebook.com/'><i className="fa-brands fa-xl fa-facebook-f"></i></Link>
@@ -168,7 +169,7 @@ export default function GamesDisplay() {
             <div className="me-2 mb-2 modal-button" onClick={handleShow}>
               <i className="fa-regular fa-message fa-lg" style={{ color: '#ffffff' }}></i>
             </div>
-            <Modal show={show} fullscreen={false} onHide={() => setShow(false)}>
+            <Modal className='mobile-modal' show={show} fullscreen={false} onHide={() => setShow(false)}>
               <Modal.Header closeButton>
                 <Modal.Title></Modal.Title>
               </Modal.Header>

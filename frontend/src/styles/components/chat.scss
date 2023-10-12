@@ -21,11 +21,11 @@
   justify-content: center;
 
   .btn:first-of-type {
-    margin-right: 10px;
+    margin-right: 5px;
   }
 
   .btn:last-of-type {
-    margin-left: 10px;
+    margin-left: 5px;
   }
 }
 
@@ -36,9 +36,16 @@
   display: flex;
   overflow-x: hidden;
   overflow-y: scroll;
-  height: calc(100vh - (8px + 8px + 53px + 38px + 156px)); // height: calc(100vh - 262px)
-  height: calc((var(--vh, 1vh) * 100) - (8px + 8px + 51px + 42px + 156px))
 }
+
+.chat {
+  height: calc((var(--vh, 1vh) * 100) - 265px)
+}
+
+.following-display {
+  height: calc((var(--vh, 1vh) * 100) - 125px)
+}
+
 
 .chat-form {
   padding: $edge-padding;
@@ -72,7 +79,9 @@
 
 
   .desktop-chat-following {
-    display: block;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
   }
 
   .chat-desktop {
@@ -85,11 +94,17 @@
   }
 
   .chat {
-    height: 615px;
+    height: calc(100vh - 350px);
   }
 
   .following-display {
-    height: 764px;
+    height: 100%;
+  }
+
+  .following-users {
+    height: calc(100vh - 287px);
+    overflow-x: hidden;
+    overflow-y: auto;
   }
 
 }

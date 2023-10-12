@@ -111,7 +111,7 @@ ul.react-paginate li.disabled a {
 
   .game-card {
     .img-container {
-      max-height: 70%;
+      height: 70%;
 
       img {
         height: 100%;
@@ -130,5 +130,11 @@ ul.react-paginate li.disabled a {
 
   .pagination-bottom {
     display: none
+  }
+}
+
+@include media-breakpoint-up(xxl) {
+  .img-container {
+    max-height: 70%;
   }
 }

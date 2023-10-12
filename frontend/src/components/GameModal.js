@@ -12,19 +12,19 @@ export default function GameModal({ detail, show, setShow }) {
       <Modal.Header closeButton>
         <Modal.Title>{detail.name}</Modal.Title>
       </Modal.Header>
-      <Modal.Body classname='detail'>
+      <Modal.Body className='detail'>
         <Row>
-          <Col classname='detail-image'>
+          <Col xs={5} className='detail-image'>
             <img src={detail.thumbnail} />
           </Col>
-          <Col className='detail-info'>
-            <h4>Year: {detail.yearpublished}</h4>
-            <h3>Playtime: {detail.playingtime} minutes</h3>
-            <h3>Players: {detail.minplayers} - {detail.maxplayers}</h3>
+          <Col xs={7} className='detail-info'>
+            <h4>{detail.yearpublished}</h4>
+            <h5>Playtime: {detail.playingtime} minutes</h5>
+            <h5>Players: {detail.minplayers} - {detail.maxplayers}</h5>
             {
               detail.categories &&
               detail.categories.map(({ name }, index) => {
-                return <Button variant='outline-warning' size='sm' key={index}>{name}</Button>
+                return <Button variant='outline-warning' size='sm' className='detail-category' key={index}>{name}</Button>
               })
             }
           </Col>
@@ -33,11 +33,14 @@ export default function GameModal({ detail, show, setShow }) {
           <p>{detail.description}</p>
         </Row>
         <Row>
-          {detail.mechanics &&
-            detail.mechanics.map(({ name }, index) => {
-              return <Button variant='outline-danger' size='sm' key={index}>{name}</Button>
-            })
-          }
+          <div>
+
+            {detail.mechanics &&
+              detail.mechanics.map(({ name }, index) => {
+                return <Button variant='outline-danger' size='sm' className='detail-mechanic' key={index}>{name}</Button>
+              })
+            }
+          </div>
         </Row>
       </Modal.Body>
     </Modal>

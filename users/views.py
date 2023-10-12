@@ -12,6 +12,7 @@ User = get_user_model()
 
 
 def get_tokens_for_user(user):
+    print('user', user)
     refresh = RefreshToken.for_user(user)
     return {
         'refresh': str(refresh),
@@ -29,15 +30,17 @@ class RegisterView(APIView):
             user_to_register = RegistrationSerializer(data=request.data)
 
             if user_to_register.is_valid():
-
-                # print(user_to_register.validated_data)
-                tokens = get_tokens_for_user(user_to_register.data)
-                print(tokens)
                 user_to_register.save()
-                return Response(user_to_register.data, status.HTTP_201_CREATED)
+
+                print(user_to_register.data)
+                print(User.objects.get(pk=1))
+                tokens = get_tokens_for_user(
+                    User.objects.get(pk=user_to_register.data['id']))
+                print(tokens)
+                return Response(tokens, status.HTTP_201_CREATED)
 
             print(user_to_register.errors)
-            return Response(user_to_register, status.HTTP_422_UNPROCESSABLE_ENTITY)
+            return Response(user_to_register.errors, status.HTTP_422_UNPROCESSABLE_ENTITY)
         except Exception as e:
             print('Exception -', e)
             return Response({'detail': str(e)}, status.HTTP_500_INTERNAL_SERVER_ERROR)
