@@ -6,7 +6,6 @@ from django.db import models
 class Game(models.Model):
     id = models.PositiveIntegerField(primary_key=True)
     thumbnail = models.URLField()
-    image = models.URLField()
     name = models.CharField()
     description = models.CharField()
     yearpublished = models.PositiveIntegerField()
