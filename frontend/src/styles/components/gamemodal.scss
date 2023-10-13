@@ -1,4 +1,9 @@
 .game-modal {
+  .modal-title {
+    color: white;
+    font-weight: 300;
+  }
+
   .modal-content {
     background-color: $primary;
     border-radius: 8px;
@@ -14,6 +19,23 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.detail-info {
+  color: white;
+
+  h4,
+  h5 {
+    font-weight: 200;
+
+  }
+}
+
+.detail-description {
+  p {
+    color: white;
+    font-weight: 300;
+  }
 }
 
 .detail-category,

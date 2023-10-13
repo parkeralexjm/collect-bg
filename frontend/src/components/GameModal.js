@@ -8,7 +8,7 @@ export default function GameModal({ detail, show, setShow }) {
 
   return (
     <Modal show={show} fullscreen={false} onHide={() => setShow(false)} className='game-modal'>
-      <Modal.Header closeButton>
+      <Modal.Header closeButton closeVariant="white">
         <Modal.Title>{detail.name}</Modal.Title>
       </Modal.Header>
       <Modal.Body className='detail'>
