@@ -9,7 +9,7 @@ export default function GameCarousel({ gamesData }) {
         gamesData.map((game, index) => {
           return (
             <Carousel.Item key={index}>
-              <Image src={game.image} text={game.name} />
+              <Image src={game.thumbnail} text={game.name} />
               <Carousel.Caption>
                 {/* <h3>{game.name}</h3> */}
               </Carousel.Caption>

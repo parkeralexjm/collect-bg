@@ -197,7 +197,7 @@ export default function GameCards({ allGames, user, getUserData, games, allCateg
                       }
                       <Card className="text-center game-card h-100" onClick={() => handleShow(game)}>
                         <div className='img-container'>
-                          <Card.Img variant='top' src={game.image} />
+                          <Card.Img variant='top' src={game.thumbnail} />
                         </div>
                         <Card.Body className='d-flex flex-column justify-content-center'>
                           <Card.Text>
