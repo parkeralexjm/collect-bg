@@ -8,20 +8,20 @@ export default function PlaceholderCards({ number }) {
   for (let i = 0; i < number; i++) {
     placeholderData.push(i)
   }
-  console.log(placeholderData)
   return (
     placeholderData.map((data) => {
       return (
         <Col key={data} xs={6} sm={4} md={3} xxl={2} className='px-2 pb-4 card-col' >
           <Card className="text-center game-card h-100">
             <div className='img-container'>
-              <Card.Img variant='top' src={placeholderImage} className='placeholder-div' />
+              <Card.Img variant='top' src={placeholderImage} className='placeholder-div fadingEffect' />
             </div>
-            <Card.Body className='d-flex flex-column justify-content-center'>
+            <Card.Body className='d-flex flex-column justify-content-center placeholder-card-body'>
               <div className='collect-remove' >
               </div>
               <Card.Text>
-                <img src={placeholderText} className='placeholder-div'></img>
+                <img src={placeholderText} className='placeholder-div-text fadingEffect mb-2'></img>
+                <img src={placeholderText} className='placeholder-div-text fadingEffect'></img>
               </Card.Text>
             </Card.Body>
           </Card>

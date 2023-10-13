@@ -239,7 +239,7 @@ export default function GameCards({ allGames, user, getUserData, games, allCateg
           allGames.length > 0 ?
             <h2>- Sorry, no matches for your query -</h2>
             :
-            <Row className={collectionMode ? 'game-card-display-collection' : 'game-card-display'}>
+            <Row className={collectionMode ? 'game-card-display-collection  card-col-placeholder' : 'game-card-display card-col-placeholder'}>
               <PlaceholderCards number={itemsPerPage} />
             </Row>
         // <h2>Loading...</h2>

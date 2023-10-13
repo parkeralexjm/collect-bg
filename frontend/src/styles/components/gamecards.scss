@@ -139,8 +139,25 @@ ul.react-paginate li.disabled a {
   }
 }
 
+.card-col-placeholder:first-of-type {
+  margin-top: 50px; // Make this bigger if needed
+}
+
 .placeholder-div {
-  box-shadow: 0 0 5px 10px #8B94AC;
+  opacity: 0.8;
+  animation: fade 2s infinite;
+  border-radius: $border-radius !important;
+  object-fit: none !important;
+}
+
+.placeholder-card-body {
+  padding: 0 !important;
+}
+
+.placeholder-div-text {
+  height: 20px;
+  opacity: 0.8;
+  animation: fade 2s infinite;
 }
 
 @include media-breakpoint-up(md) {
@@ -196,5 +213,19 @@ ul.react-paginate li.disabled a {
 @include media-breakpoint-up(xxl) {
   .img-container {
     max-height: 70%;
+  }
+}
+
+// Animations
+
+@keyframes fade {
+
+  0%,
+  100% {
+    opacity: 0.8
+  }
+
+  50% {
+    opacity: 0.3
   }
 }
