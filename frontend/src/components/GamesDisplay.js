@@ -101,6 +101,7 @@ export default function GamesDisplay() {
   useEffect(() => {
     getAllUserData()
     getUserData()
+    getMessageData()
     getMechanicsData()
     getCategoriesData()
     getGamesData()

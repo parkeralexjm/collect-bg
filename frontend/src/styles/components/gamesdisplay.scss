@@ -92,10 +92,15 @@
   .top-games-rank {
     display: inline-block;
     text-align: center;
-    width: 35px;
-    height: 35px;
-    margin-left: 3px;
-    padding: 3px 6px;
+    width: 25px;
+    height: 25px;
+    margin: 0 5px;
+    padding: 0;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
   }
 }
 

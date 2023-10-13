@@ -53,17 +53,13 @@ ul.react-paginate li.disabled a {
 
 .card-col {
   height: 300px;
-  position: relative;
+
 }
 
 .collect {
   background-color: $danger;
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
-  position: absolute;
-  right: 10px;
-  top: 5px;
+  width: 100;
+  bottom: 0;
   z-index: 4;
   display: flex;
   align-items: center;
@@ -79,6 +75,7 @@ ul.react-paginate li.disabled a {
 
   .img-container {
     max-height: 68%;
+    position: relative;
 
     img {
       height: 100%;
