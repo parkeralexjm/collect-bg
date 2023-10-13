@@ -28,7 +28,7 @@ export default function Profile({ user, activateCollectionMode, setCollectionUse
       </Dropdown>
       <div>
         <div className='profile-info'>
-          <img className='chat-profile-image' src={user.image} alt="profile-picture" />
+          <h5>Welcome back!</h5>
           <h4>{user.username}</h4>
         </div>
         {/* <div>

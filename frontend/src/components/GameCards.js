@@ -190,18 +190,18 @@ export default function GameCards({ allGames, user, getUserData, games, allCateg
                       <Card className="text-center game-card h-100" onClick={() => handleShow(game)}>
                         <div className='img-container'>
                           <Card.Img variant='top' src={game.image} />
-                          {
-                            found ?
-                              <div className='collect' onClick={() => handleCollect(game, 'remove')}>
-                                <i className="fa-solid fa-minus collect-minus" style={{ color: '#ffffff' }}></i>
-                              </div>
-                              :
-                              <div className='collect' onClick={() => handleCollect(game, 'add')}>
-                                <i className="fa-solid fa-plus collect-plus" style={{ color: '#ffffff' }}></i>
-                              </div>
-                          }
                         </div>
                         <Card.Body className='d-flex flex-column justify-content-center'>
+                          {
+                            found ?
+                              <div className='collect-remove' onClick={() => handleCollect(game, 'remove')}>
+                                Remove
+                              </div>
+                              :
+                              <div className='collect-add' onClick={() => handleCollect(game, 'add')}>
+                                Add
+                              </div>
+                          }
                           <Card.Text>
                             {game.name}
                           </Card.Text>

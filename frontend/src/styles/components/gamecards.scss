@@ -56,18 +56,27 @@ ul.react-paginate li.disabled a {
 
 }
 
-.collect {
-  background-color: $danger;
-  width: 100;
-  bottom: 0;
+.collect-remove,
+.collect-add {
+  font-size: 0.75rem;
+  width: 100%;
+  top: -5px;
+  left: 0;
+  position: absolute;
   z-index: 4;
   display: flex;
   align-items: center;
   justify-content: center;
-
-  .collect-plus,
-  .collect-minus {}
 }
+
+.collect-add {
+  background-color: $teal;
+}
+
+.collect-remove {
+  background-color: $danger;
+}
+
 
 .game-card {
   background-color: $secondary;
@@ -75,7 +84,7 @@ ul.react-paginate li.disabled a {
 
   .img-container {
     max-height: 68%;
-    position: relative;
+
 
     img {
       height: 100%;
@@ -88,6 +97,7 @@ ul.react-paginate li.disabled a {
     background-color: $primary;
     margin-top: 5px;
     border-radius: $border-radius;
+    position: relative;
 
     p {
       overflow: hidden;
@@ -114,6 +124,8 @@ ul.react-paginate li.disabled a {
   }
 
   .game-card {
+
+
     .img-container {
       height: 70%;
 
@@ -125,6 +137,7 @@ ul.react-paginate li.disabled a {
 
     .card-body {
       height: 30%;
+      padding: 13px 5px 5px 5px;
 
       p {
         overflow: hidden;

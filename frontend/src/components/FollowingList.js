@@ -58,7 +58,7 @@ export default function FollowingList({ user, setCollectionUser, activateCollect
         <Form onSubmit={handleSubmit}>
           <Form.Control as='select' value={follow.id} onChange={handleChange} aria-label='Default select '>
             <option selected>- Username -</option>
-            {allUsers.map(({ username, id }, index) => {
+            {allUsers.filter((current) => current.username !== user.username).map(({ username, id }, index) => {
               const found = user.following.some(el => el.username === username)
               return !found && <option value={id} key={index} >{username}</option>
             })}
