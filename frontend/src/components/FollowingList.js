@@ -11,14 +11,12 @@ export default function FollowingList({ user, setCollectionUser, activateCollect
   const [follow, setFollow] = useState({ id: 0, type: 'add' })
   const [userKey, setUserKey] = useState(0)
   const options = [
-    allUsers.map((user) => {
+    allUsers && allUsers.map((user) => {
       return (
         { value: user.username, label: user.username.charAt(0).toUpperCase() + user.username.slice(1) }
       )
     })
   ]
-  console.log(options)
-
 
   function handleChange(e) {
     console.log(typeof (e.target.value))
@@ -58,7 +56,7 @@ export default function FollowingList({ user, setCollectionUser, activateCollect
         <Form onSubmit={handleSubmit}>
           <Form.Control as='select' value={follow.id} onChange={handleChange} aria-label='Default select '>
             <option selected>- Username -</option>
-            {allUsers.filter((current) => current.username !== user.username).map(({ username, id }, index) => {
+            {allUsers.length > 0 && allUsers.filter((current) => current.username !== user.username).map(({ username, id }, index) => {
               const found = user.following.some(el => el.username === username)
               return !found && <option value={id} key={index} >{username}</option>
             })}
@@ -69,7 +67,8 @@ export default function FollowingList({ user, setCollectionUser, activateCollect
         </Form>
       </div>
       <div className='following-users'>
-        {user.following.map((user, index) => {
+        {console.log(user)}
+        {user.following && user.following.map((user, index) => {
           return <div key={index} className='following-collection'>
             <Button variant='warning' onClick={() => {
               setCollectionUser(user)

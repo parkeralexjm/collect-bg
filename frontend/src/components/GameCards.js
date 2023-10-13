@@ -64,15 +64,18 @@ export default function GameCards({ allGames, user, getUserData, games, allCateg
 
   useEffect(() => {
     const regex = new RegExp(filter.search, 'i')
-    const filteredArray = games.filter(game => {
-      return (
-        (regex.test(game.name)) &&
-        (game.categories.some(category => category.name === filter.category) || filter.category === 'All') &&
-        (game.mechanics.some(mechanic => mechanic.name === filter.mechanic) || filter.mechanic === 'All')
-      )
-    })
-    setFilteredGames(filteredArray)
-    setTotalPages(Math.ceil(filteredArray.length / itemsPerPage))
+    let filteredArray
+    if (games) {
+      filteredArray = games.filter(game => {
+        return (
+          (regex.test(game.name)) &&
+          (game.categories.some(category => category.name === filter.category) || filter.category === 'All') &&
+          (game.mechanics.some(mechanic => mechanic.name === filter.mechanic) || filter.mechanic === 'All')
+        )
+      })
+      setFilteredGames(filteredArray)
+      setTotalPages(Math.ceil(filteredArray.length / itemsPerPage))
+    }
     reassignItemsPerPage()
     subset = filteredGames.slice(startIndex, endIndex)
   }, [filter, games, itemsPerPage, newSearch])

@@ -9,6 +9,7 @@ import ChatMessage from './ChatMessage'
 import axiosAuth from '../lib/axios'
 // Generic Imports
 import { userId } from '../lib/auth'
+import PlaceholderMessages from './PlaceholderMessages'
 
 export default function ChatDesktop({ messageList, getMessageData }) {
   const [message, setMessage] = useState({
@@ -46,7 +47,8 @@ export default function ChatDesktop({ messageList, getMessageData }) {
                 )
               })
               :
-              <h3>Loading...</h3>
+              <PlaceholderMessages number={10} />
+            // <h3>Loading...</h3>
           }
         </div>
       </div>

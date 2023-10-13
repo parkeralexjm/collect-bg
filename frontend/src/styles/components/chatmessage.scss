@@ -39,6 +39,19 @@
   }
 }
 
+.placeholder-message-text {
+  opacity: 0.8;
+  animation: fade 2s infinite;
+  height: 15px;
+  width: 100%;
+  background-color: grey;
+  border-radius: 25px;
+
+  &:last-of-type {
+    margin-top: 10px;
+  }
+}
+
 @media only screen and (min-width: $md) {
   .message-author {
     width: 12vw;
