@@ -26,13 +26,10 @@ export default function Profile({ user, activateCollectionMode, setCollectionUse
           <Dropdown.Item onClick={handleLogout}>Log Out</Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>
-      <div>
-        <div className='profile-info'>
-          <h5>Welcome back!</h5>
-          <h4>{user.username}</h4>
-        </div>
-        {/* <div>
-        </div> */}
+
+      <div className='profile-info'>
+        <h5>Welcome back!</h5>
+        <h4>{user.username}</h4>
       </div>
       <Button className='collection-button' variant='outline-danger' onClick={() => {
         setCollectionUser(user)

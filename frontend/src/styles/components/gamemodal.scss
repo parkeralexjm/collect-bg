@@ -32,6 +32,30 @@
 }
 
 .detail-description {
+  max-height: 33vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    width: 4px;
+    /* width of the entire scrollbar */
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+    /* color of the tracking area */
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $warning;
+    /* color of the scroll thumb */
+    border-radius: 0 5px 5px 0;
+    /* roundness of the scroll thumb */
+    border: 0;
+    /* creates padding around scroll thumb */
+    margin-right: 4px;
+  }
+
   p {
     color: white;
     font-weight: 300;
@@ -56,5 +80,11 @@
 
   &:hover {
     color: $danger !important;
+  }
+}
+
+@media only screen and (min-width: $md) {
+  .detail-description {
+    max-height: 50vh;
   }
 }

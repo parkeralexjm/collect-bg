@@ -55,7 +55,7 @@ export default function LandingModal({ handleClose, formType, setFormType, setIs
   return (
     <>
       <Form onSubmit={handleSubmit} noValidate validated={validated}>
-        <Modal.Header closeButton>
+        <Modal.Header closeVariant='white' closeButton>
           <Modal.Title>{formType.title}</Modal.Title>
         </Modal.Header>
         <Modal.Body>

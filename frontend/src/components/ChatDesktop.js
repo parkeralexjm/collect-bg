@@ -55,7 +55,7 @@ export default function ChatDesktop({ messageList, getMessageData }) {
           <Form.Group controlId="message-context">
             <Form.Control as="textarea" rows={4} name='content' value={message.content} onChange={handleChange} placeholder="Type your message..." />
           </Form.Group>
-          <Button variant='' type='submit'><i className="fa-regular fa-paper-plane"></i></Button>
+          <Button variant='' type='submit'><i className="fa-regular fa-paper-plane" style={{ color: '#fff' }}></i></Button>
         </Form>
 
       </div>

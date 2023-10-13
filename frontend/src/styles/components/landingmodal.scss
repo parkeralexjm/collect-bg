@@ -1,13 +1,21 @@
 .login-modal {
   .modal-content {
     background-color: $secondary;
-    border-radius: 8px;
+    border-radius: $border-radius;
+    padding: 10px;
 
     .modal-header {
-      background-color: $danger;
+      text-align: center;
       color: white;
-      border-bottom: 1px solid $primary;
-      border-radius: 8px 8px 0 0;
+      border-bottom: 1px solid $teal;
+      border-radius: $border-radius $border-radius 0 0;
+    }
+
+    .form-label {
+      color: white;
+      font-weight: 200;
+      margin-bottom: 0;
+      margin-top: 0.5rem;
     }
 
     .modal-body {
@@ -15,12 +23,22 @@
 
       .form-control {
         background-color: $secondary;
-        border: 2px solid $primary;
+        border: 0px solid $primary;
+        border-radius: 0;
+        border-bottom: 3px solid $teal;
+        color: white;
+        padding-top: 0;
+
+        &:focus {
+          box-shadow: none;
+          border-bottom: 3px solid $warning;
+          background-color: $secondary;
+        }
       }
     }
 
     .modal-footer {
-      border-top: 1px solid $primary;
+      border-top: none;
     }
   }
 }

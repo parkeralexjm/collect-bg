@@ -63,7 +63,9 @@ export default function FollowingList({ user, setCollectionUser, activateCollect
               return !found && <option value={id} key={index} >{username}</option>
             })}
           </Form.Control >
-          <Button type='submit' variant='secondary' onClick={() => setUserKey(userKey => userKey + 1)}>Follow user</Button>
+          <Button type='submit' variant='info' onClick={() => setUserKey(userKey => userKey + 1)}>
+            <i className="fa-solid fa-plus fa-lg"></i>
+          </Button>
         </Form>
       </div>
       <div className='following-users'>

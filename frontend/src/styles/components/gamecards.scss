@@ -1,9 +1,35 @@
 .center-cards {
   padding-top: $edge-padding;
+
+  h2 {
+    color: white;
+    font-weight: 200;
+    text-align: center;
+  }
 }
 
 .search-input {
   margin-bottom: $edge-padding;
+}
+
+.game-card-search {
+  .form-control {
+    font-weight: 300;
+    background-color: $secondary;
+    border: 0px solid $primary;
+    border-radius: 0;
+    border-bottom: 3px solid $teal;
+    color: white;
+    padding-top: 0;
+
+    &::placeholder {
+      color: white;
+    }
+
+    &:focus {
+      box-shadow: none;
+    }
+  }
 }
 
 .pagination {
@@ -19,6 +45,7 @@ ul.react-paginate {
   user-select: none;
   padding-left: 0px;
   color: white;
+  font-weight: 200;
 }
 
 ul.react-paginate li a {
@@ -69,6 +96,8 @@ ul.react-paginate li.disabled a {
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 4px 4px 0 0;
+  cursor: pointer;
 }
 
 .collect-add {
@@ -83,9 +112,10 @@ ul.react-paginate li.disabled a {
 .game-card {
   background-color: $secondary;
   border: none;
+  cursor: pointer;
 
   .img-container {
-    max-height: 68%;
+    min-height: 68%;
 
 
     img {
@@ -104,11 +134,22 @@ ul.react-paginate li.disabled a {
     p {
       overflow: hidden;
       color: white;
+      font-weight: 300;
     }
   }
 }
 
+.placeholder-div {
+  box-shadow: 0 0 5px 10px #8B94AC;
+}
+
 @include media-breakpoint-up(md) {
+  .game-card {
+    .img-container {
+      max-height: 68%;
+    }
+  }
+
   .game-card-display-collection {
     height: calc(100vh - 214px);
 

@@ -54,6 +54,7 @@
 .following-display {
   height: calc((var(--vh, 1vh) * 100) - 125px);
   padding-top: 10px;
+  flex-direction: column;
 }
 
 
@@ -63,6 +64,18 @@
   form {
     position: relative;
 
+    textarea {
+      border: 2px solid $danger;
+      background-color: $primary;
+      color: white;
+      font-weight: 300;
+
+      &::placeholder {
+        color: white;
+        font-weight: 300;
+      }
+    }
+
     button {
       position: absolute;
       right: 0;
@@ -71,10 +84,24 @@
   }
 }
 
-.following-display {
-  flex-direction: column;
-}
+.following-form {
+  form {
+    display: flex;
 
+    .form-control {
+      flex: 1;
+      margin-right: 5px;
+    }
+
+    button {
+      width: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+    }
+  }
+}
 
 @media only screen and (min-width: $md) {
 

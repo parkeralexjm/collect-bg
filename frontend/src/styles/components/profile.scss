@@ -41,6 +41,7 @@
 
     h5 {
       color: white;
+      font-weight: 300;
     }
 
     h4 {
@@ -48,8 +49,39 @@
       overflow: hidden;
       color: white;
       font-weight: 200;
+      max-width: 240px;
     }
 
 
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .profile {
+    .profile-info {
+      h4 {
+        max-width: 150px;
+      }
+
+      h5 {
+        font-size: 1rem;
+      }
+    }
+
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .profile {
+    .profile-info {
+      h4 {
+        max-width: 200px;
+      }
+
+      h5 {
+        font-size: 1.5rem;
+      }
+
+    }
   }
 }

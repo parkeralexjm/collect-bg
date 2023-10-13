@@ -12,7 +12,7 @@ import { useDebouncedCallback } from 'use-debounce'
 import debounce from 'debounce'
 import GameModal from './GameModal'
 import axiosAuth from '../lib/axios'
-
+import PlaceholderCards from './PlaceholderCards'
 
 export default function GameCards({ allGames, user, getUserData, games, allCategories, allMechanics, collectionMode = false }) {
   const [filter, setFilter] = useState({
@@ -132,6 +132,11 @@ export default function GameCards({ allGames, user, getUserData, games, allCateg
     patchCollection()
   }
 
+  function topFunction() {
+    document.body.scrollTop = 0 // For Safari
+    document.documentElement.scrollTop = 0 // For Chrome, Firefox, IE and Opera
+  }
+
   // Pagination 
   let startIndex = currentPage * itemsPerPage
   let endIndex = startIndex + itemsPerPage
@@ -187,8 +192,8 @@ export default function GameCards({ allGames, user, getUserData, games, allCateg
                   const found = user.collection.some(el => el.id === game.id)
                   return (
                     <Col key={index} xs={6} sm={4} md={3} xxl={2} className='px-2 pb-4 card-col' >
-                      <Card className="text-center game-card h-100" onClick={() => handleShow(game)}>
-                        <div className='img-container'>
+                      <Card className="text-center game-card h-100">
+                        <div className='img-container' onClick={() => handleShow(game)}>
                           <Card.Img variant='top' src={game.image} />
                         </div>
                         <Card.Body className='d-flex flex-column justify-content-center'>
@@ -202,7 +207,7 @@ export default function GameCards({ allGames, user, getUserData, games, allCateg
                                 Add
                               </div>
                           }
-                          <Card.Text>
+                          <Card.Text onClick={() => handleShow(game)}>
                             {game.name}
                           </Card.Text>
                         </Card.Body>
@@ -222,6 +227,7 @@ export default function GameCards({ allGames, user, getUserData, games, allCateg
                 forcePage={currentPage}
                 pageRangeDisplayed={3}
                 marginPagesDisplayed={1}
+                onClick={topFunction}
               />
             </div>
             {
@@ -231,9 +237,14 @@ export default function GameCards({ allGames, user, getUserData, games, allCateg
           </>
           :
           allGames.length > 0 ?
-            <h2>No Games Found</h2>
+            <h2>- Sorry, no matches for your query -</h2>
             :
-            <h2>Loading...</h2>
+            <Row className={collectionMode ? 'game-card-display-collection' : 'game-card-display'}>
+              <PlaceholderCards number={itemsPerPage} />
+            </Row>
+        // <h2>Loading...</h2>
+        // Placeholder cards
+
       }
 
     </Container >

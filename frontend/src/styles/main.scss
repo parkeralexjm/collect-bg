@@ -4,12 +4,14 @@ $primary: $navy;
 $navy-light: #1b4358;
 $secondary: $navy-light;
 $teal: #3CDBC0;
+$info: $teal;
 $grey: #D8ECEA;
 $yellow: #F1BE48;
+$warning: $yellow ;
 $red: #E03C31;
 $spacer: 0.5rem;
-$border-radius: 0.2rem;
-$border-radius-lg: .2rem;
+$border-radius: 5px;
+$border-radius-lg: 10px;
 $border-radius-sm: .15rem;
 $edge-padding: 10px;
 $inside-edge-padding: 5px;
@@ -58,6 +60,10 @@ body,
 
 a {
   text-decoration: none !important;
+}
+
+.modal-open {
+  padding-right: 0px !important;
 }
 
 @media only screen and (min-width: $md) {

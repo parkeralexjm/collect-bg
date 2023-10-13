@@ -3,8 +3,8 @@ footer {
 }
 
 .landing-footer {
-  background-color: $teal;
-  border-radius: 0.5rem;
+  background-color: $secondary;
+  border-radius: $border-radius;
   padding: $edge-padding;
 }
 
@@ -19,10 +19,11 @@ footer {
   h5 {
     color: white;
     font-size: 0.8rem;
+    margin-left: 5px;
   }
 
   i {
-    color: $teal;
+    color: $primary;
     margin-right: 0.5rem;
   }
 
