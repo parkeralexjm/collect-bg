@@ -73,7 +73,7 @@ export default function GamesDisplay() {
   }
   async function getUserData() {
     try {
-      const { data } = await axiosAuth.get(`/api/auth/user/${userId('collect-refresh-token')}`)
+      const { data } = await axiosAuth.get(`/api/auth/user/${userId('collect-refresh-token')}/`)
       setUser(data)
     } catch (error) {
       console.log(error)
@@ -81,7 +81,7 @@ export default function GamesDisplay() {
   }
   async function getMessageData() {
     try {
-      const { data } = await axiosAuth.get('/api/chatmessage')
+      const { data } = await axiosAuth.get('/api/chatmessage/')
       setMessageList(data)
     } catch (error) {
       console.log(error)
@@ -89,7 +89,7 @@ export default function GamesDisplay() {
   }
   async function getAllUserData() {
     try {
-      const { data } = await axiosAuth.get('/api/auth/users')
+      const { data } = await axiosAuth.get('/api/auth/users/')
       setAllUsers(data)
     } catch (error) {
       console.log(error)
