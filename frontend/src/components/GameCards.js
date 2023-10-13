@@ -35,6 +35,8 @@ export default function GameCards({ allGames, user, getUserData, games, allCateg
     setNewSearch(value)
     const newFilteredState = { ...filter, search: value }
     setFilter(newFilteredState)
+    const selectedPage = { selected: 0 }
+    handlePageChange(selectedPage)
   }, 500)
 
   function resetFilters() {

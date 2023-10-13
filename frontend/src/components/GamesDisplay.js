@@ -133,6 +133,7 @@ export default function GamesDisplay() {
               <img className='logo' src={logo} alt="collect-dot-bg-logo" />
             </Link>
             <div className='top-games-container'>
+              <h2>Top 10 trending games</h2>
               {topGames.map((game, index) => {
                 return (
                   <Link to={'https://boardgamegeek.com/boardgame/' + game.attributes.id} key={index}>

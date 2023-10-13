@@ -35,6 +35,14 @@
   display: flex;
   overflow-x: hidden;
   overflow-y: scroll;
+
+  &::-webkit-scrollbar-track {
+    background: $secondary;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border: 3px solid $secondary;
+  }
 }
 
 .chat {
@@ -62,8 +70,6 @@
     }
   }
 }
-
-.chat {}
 
 .following-display {
   flex-direction: column;
@@ -94,7 +100,7 @@
   }
 
   .chat {
-    height: calc(100vh - 350px);
+    height: calc(100vh - 356px);
   }
 
   .following-display {

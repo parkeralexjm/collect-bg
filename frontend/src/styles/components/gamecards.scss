@@ -74,8 +74,11 @@ ul.react-paginate li.disabled a {
 }
 
 .game-card {
+  background-color: $secondary;
+  border: none;
+
   .img-container {
-    max-height: 80%;
+    max-height: 68%;
 
     img {
       height: 100%;
@@ -84,10 +87,14 @@ ul.react-paginate li.disabled a {
   }
 
   .card-body {
-    height: 30%;
+    min-height: 30%;
+    background-color: $primary;
+    margin-top: 5px;
+    border-radius: $border-radius;
 
     p {
       overflow: hidden;
+      color: white;
     }
   }
 }
