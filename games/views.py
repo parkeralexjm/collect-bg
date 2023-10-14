@@ -20,6 +20,9 @@ from .serializers.populated import PopulatedGameSerializer
 # Rest Framework
 from rest_framework.response import Response
 
+# Paginations
+from .paginations import CustomPagination
+
 # Generic view setting the queryset and serializer
 
 
@@ -32,6 +35,7 @@ class GameView(GenericAPIView):
 class GameListView(GameView, ListCreateAPIView):
     # Change this to Is Authenticated after development
     permission_classes = [IsAuthenticatedOrReadOnly]
+    pagination_class = CustomPagination
 
 
 # Detail view for Game
