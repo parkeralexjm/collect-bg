@@ -19,8 +19,8 @@ import GameCarousel from './Carousel'
 export default function GameCards({ user, getUserData, collectionMode = false }) {
   const [filter, setFilter] = useState({
     search: '',
-    category: 'All',
-    mechanic: 'All',
+    category: '',
+    mechanic: '',
   })
   const [allGames, setAllGames] = useState([])
   const [filteredGames, setFilteredGames] = useState([])
@@ -29,7 +29,6 @@ export default function GameCards({ user, getUserData, collectionMode = false })
   const [newMechanic, setNewMechanic] = useState('')
   const [currentPage, setCurrentPage] = useState(0)
   const [totalPages, setTotalPages] = useState(0)
-  const [itemsPerPage, setItemsPerPage] = useState(8)
   const [show, setShow] = useState(false)
   const [detail, setDetail] = useState({})
   const [allCategories, setAllCategories] = useState([])
@@ -46,10 +45,23 @@ export default function GameCards({ user, getUserData, collectionMode = false })
 
   async function getGamesData(pagination = '') {
     try {
-      const { data } = await axiosAuth.get(`/api/games/${pagination}`) // This is authorised route for testing.
+      let category = ''
+      let mechanic = ''
+      let search = ''
+      if (filter.category !== '') {
+        category = `&categories=${filter.category}`
+      }
+      if (filter.mechanic !== '') {
+        mechanic = `&mechanics=${filter.mechanic}`
+      }
+      if (filter.search !== '') {
+        search = `&name=${filter.search}`
+      }
+
+      const { data } = await axiosAuth.get(`/api/games/?${pagination}${category}${mechanic}${search}&p=${currentPage + 1}`) // This is authorised route for testing.
       // const { data } = await axios.get('/api/games/') // This is unauthorised for testing
       setAllGames(data.results)
-      setTotalPages(Math.ceil(data.count / itemsPerPage))
+      setTotalPages(Math.ceil(data.count / 8))
     } catch (error) {
       console.log(error)
     }
@@ -83,28 +95,20 @@ export default function GameCards({ user, getUserData, collectionMode = false })
     setNewMechanic('')
     setFilter({
       search: '',
-      category: 'All',
-      mechanic: 'All',
+      category: '',
+      mechanic: '',
     })
   }
 
+  useEffect(() => {
+    getGamesData()
+  }, [filter, currentPage])
+
 
   useEffect(() => {
-    const regex = new RegExp(filter.search, 'i')
-    let filteredArray
-    if (allGames.length > 0) {
-      filteredArray = allGames.filter(game => {
-        return (
-          (regex.test(game.name)) &&
-          (game.categories.some(category => category.name === filter.category) || filter.category === 'All') &&
-          (game.mechanics.some(mechanic => mechanic.name === filter.mechanic) || filter.mechanic === 'All')
-        )
-      })
-      setFilteredGames(filteredArray)
-
-    }
+    setFilteredGames(allGames)
     subset = filteredGames.slice(startIndex, endIndex)
-  }, [filter, allGames, itemsPerPage, newSearch])
+  }, [allGames])
 
   function handleChange(e) {
     const newFilteredState = { ...filter, [e.target.name]: e.target.value }
@@ -116,6 +120,7 @@ export default function GameCards({ user, getUserData, collectionMode = false })
     } else if (e.target.name === 'mechanic') {
       setNewMechanic(e.target.value)
     }
+    setCurrentPage(0)
   }
 
   function handleSubmit(e) {
@@ -124,7 +129,6 @@ export default function GameCards({ user, getUserData, collectionMode = false })
 
   const handlePageChange = (selectedPage) => {
     setCurrentPage(selectedPage.selected)
-    getGamesData(`?p=${selectedPage.selected + 1}`)
   }
 
   // window.onresize = debounce(resize, 200)
@@ -185,9 +189,9 @@ export default function GameCards({ user, getUserData, collectionMode = false })
           <Col xs={6} md={4}>
             <Form.Label label='Category'>
               <Form.Control as='select' name="category" value={newCategory} onChange={handleChange} aria-label="Floating label select" >
-                <option value='All'>- Category -</option>
-                {allCategories.map(({ name }, index) => {
-                  return (<option key={index} value={name}>{name}</option>)
+                <option value=''>- Category -</option>
+                {allCategories.map(({ name, id }, index) => {
+                  return (<option key={index} value={id}>{name}</option>)
                 })}
               </Form.Control>
             </Form.Label>
@@ -195,9 +199,9 @@ export default function GameCards({ user, getUserData, collectionMode = false })
           <Col xs={6} md={4}>
             <Form.Label label='Mechanic'>
               <Form.Control as='select' name="mechanic" value={newMechanic} onChange={handleChange} aria-label="Floating label select" >
-                <option value='All'>- Mechanic -</option>
-                {allMechanics.map(({ name }, index) => {
-                  return (<option key={index} value={name}>{name}</option>)
+                <option value=''>- Mechanic -</option>
+                {allMechanics.map(({ name, id }, index) => {
+                  return (<option key={index} value={id}>{name}</option>)
                 })}
               </Form.Control>
             </Form.Label>
@@ -276,7 +280,7 @@ export default function GameCards({ user, getUserData, collectionMode = false })
               <h2>- Sorry, no matches for your query -</h2>
               :
               <Row className={collectionMode ? 'game-card-display-collection  card-col-placeholder' : 'game-card-display card-col-placeholder'}>
-                <PlaceholderCards number={itemsPerPage} />
+                <PlaceholderCards number={8} />
               </Row>
           // <h2>Loading...</h2>
           // Placeholder cards
