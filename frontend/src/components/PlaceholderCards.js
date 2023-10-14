@@ -11,7 +11,7 @@ export default function PlaceholderCards({ number }) {
   return (
     placeholderData.map((data) => {
       return (
-        <Col key={data} xs={6} sm={4} md={3} xxl={2} className='px-2 pb-4 card-col' >
+        <Col key={data} xs={6} md={3} className='px-2 pb-4 card-col' >
           <Card className="text-center game-card h-100">
             <div className='img-container'>
               <Card.Img variant='top' src={placeholderImage} className='placeholder-div fadingEffect' />

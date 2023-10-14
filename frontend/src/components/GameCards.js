@@ -13,8 +13,11 @@ import debounce from 'debounce'
 import GameModal from './GameModal'
 import axiosAuth from '../lib/axios'
 import PlaceholderCards from './PlaceholderCards'
+import axios from 'axios'
 
-export default function GameCards({ allGames, user, getUserData, games, allCategories, allMechanics, collectionMode = false }) {
+export default function GameCards({ allGames, user, getUserData, games, collectionMode = false }) {
+  console.log(user)
+
   const [filter, setFilter] = useState({
     search: '',
     category: 'All',
@@ -26,9 +29,11 @@ export default function GameCards({ allGames, user, getUserData, games, allCateg
   const [filteredGames, setFilteredGames] = useState([])
   const [currentPage, setCurrentPage] = useState(0)
   const [totalPages, setTotalPages] = useState(0)
-  const [itemsPerPage, setItemsPerPage] = useState(12)
+  const [itemsPerPage, setItemsPerPage] = useState(8)
   const [show, setShow] = useState(false)
   const [detail, setDetail] = useState({})
+  const [allCategories, setAllCategories] = useState([])
+  const [allMechanics, setAllMechanics] = useState([])
 
   //  This function debounces the search so that the cards do not 'jump' around with user inputs
   const debounced = useDebouncedCallback((value) => {
@@ -38,6 +43,28 @@ export default function GameCards({ allGames, user, getUserData, games, allCateg
     const selectedPage = { selected: 0 }
     handlePageChange(selectedPage)
   }, 500)
+
+  async function getCategoriesData() {
+    try {
+      const { data } = await axios.get('/api/categories/') // This is unauthorised for testing
+      setAllCategories(data.sort((a, b) => a.name.localeCompare(b.name)))
+    } catch (error) {
+      console.log(error)
+    }
+  }
+  async function getMechanicsData() {
+    try {
+      const { data } = await axios.get('/api/mechanics/') // This is unauthorised for testing
+      setAllMechanics(data.sort((a, b) => a.name.localeCompare(b.name)))
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  useEffect(() => {
+    getMechanicsData()
+    getCategoriesData()
+  }, [])
 
   function resetFilters() {
     setNewSearch('')
@@ -50,17 +77,6 @@ export default function GameCards({ allGames, user, getUserData, games, allCateg
     })
   }
 
-  function reassignItemsPerPage() {
-    if (window.innerWidth >= 1400) {
-      collectionMode ? setItemsPerPage(18) : setItemsPerPage(12)
-    } else if (window.innerWidth < 1400 && window.innerWidth >= 768) {
-      collectionMode ? setItemsPerPage(12) : setItemsPerPage(8)
-    } else if (window.innerWidth < 768 && window.innerWidth >= 567) {
-      collectionMode ? setItemsPerPage(24) : setItemsPerPage(6)
-    }
-    startIndex = currentPage * itemsPerPage
-    endIndex = startIndex + itemsPerPage
-  }
 
   useEffect(() => {
     const regex = new RegExp(filter.search, 'i')
@@ -76,7 +92,6 @@ export default function GameCards({ allGames, user, getUserData, games, allCateg
       setFilteredGames(filteredArray)
       setTotalPages(Math.ceil(filteredArray.length / itemsPerPage))
     }
-    reassignItemsPerPage()
     subset = filteredGames.slice(startIndex, endIndex)
   }, [filter, games, itemsPerPage, newSearch])
 
@@ -90,7 +105,6 @@ export default function GameCards({ allGames, user, getUserData, games, allCateg
     } else if (e.target.name === 'mechanic') {
       setNewMechanic(e.target.value)
     }
-    reassignItemsPerPage()
   }
 
   function handleSubmit(e) {
@@ -98,7 +112,6 @@ export default function GameCards({ allGames, user, getUserData, games, allCateg
   }
 
   const handlePageChange = (selectedPage) => {
-    reassignItemsPerPage()
     setCurrentPage(selectedPage.selected)
   }
 
@@ -141,8 +154,8 @@ export default function GameCards({ allGames, user, getUserData, games, allCateg
   }
 
   // Pagination 
-  let startIndex = currentPage * itemsPerPage
-  let endIndex = startIndex + itemsPerPage
+  const startIndex = currentPage * itemsPerPage
+  const endIndex = startIndex + itemsPerPage
   let subset = filteredGames.slice(startIndex, endIndex)
   // const subset = filteredGames.slice(startIndex, endIndex)
 
@@ -192,9 +205,13 @@ export default function GameCards({ allGames, user, getUserData, games, allCateg
             <Row className={collectionMode ? 'game-card-display-collection' : 'game-card-display'} >
               {
                 subset.map((game, index) => {
-                  const found = user.collection.some(el => el.id === game.id)
+                  let found
+                  if (user.collection) {
+                    found = user.collection.some(el => el.id === game.id)
+                  }
+
                   return (
-                    <Col key={index} xs={6} sm={4} md={3} xxl={2} className='px-2 pb-4 card-col' >
+                    <Col key={index} xs={6} md={3} className='px-2 pb-4 card-col' >
                       <Card className="text-center game-card h-100">
                         <div className='img-container' onClick={() => handleShow(game)}>
                           <Card.Img variant='top' src={game.image} />

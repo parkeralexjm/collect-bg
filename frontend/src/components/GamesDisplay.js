@@ -24,14 +24,11 @@ import Button from 'react-bootstrap/esm/Button'
 export default function GamesDisplay() {
   const [allGames, setAllGames] = useState([])
   const [topGames, setTopGames] = useState([])
-  const [allCategories, setAllCategories] = useState([])
-  const [allMechanics, setAllMechanics] = useState([])
+
   const [user, setUser] = useState({})
   const [collectionUser, setCollectionUser] = useState({})
   const [messageList, setMessageList] = useState([])
   const [collectionMode, setCollectionMode] = useState(false)
-  const [loadingGames, setLoadingGames] = useState(false)
-  const [gamesProgress, setGamesProgress] = useState(0)
   const [allUsers, setAllUsers] = useState([])
   const [show, setShow] = useState(false)
   let messageRefresh
@@ -39,30 +36,15 @@ export default function GamesDisplay() {
 
   async function getGamesData() {
     try {
-      setLoadingGames(true)
       const { data } = await axiosAuth.get('/api/games/') // This is authorised route for testing.
       // const { data } = await axios.get('/api/games/') // This is unauthorised for testing
-      setAllGames(data)
+      console.log(data)
+      setAllGames(data.results)
     } catch (error) {
       console.log(error)
     }
   }
-  async function getCategoriesData() {
-    try {
-      const { data } = await axios.get('/api/categories/') // This is unauthorised for testing
-      setAllCategories(data.sort((a, b) => a.name.localeCompare(b.name)))
-    } catch (error) {
-      console.log(error)
-    }
-  }
-  async function getMechanicsData() {
-    try {
-      const { data } = await axios.get('/api/mechanics/') // This is unauthorised for testing
-      setAllMechanics(data.sort((a, b) => a.name.localeCompare(b.name)))
-    } catch (error) {
-      console.log(error)
-    }
-  }
+
   async function getTopGamesData() {
     try {
       const { data } = await axios.get('https://boardgamegeek.com/xmlapi2/hot?type=boardgame&count=10') // This is unauthorised for testing
@@ -75,6 +57,7 @@ export default function GamesDisplay() {
   async function getUserData() {
     try {
       const { data } = await axiosAuth.get(`/api/auth/user/${userId('collect-refresh-token')}`)
+      console.log(data)
       setUser(data)
     } catch (error) {
       console.log(error)
@@ -102,8 +85,6 @@ export default function GamesDisplay() {
     getAllUserData()
     getUserData()
     getMessageData()
-    getMechanicsData()
-    getCategoriesData()
     getGamesData()
     getTopGamesData()
     // clearInterval(messageRefresh)
@@ -164,11 +145,11 @@ export default function GamesDisplay() {
             {
               !collectionMode ?
                 <>
-                  <GameCarousel gamesData={allGames.slice(0, 5)} />
-                  <GameCards allGames={allGames} user={user} getUserData={getUserData} games={allGames} allCategories={allCategories} allMechanics={allMechanics} />
+                  {allGames && <GameCarousel gamesData={allGames.slice(0, 5)} />}
+                  <GameCards allGames={allGames} user={user} getUserData={getUserData} games={allGames} />
                 </>
                 :
-                <UserCollection allGames={allGames} deactivateCollectionMode={deactivateCollectionMode} user={user} collectionUser={collectionUser} allCategories={allCategories} allMechanics={allMechanics} getUserData={getUserData} />
+                <UserCollection allGames={allGames} deactivateCollectionMode={deactivateCollectionMode} user={user} collectionUser={collectionUser} getUserData={getUserData} />
             }
           </Col>
           <Col xs={0} md={3} lg={3} className='right-col'>
