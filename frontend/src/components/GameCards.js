@@ -48,7 +48,6 @@ export default function GameCards({ user, getUserData, collectionMode = false })
     try {
       const { data } = await axiosAuth.get(`/api/games/${pagination}`) // This is authorised route for testing.
       // const { data } = await axios.get('/api/games/') // This is unauthorised for testing
-      console.log('games data', data)
       setAllGames(data.results)
       setTotalPages(Math.ceil(data.count / itemsPerPage))
     } catch (error) {

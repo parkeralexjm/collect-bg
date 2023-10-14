@@ -3,7 +3,7 @@ from rest_framework.generics import (
     RetrieveUpdateDestroyAPIView,
     UpdateAPIView,
     GenericAPIView,
-    ListCreateAPIView
+    ListAPIView
 )
 # from lib.views import UserListCreateAPIView
 
@@ -23,6 +23,10 @@ from rest_framework.response import Response
 # Paginations
 from .paginations import CustomPagination
 
+# Filter
+from .filters import GameFilter
+from django_filters import rest_framework as filters
+
 # Generic view setting the queryset and serializer
 
 
@@ -32,10 +36,12 @@ class GameView(GenericAPIView):
 
 
 # Endpoint for view: /Games
-class GameListView(GameView, ListCreateAPIView):
+class GameListView(GameView, ListAPIView):
     # Change this to Is Authenticated after development
     permission_classes = [IsAuthenticatedOrReadOnly]
     pagination_class = CustomPagination
+    filter_backends = (filters.DjangoFilterBackend,)
+    filterset_class = GameFilter
 
 
 # Detail view for Game
