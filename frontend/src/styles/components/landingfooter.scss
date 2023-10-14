@@ -5,12 +5,7 @@ footer {
 .landing-footer {
   background-color: $secondary;
   border-radius: $border-radius;
-  padding: $edge-padding;
-}
-
-.landing-footer-inner {
-  background-color: rgba($grey, 0.25);
-  padding: $edge-padding;
+  padding: 20px;
 
   .logo {
     width: 125px;

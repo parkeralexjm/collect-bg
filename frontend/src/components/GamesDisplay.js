@@ -22,7 +22,7 @@ import { userId } from '../lib/auth'
 import Button from 'react-bootstrap/esm/Button'
 
 export default function GamesDisplay() {
-  const [allGames, setAllGames] = useState([])
+
   const [topGames, setTopGames] = useState([])
 
   const [user, setUser] = useState({})
@@ -33,17 +33,6 @@ export default function GamesDisplay() {
   const [show, setShow] = useState(false)
   let messageRefresh
 
-
-  async function getGamesData() {
-    try {
-      const { data } = await axiosAuth.get('/api/games/') // This is authorised route for testing.
-      // const { data } = await axios.get('/api/games/') // This is unauthorised for testing
-      console.log(data)
-      setAllGames(data.results)
-    } catch (error) {
-      console.log(error)
-    }
-  }
 
   async function getTopGamesData() {
     try {
@@ -85,7 +74,6 @@ export default function GamesDisplay() {
     getAllUserData()
     getUserData()
     getMessageData()
-    getGamesData()
     getTopGamesData()
     // clearInterval(messageRefresh)
     // setInterval(() => {
@@ -145,11 +133,10 @@ export default function GamesDisplay() {
             {
               !collectionMode ?
                 <>
-                  {allGames && <GameCarousel gamesData={allGames.slice(0, 5)} />}
-                  <GameCards allGames={allGames} user={user} getUserData={getUserData} games={allGames} />
+                  <GameCards user={user} getUserData={getUserData} />
                 </>
                 :
-                <UserCollection allGames={allGames} deactivateCollectionMode={deactivateCollectionMode} user={user} collectionUser={collectionUser} getUserData={getUserData} />
+                <UserCollection deactivateCollectionMode={deactivateCollectionMode} user={user} collectionUser={collectionUser} getUserData={getUserData} />
             }
           </Col>
           <Col xs={0} md={3} lg={3} className='right-col'>

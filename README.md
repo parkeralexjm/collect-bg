@@ -15,3 +15,6 @@ https://eureka.ykyuen.info/2015/06/03/jquery-oppress-window-resize-in-when-scrol
 
 Card images stretching or resizing cards
 https://www.w3schools.com/css/css3_object-fit.asp#:~:text=object%2Dfit%20Property-,The%20CSS%20object%2Dfit%20property%20is%20used%20to%20specify%20how,as%20much%20space%20as%20possible%22.
+
+django-filter
+https://django-filter.readthedocs.io/en/stable/

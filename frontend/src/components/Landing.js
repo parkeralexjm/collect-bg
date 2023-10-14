@@ -23,20 +23,20 @@ export default function Landing() {
             </Col>
             <Col xs={10} md={10} className='d-flex justify-content-center'>
               <div className='info-box-1'>
-                <div className='landing-info-box'>
-                  <img src={folder} className='info-box-image'></img>
-                  <h3>Store and display your collection for others to follow</h3>
-                </div>
+                {/* <div className='landing-info-box'> */}
+                <img src={folder} className='info-box-image'></img>
+                <h3>Store and display your collection for others to follow</h3>
+                {/* </div> */}
               </div>
             </Col>
           </Row>
           <Row className='landing-info-row'>
             <Col xs={10} md={10} className='d-flex justify-content-center'>
               <div className='info-box-2'>
-                <div className='landing-info-box'>
-                  <h3>Follow and chat with other board game collectors</h3>
-                  <img src={chat} className='info-box-image'></img>
-                </div>
+                {/* <div className='landing-info-box'> */}
+                <h3>Follow and chat with other board game collectors</h3>
+                <img src={chat} className='info-box-image'></img>
+                {/* </div> */}
               </div>
             </Col>
             <Col xs={2} md={2}>
@@ -47,10 +47,10 @@ export default function Landing() {
             </Col>
             <Col xs={10} md={10} className='d-flex justify-content-center'>
               <div className='info-box-3'>
-                <div className='landing-info-box'>
-                  <img src={trophy} className='info-box-image'></img>
-                  <h3>Check out the hottest new games right now</h3>
-                </div>
+                {/* <div className='landing-info-box'> */}
+                <img src={trophy} className='info-box-image'></img>
+                <h3>Check out the hottest new games right now</h3>
+                {/* </div> */}
               </div>
             </Col>
           </Row>

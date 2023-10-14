@@ -65,10 +65,17 @@
     position: relative;
 
     textarea {
-      border: 2px solid $danger;
+      border: 2px solid $secondary;
       background-color: $primary;
       color: white;
       font-weight: 300;
+
+      &:focus {
+        border: 2px solid $danger;
+        background-color: $primary;
+        color: white;
+        font-weight: 300;
+      }
 
       &::placeholder {
         color: white;

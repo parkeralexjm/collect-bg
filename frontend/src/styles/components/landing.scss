@@ -28,8 +28,10 @@
   margin: 75px 0;
 }
 
-.landing-info-box {
-  background-color: rgba(#D8ECEA, 0.25);
+.landing-info-box,
+.info-box-1,
+.info-box-2,
+.info-box-3 {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -57,7 +59,7 @@
 }
 
 .info-box-1 {
-  background-color: $secondary;
+  background-color: $teal;
 
   .landing-info-box {
     border: 2px solid $teal;
@@ -65,7 +67,7 @@
 }
 
 .info-box-2 {
-  background-color: $secondary;
+  background-color: $warning;
 
   .landing-info-box {
     border: 2px solid $warning;
@@ -73,7 +75,7 @@
 }
 
 .info-box-3 {
-  background-color: $secondary;
+  background-color: $danger;
 
   .landing-info-box {
     border: 2px solid $danger;
@@ -92,7 +94,10 @@
     }
   }
 
-  .landing-info-box {
+  .landing-info-box,
+  .info-box-1,
+  .info-box-2,
+  .info-box-3 {
     h3 {
       font-size: 1.75rem;
     }
