@@ -1,6 +1,6 @@
 from rest_framework.generics import CreateAPIView, GenericAPIView, ListAPIView, RetrieveUpdateAPIView, UpdateAPIView
 from .serializers.common import RegistrationSerializer, AllUsersSerializer, UserSerializer
-from .serializers.populated import PopulatedUserSerializer
+from .serializers.populated import PopulatedUserSerializer, PopulatedUserCollectionSerializer
 from django.contrib.auth import get_user_model
 from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAuthenticated
 from rest_framework.response import Response
@@ -67,7 +67,8 @@ class UserFollowView(UserView, UpdateAPIView):
         return Response(status=201)
 
 
-class UserCollectionUpdateView(UserView, UpdateAPIView):
+class UserCollectionUpdateView(UserView, RetrieveUpdateAPIView):
+    serializer_class = PopulatedUserCollectionSerializer
     permission_classes = [IsAuthenticated]
 
     def patch(self, request, *args, **kwargs):

@@ -67,7 +67,6 @@ export default function FollowingList({ user, setCollectionUser, activateCollect
         </Form>
       </div>
       <div className='following-users'>
-        {console.log(user)}
         {user.following && user.following.map((user, index) => {
           return <div key={index} className='following-collection'>
             <Button variant='warning' onClick={() => {
