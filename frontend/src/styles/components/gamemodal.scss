@@ -6,7 +6,7 @@
 
   .modal-content {
     background-color: $primary;
-    border-radius: 8px;
+    border-radius: $border-radius;
   }
 
   .modal-body {

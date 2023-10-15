@@ -7,7 +7,7 @@
 
   .display {
     background-color: $primary;
-    border-radius: $games-border-radius;
+    border-radius: $border-radius;
     max-width: 1440px;
     padding: 0;
   }
@@ -55,7 +55,7 @@
     background-color: $secondary;
     display: flex;
     flex-direction: row;
-    border-radius: $games-border-radius;
+    border-radius: $border-radius;
     width: 100%;
     padding: $inside-edge-padding;
 
@@ -67,7 +67,7 @@
     img {
       width: 60px !important;
       height: 60px;
-      border-radius: $games-border-radius;
+      border-radius: $border-radius;
 
 
     }
@@ -105,6 +105,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    border-radius: 50%;
 
   }
 }
@@ -129,14 +130,14 @@
 
 .center-col {
   background-color: $secondary;
-  border-radius: $games-border-radius;
+  border-radius: $border-radius;
   padding: $edge-padding $edge-padding 0 $edge-padding;
   min-height: 615px;
 }
 
 .center-col-collection {
   background-color: $secondary;
-  border-radius: $games-border-radius;
+  border-radius: $border-radius;
   padding: $edge-padding $edge-padding 0 $edge-padding;
   min-height: 564px;
 }

@@ -73,10 +73,10 @@ export default function GamesDisplay() {
     getUserData()
     getMessageData()
     getTopGamesData()
-    // clearInterval(messageRefresh)
-    // setInterval(() => {
-    //   getMessageData()
-    // }, 10000)
+    clearInterval(messageRefresh)
+    setInterval(() => {
+      getMessageData()
+    }, 10000)
 
   }, [])
 

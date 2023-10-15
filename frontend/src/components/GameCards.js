@@ -9,12 +9,12 @@ import Form from 'react-bootstrap/Form'
 // Generic Imports
 import ReactPaginate from 'react-paginate'
 import { useDebouncedCallback } from 'use-debounce'
-import debounce from 'debounce'
 import GameModal from './GameModal'
 import axiosAuth from '../lib/axios'
 import PlaceholderCards from './PlaceholderCards'
 import axios from 'axios'
 import GameCarousel from './Carousel'
+import Button from 'react-bootstrap/Button'
 
 export default function GameCards({ user, getUserData, collectionMode = false, collectionUser }) {
   const [filter, setFilter] = useState({
@@ -193,7 +193,7 @@ export default function GameCards({ user, getUserData, collectionMode = false, c
             <Form.Control autoComplete='off' className='search-input' type="search" placeholder="Search games..." name="search" defaultValue={newSearch} onChange={(e) => debounced(e.target.value)} />
             <span className="focus-border"></span>
           </Col>
-          <Col xs={6} md={4}>
+          <Col xs={6} md={3}>
             <Form.Label label='Category'>
               <Form.Control as='select' name="category" value={newCategory} onChange={handleChange} aria-label="Floating label select" >
                 <option value=''>- Category -</option>
@@ -204,7 +204,7 @@ export default function GameCards({ user, getUserData, collectionMode = false, c
               <span className="focus-border"></span>
             </Form.Label>
           </Col>
-          <Col xs={6} md={4}>
+          <Col xs={6} md={3}>
             <Form.Label label='Mechanic'>
               <Form.Control as='select' name="mechanic" value={newMechanic} onChange={handleChange} aria-label="Floating label select" >
                 <option value=''>- Mechanic -</option>
@@ -214,6 +214,9 @@ export default function GameCards({ user, getUserData, collectionMode = false, c
               </Form.Control>
               <span className="focus-border"></span>
             </Form.Label>
+          </Col>
+          <Col xs={6} md={2}>
+            <Button onClick={resetFilters} variant='outline-warning'>Reset</Button>
           </Col>
         </Row>
         {
