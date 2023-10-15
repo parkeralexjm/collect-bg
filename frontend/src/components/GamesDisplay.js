@@ -144,7 +144,7 @@ export default function GamesDisplay() {
             <Profile user={user} activateCollectionMode={activateCollectionMode} setCollectionUser={setCollectionUser} collectionMode />
             <ChatDisplay user={user} setCollectionUser={setCollectionUser} activateCollectionMode={activateCollectionMode} allUsers={allUsers} setUser={setUser} messageList={messageList} getMessageData={getMessageData} getUserData={getUserData} />
             <div className="me-2 mb-2 modal-button" onClick={handleShow}>
-              <i className="fa-regular fa-message fa-lg" style={{ color: '#ffffff' }}></i>
+              <i className="fa-regular fa-message fa-xl" style={{ color: '#1b4358' }}></i>
             </div>
             <Modal className='mobile-modal' show={show} fullscreen={false} onHide={() => setShow(false)}>
               <Modal.Header closeButton>

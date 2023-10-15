@@ -152,7 +152,7 @@
 }
 
 .modal-button {
-  background-color: $teal;
+  background-color: $warning;
   height: 4rem;
   width: 4rem;
   position: fixed;
@@ -163,6 +163,7 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  z-index: 100;
 }
 
 @media only screen and (min-width: $md) {
