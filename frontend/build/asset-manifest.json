@@ -1,20 +1,22 @@
 {
   "files": {
-    "main.css": "/static/css/main.d0a41592.css",
-    "main.js": "/static/js/main.6ef62b83.js",
+    "main.css": "/static/css/main.48313738.css",
+    "main.js": "/static/js/main.7c0e1a0c.js",
     "static/media/new-folder-dynamic-color.png": "/static/media/new-folder-dynamic-color.c37179e0f4d7a4a539ec.png",
     "static/media/trophy-dynamic-color.png": "/static/media/trophy-dynamic-color.8e979549fbd3d8c29339.png",
     "static/media/chat-bubble-dynamic-color.png": "/static/media/chat-bubble-dynamic-color.e45c05ce3449e624d952.png",
     "static/media/Logo-Light.png": "/static/media/Logo-Light.e424f45bd0ca05c07788.png",
+    "static/media/background-metro.png": "/static/media/background-metro.5d036e1811604c28a4cb.png",
     "static/media/404-light.png": "/static/media/404-light.aa57f79e5028e5856c4a.png",
-    "static/media/Landing-decoration.png": "/static/media/Landing-decoration.d3e4ca7dd7e7abde4b85.png",
-    "static/media/ffflux.svg": "/static/media/ffflux.1a7e981eaf0d12a5e725.svg",
+    "static/media/background-metro-mobile.png": "/static/media/background-metro-mobile.b70edf7cf7a58bcde732.png",
+    "static/media/placeholder-game-image.png": "/static/media/placeholder-game-image.3b7c7950771c33df06f1.png",
+    "static/media/placeholder-text.png": "/static/media/placeholder-text.770766dc17b11e9d5009.png",
     "index.html": "/index.html",
-    "main.d0a41592.css.map": "/static/css/main.d0a41592.css.map",
-    "main.6ef62b83.js.map": "/static/js/main.6ef62b83.js.map"
+    "main.48313738.css.map": "/static/css/main.48313738.css.map",
+    "main.7c0e1a0c.js.map": "/static/js/main.7c0e1a0c.js.map"
   },
   "entrypoints": [
-    "static/css/main.d0a41592.css",
-    "static/js/main.6ef62b83.js"
+    "static/css/main.48313738.css",
+    "static/js/main.7c0e1a0c.js"
   ]
 }
