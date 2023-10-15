@@ -46,7 +46,7 @@ export default function GamesDisplay() {
   async function getUserData() {
     try {
       const { data } = await axiosAuth.get(`/api/auth/user/${userId('collect-refresh-token')}`)
-      console.log(data)
+      console.log('user', data)
       setUser(data)
     } catch (error) {
       console.log(error)
@@ -63,6 +63,7 @@ export default function GamesDisplay() {
   async function getAllUserData() {
     try {
       const { data } = await axiosAuth.get('/api/auth/users')
+
       setAllUsers(data)
     } catch (error) {
       console.log(error)

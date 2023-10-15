@@ -63,9 +63,8 @@ export default function GameCards({ user, getUserData, collectionMode = false, c
         setTotalPages(Math.ceil(data.count / 8))
       } else {
         const { data } = await axiosAuth.get(`/api/auth/${collectionUser.id}/collection/?${pagination}${category}${mechanic}${search}&p=${currentPage + 1}`) // This is authorised route for testing.
-        console.log(data)
         setAllGames(data.collection)
-        setTotalPages(Math.ceil(data.collection.length / 8))
+        setTotalPages(Math.ceil(data.collection.length / 12))
       }
       // const { data } = await axios.get('/api/games/') // This is unauthorised for testing
     } catch (error) {
@@ -160,7 +159,7 @@ export default function GameCards({ user, getUserData, collectionMode = false, c
   function handleCollect(game, option) {
     async function patchCollection() {
       try {
-        const { data } = await axiosAuth.patch(`/api/auth/${user.id}/collection/`, { id: game.id, type: option })
+        const { data } = await axiosAuth.patch(`/api/auth/${user.id}/collectionupdate/`, { id: game.id, type: option })
         // refresh here
         getUserData()
       } catch (error) {
@@ -177,7 +176,8 @@ export default function GameCards({ user, getUserData, collectionMode = false, c
 
   // Pagination 
   const startIndex = 0
-  const endIndex = 8
+  let endIndex
+  collectionMode ? endIndex = 12 : endIndex = 8
   // const startIndex = currentPage * itemsPerPage
   // const endIndex = startIndex + itemsPerPage
   let subset = filteredGames.slice(startIndex, endIndex)
@@ -233,7 +233,7 @@ export default function GameCards({ user, getUserData, collectionMode = false, c
                   subset.map((game, index) => {
                     let found
                     if (user.collection) {
-                      found = user.collection.some(el => el.id === game.id)
+                      found = user.collection.some(el => el === game.id)
                     }
 
                     return (
@@ -286,7 +286,7 @@ export default function GameCards({ user, getUserData, collectionMode = false, c
               <h2>- Sorry, no matches for your query -</h2>
               :
               <Row className={collectionMode ? 'game-card-display-collection  card-col-placeholder' : 'game-card-display card-col-placeholder'}>
-                <PlaceholderCards number={8} />
+                <PlaceholderCards number={collectionMode ? 12 : 8} />
               </Row>
           // <h2>Loading...</h2>
           // Placeholder cards

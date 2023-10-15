@@ -59,10 +59,17 @@
     width: 100%;
     padding: $inside-edge-padding;
 
+    &:hover>img {
+      transform: scale(1.03);
+      transition: all ease 250ms;
+    }
+
     img {
       width: 60px !important;
       height: 60px;
       border-radius: $games-border-radius;
+
+
     }
 
   }
@@ -76,8 +83,6 @@
   padding-left: $inside-edge-padding;
   flex: 1;
   color: white;
-
-
 
   h3 {
     font-size: 0.9rem;
