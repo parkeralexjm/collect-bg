@@ -81,8 +81,8 @@ export default function Header({ version, setIsAuth }) {
 
       }
       {/* Login/Register modal */}
-      <Modal show={show} onHide={handleClose} animation={false} className="login-modal">
-        <LandingModal handleClose={handleClose} formType={formType} setFormType={setFormType} setIsAuth={setIsAuth} />
+      <Modal show={show} onHide={handleClose} animation={true} className="login-modal">
+        <LandingModal show={show} handleClose={handleClose} formType={formType} setFormType={setFormType} setIsAuth={setIsAuth} />
       </Modal>
     </Navbar>
   )

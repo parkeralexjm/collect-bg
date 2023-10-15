@@ -10,6 +10,7 @@ import axios from 'axios'
 // Generic Imports
 import { setToken } from '../lib/auth'
 import { loginForm } from '../lib/forms'
+import { AnimatePresence } from 'framer-motion'
 
 export default function LandingModal({ handleClose, formType, setFormType, setIsAuth }) {
   const [formData, setFormData] = useState()

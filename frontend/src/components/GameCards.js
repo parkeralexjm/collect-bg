@@ -191,6 +191,7 @@ export default function GameCards({ user, getUserData, collectionMode = false, c
           <Col xs={12} md={4}>
             <Form.Label hidden label='Search game' />
             <Form.Control className='search-input' type="search" placeholder="Search games..." name="search" defaultValue={newSearch} onChange={(e) => debounced(e.target.value)} />
+            <span className="focus-border"></span>
           </Col>
           <Col xs={6} md={4}>
             <Form.Label label='Category'>
@@ -200,6 +201,7 @@ export default function GameCards({ user, getUserData, collectionMode = false, c
                   return (<option key={index} value={id}>{name}</option>)
                 })}
               </Form.Control>
+              <span className="focus-border"></span>
             </Form.Label>
           </Col>
           <Col xs={6} md={4}>
@@ -210,6 +212,7 @@ export default function GameCards({ user, getUserData, collectionMode = false, c
                   return (<option key={index} value={id}>{name}</option>)
                 })}
               </Form.Control>
+              <span className="focus-border"></span>
             </Form.Label>
           </Col>
         </Row>

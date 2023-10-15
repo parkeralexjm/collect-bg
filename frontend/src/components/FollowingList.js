@@ -61,7 +61,7 @@ export default function FollowingList({ user, setCollectionUser, activateCollect
               return !found && <option value={id} key={index} >{username}</option>
             })}
           </Form.Control >
-          <Button type='submit' variant='info' onClick={() => setUserKey(userKey => userKey + 1)}>
+          <Button type='submit' variant='outline-info' onClick={() => setUserKey(userKey => userKey + 1)}>
             <i className="fa-solid fa-plus fa-lg"></i>
           </Button>
         </Form>
@@ -73,7 +73,7 @@ export default function FollowingList({ user, setCollectionUser, activateCollect
               setCollectionUser(user)
               activateCollectionMode()
             }}>{user.username}</Button>
-            <Button variant='danger' className='following-remove' value={user.id} onClick={handleRemove}>X</Button>
+            <Button variant='outline-danger' className='following-remove' value={user.id} onClick={handleRemove}>X</Button>
           </div>
         })}
       </div>

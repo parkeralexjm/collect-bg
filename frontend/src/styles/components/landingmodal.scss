@@ -19,7 +19,12 @@
     }
 
     .modal-body {
-
+      h3 {
+        text-align: center;
+        color: white;
+        font-weight: 300;
+        margin-top: 1rem;
+      }
 
       .form-control {
         background-color: $secondary;
@@ -28,6 +33,7 @@
         border-bottom: 3px solid $teal;
         color: white;
         padding-top: 0;
+        transition: 0.4s;
 
         &:focus {
           box-shadow: none;
