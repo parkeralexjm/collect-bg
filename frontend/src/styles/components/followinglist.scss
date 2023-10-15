@@ -8,6 +8,11 @@
   flex-direction: row;
   margin-top: 5px;
 
+  .btn:hover {
+    background-color: $secondary;
+    color: $warning
+  }
+
   .btn:first-of-type {
     margin-right: 5px;
     flex: 1;

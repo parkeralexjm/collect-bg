@@ -106,6 +106,7 @@ export default function GameCards({ user, getUserData, collectionMode = false, c
   }
 
   useEffect(() => {
+    setAllGames([])
     getGamesData()
   }, [filter, currentPage, collectionUser])
 
@@ -219,21 +220,21 @@ export default function GameCards({ user, getUserData, collectionMode = false, c
             <Button onClick={resetFilters} variant='outline-warning'>Reset</Button>
           </Col>
         </Row>
+        <div className='pagination'>
+          {subset.map((item) => (
+            <div key={item.id}>{item.title}</div>
+          ))}
+          <ReactPaginate className='react-paginate'
+            pageCount={totalPages}
+            onPageChange={handlePageChange}
+            forcePage={currentPage}
+            pageRangeDisplayed={3}
+            marginPagesDisplayed={1}
+          />
+        </div>
         {
           filteredGames.length > 0 ?
             <>
-              <div className='pagination'>
-                {subset.map((item) => (
-                  <div key={item.id}>{item.title}</div>
-                ))}
-                <ReactPaginate className='react-paginate'
-                  pageCount={totalPages}
-                  onPageChange={handlePageChange}
-                  forcePage={currentPage}
-                  pageRangeDisplayed={3}
-                  marginPagesDisplayed={1}
-                />
-              </div>
               <Row className={collectionMode ? 'game-card-display-collection' : 'game-card-display'} >
                 {
                   subset.map((game, index) => {

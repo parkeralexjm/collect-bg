@@ -18,8 +18,8 @@ export default function ChatDisplay({ messageList, getMessageData, user, setColl
   return (
     <div className='desktop-chat-following'>
       <div className='chat-following-switch'>
-        <Button onClick={activateChatMode} variant={chatMode ? 'warning' : 'primary'}>Chat</Button>
-        <Button onClick={activateFollowingMode} variant={chatMode ? 'primary' : 'warning'}>Following</Button>
+        <Button onClick={activateChatMode} variant={chatMode ? 'info' : 'secondary'}>Chat</Button>
+        <Button onClick={activateFollowingMode} variant={chatMode ? 'secondary' : 'info'}>Following</Button>
       </div>
       {
         chatMode ?
