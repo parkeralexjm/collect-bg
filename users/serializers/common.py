@@ -24,6 +24,12 @@ class UserCollectionSerializer(serializers.ModelSerializer):
         fields = ('id', 'collection')
 
 
+class UserCollectionOnlySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ('collection',)
+
+
 class RegistrationSerializer(serializers.ModelSerializer):
 
     # This is us specifying that we don't want password or password_confirmation to be serialized when querying the object
