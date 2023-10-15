@@ -24,7 +24,6 @@ import Button from 'react-bootstrap/esm/Button'
 export default function GamesDisplay() {
 
   const [topGames, setTopGames] = useState([])
-
   const [user, setUser] = useState({})
   const [collectionUser, setCollectionUser] = useState({})
   const [messageList, setMessageList] = useState([])
