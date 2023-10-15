@@ -190,7 +190,7 @@ export default function GameCards({ user, getUserData, collectionMode = false, c
         <Row as={Form} onSubmit={handleSubmit} className='game-card-search'>
           <Col xs={12} md={4}>
             <Form.Label hidden label='Search game' />
-            <Form.Control className='search-input' type="search" placeholder="Search games..." name="search" defaultValue={newSearch} onChange={(e) => debounced(e.target.value)} />
+            <Form.Control autoComplete='off' className='search-input' type="search" placeholder="Search games..." name="search" defaultValue={newSearch} onChange={(e) => debounced(e.target.value)} />
             <span className="focus-border"></span>
           </Col>
           <Col xs={6} md={4}>
