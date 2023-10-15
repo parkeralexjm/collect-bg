@@ -3,14 +3,9 @@ footer {
 }
 
 .landing-footer {
-  background-color: $teal;
-  border-radius: 0.5rem;
-  padding: $edge-padding;
-}
-
-.landing-footer-inner {
-  background-color: rgba($grey, 0.25);
-  padding: $edge-padding;
+  background-color: $secondary;
+  border-radius: $border-radius;
+  padding: 20px;
 
   .logo {
     width: 125px;
@@ -19,10 +14,11 @@ footer {
   h5 {
     color: white;
     font-size: 0.8rem;
+    margin-left: 5px;
   }
 
   i {
-    color: $teal;
+    color: $primary;
     margin-right: 0.5rem;
   }
 

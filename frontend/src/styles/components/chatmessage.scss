@@ -1,5 +1,6 @@
 .chat-message {
-  background-color: $teal;
+  background-color: $primary;
+  border: 1px solid $teal;
   border-radius: $games-border-radius;
   display: flex;
   align-items: center;
@@ -19,18 +20,35 @@
 
   h4 {
     font-size: 0.9rem;
+    color: white;
+    font-weight: 200;
   }
 
   h5 {
     font-size: 1rem;
+    font-weight: 400;
     text-overflow: ellipsis;
     // width: calc(100vw - 127px);
     overflow: hidden;
+    color: white
   }
 
   p,
   h5 {
     margin: 0;
+  }
+}
+
+.placeholder-message-text {
+  opacity: 0.8;
+  animation: fade 2s infinite;
+  height: 15px;
+  width: 100%;
+  background-color: grey;
+  border-radius: 25px;
+
+  &:last-of-type {
+    margin-top: 10px;
   }
 }
 

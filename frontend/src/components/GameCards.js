@@ -12,30 +12,87 @@ import { useDebouncedCallback } from 'use-debounce'
 import debounce from 'debounce'
 import GameModal from './GameModal'
 import axiosAuth from '../lib/axios'
+import PlaceholderCards from './PlaceholderCards'
+import axios from 'axios'
+import GameCarousel from './Carousel'
 
-
-export default function GameCards({ allGames, user, getUserData, games, allCategories, allMechanics, collectionMode = false }) {
+export default function GameCards({ user, getUserData, collectionMode = false, collectionUser }) {
   const [filter, setFilter] = useState({
     search: '',
-    category: 'All',
-    mechanic: 'All',
+    category: '',
+    mechanic: '',
   })
+  const [allGames, setAllGames] = useState([])
+  const [filteredGames, setFilteredGames] = useState([])
   const [newSearch, setNewSearch] = useState('')
   const [newCategory, setNewCategory] = useState('')
   const [newMechanic, setNewMechanic] = useState('')
-  const [filteredGames, setFilteredGames] = useState([])
   const [currentPage, setCurrentPage] = useState(0)
   const [totalPages, setTotalPages] = useState(0)
-  const [itemsPerPage, setItemsPerPage] = useState(12)
   const [show, setShow] = useState(false)
   const [detail, setDetail] = useState({})
+  const [allCategories, setAllCategories] = useState([])
+  const [allMechanics, setAllMechanics] = useState([])
 
   //  This function debounces the search so that the cards do not 'jump' around with user inputs
   const debounced = useDebouncedCallback((value) => {
     setNewSearch(value)
     const newFilteredState = { ...filter, search: value }
     setFilter(newFilteredState)
+    const selectedPage = { selected: 0 }
+    handlePageChange(selectedPage)
   }, 500)
+
+  async function getGamesData(pagination = '') {
+    try {
+      let category = ''
+      let mechanic = ''
+      let search = ''
+      if (filter.category !== '') {
+        category = `&categories=${filter.category}`
+      }
+      if (filter.mechanic !== '') {
+        mechanic = `&mechanics=${filter.mechanic}`
+      }
+      if (filter.search !== '') {
+        search = `&name=${filter.search}`
+      }
+      if (!collectionMode) {
+        const { data } = await axiosAuth.get(`/api/games/?${pagination}${category}${mechanic}${search}&p=${currentPage + 1}`) // This is authorised route for testing.
+        setAllGames(data.results)
+        setTotalPages(Math.ceil(data.count / 8))
+      } else {
+        const { data } = await axiosAuth.get(`/api/auth/${collectionUser.id}/collection/?${pagination}${category}${mechanic}${search}&p=${currentPage + 1}`) // This is authorised route for testing.
+        setAllGames(data.collection)
+        setTotalPages(Math.ceil(data.collection.length / 12))
+      }
+      // const { data } = await axios.get('/api/games/') // This is unauthorised for testing
+    } catch (error) {
+      console.log(error)
+    }
+  }
+  async function getCategoriesData() {
+    try {
+      const { data } = await axios.get('/api/categories/') // This is unauthorised for testing
+      setAllCategories(data.sort((a, b) => a.name.localeCompare(b.name)))
+    } catch (error) {
+      console.log(error)
+    }
+  }
+  async function getMechanicsData() {
+    try {
+      const { data } = await axios.get('/api/mechanics/') // This is unauthorised for testing
+      setAllMechanics(data.sort((a, b) => a.name.localeCompare(b.name)))
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  useEffect(() => {
+    getMechanicsData()
+    getCategoriesData()
+    getGamesData()
+  }, [])
 
   function resetFilters() {
     setNewSearch('')
@@ -43,37 +100,20 @@ export default function GameCards({ allGames, user, getUserData, games, allCateg
     setNewMechanic('')
     setFilter({
       search: '',
-      category: 'All',
-      mechanic: 'All',
+      category: '',
+      mechanic: '',
     })
-  }
-
-  function reassignItemsPerPage() {
-    if (window.innerWidth >= 1400) {
-      collectionMode ? setItemsPerPage(18) : setItemsPerPage(12)
-    } else if (window.innerWidth < 1400 && window.innerWidth >= 768) {
-      collectionMode ? setItemsPerPage(12) : setItemsPerPage(8)
-    } else if (window.innerWidth < 768 && window.innerWidth >= 567) {
-      collectionMode ? setItemsPerPage(24) : setItemsPerPage(6)
-    }
-    startIndex = currentPage * itemsPerPage
-    endIndex = startIndex + itemsPerPage
   }
 
   useEffect(() => {
-    const regex = new RegExp(filter.search, 'i')
-    const filteredArray = games.filter(game => {
-      return (
-        (regex.test(game.name)) &&
-        (game.categories.some(category => category.name === filter.category) || filter.category === 'All') &&
-        (game.mechanics.some(mechanic => mechanic.name === filter.mechanic) || filter.mechanic === 'All')
-      )
-    })
-    setFilteredGames(filteredArray)
-    setTotalPages(Math.ceil(filteredArray.length / itemsPerPage))
-    reassignItemsPerPage()
+    getGamesData()
+  }, [filter, currentPage, collectionUser])
+
+
+  useEffect(() => {
+    setFilteredGames(allGames)
     subset = filteredGames.slice(startIndex, endIndex)
-  }, [filter, games, itemsPerPage, newSearch])
+  }, [allGames])
 
   function handleChange(e) {
     const newFilteredState = { ...filter, [e.target.name]: e.target.value }
@@ -85,7 +125,7 @@ export default function GameCards({ allGames, user, getUserData, games, allCateg
     } else if (e.target.name === 'mechanic') {
       setNewMechanic(e.target.value)
     }
-    reassignItemsPerPage()
+    setCurrentPage(0)
   }
 
   function handleSubmit(e) {
@@ -93,11 +133,10 @@ export default function GameCards({ allGames, user, getUserData, games, allCateg
   }
 
   const handlePageChange = (selectedPage) => {
-    reassignItemsPerPage()
     setCurrentPage(selectedPage.selected)
   }
 
-  window.onresize = debounce(resize, 200)
+  // window.onresize = debounce(resize, 200)
   let width = window.innerWidth
   // This function is only called using the debounce to prevent it triggering on every pixel of resizing
   function resize() {
@@ -120,7 +159,7 @@ export default function GameCards({ allGames, user, getUserData, games, allCateg
   function handleCollect(game, option) {
     async function patchCollection() {
       try {
-        const { data } = await axiosAuth.patch(`/api/auth/${user.id}/collection/`, { id: game.id, type: option })
+        const { data } = await axiosAuth.patch(`/api/auth/${user.id}/collectionupdate/`, { id: game.id, type: option })
         // refresh here
         getUserData()
       } catch (error) {
@@ -130,110 +169,134 @@ export default function GameCards({ allGames, user, getUserData, games, allCateg
     patchCollection()
   }
 
+  function topFunction() {
+    document.body.scrollTop = 0 // For Safari
+    document.documentElement.scrollTop = 0 // For Chrome, Firefox, IE and Opera
+  }
+
   // Pagination 
-  let startIndex = currentPage * itemsPerPage
-  let endIndex = startIndex + itemsPerPage
+  const startIndex = 0
+  let endIndex
+  collectionMode ? endIndex = 12 : endIndex = 8
+  // const startIndex = currentPage * itemsPerPage
+  // const endIndex = startIndex + itemsPerPage
   let subset = filteredGames.slice(startIndex, endIndex)
   // const subset = filteredGames.slice(startIndex, endIndex)
 
   return (
-    <Container className='center-cards'>
-      <Row as={Form} onSubmit={handleSubmit} className='game-card-search'>
-        <Col xs={12} md={4}>
-          <Form.Label hidden label='Search game' />
-          <Form.Control className='search-input' type="search" placeholder="Search games..." name="search" defaultValue={newSearch} onChange={(e) => debounced(e.target.value)} />
-        </Col>
-        <Col xs={6} md={4}>
-          <Form.Label label='Category'>
-            <Form.Control as='select' name="category" value={newCategory} onChange={handleChange} aria-label="Floating label select" >
-              <option value='All'>- Category -</option>
-              {allCategories.map(({ name }, index) => {
-                return (<option key={index} value={name}>{name}</option>)
-              })}
-            </Form.Control>
-          </Form.Label>
-        </Col>
-        <Col xs={6} md={4}>
-          <Form.Label label='Mechanic'>
-            <Form.Control as='select' name="mechanic" value={newMechanic} onChange={handleChange} aria-label="Floating label select" >
-              <option value='All'>- Mechanic -</option>
-              {allMechanics.map(({ name }, index) => {
-                return (<option key={index} value={name}>{name}</option>)
-              })}
-            </Form.Control>
-          </Form.Label>
-        </Col>
-      </Row>
-      {
-        filteredGames.length > 0 ?
-          <>
-            <div className='pagination'>
-              {subset.map((item) => (
-                <div key={item.id}>{item.title}</div>
-              ))}
-              <ReactPaginate className='react-paginate'
-                pageCount={totalPages}
-                onPageChange={handlePageChange}
-                forcePage={currentPage}
-                pageRangeDisplayed={3}
-                marginPagesDisplayed={1}
-              />
-            </div>
-            <Row className={collectionMode ? 'game-card-display-collection' : 'game-card-display'} >
-              {
-                subset.map((game, index) => {
-                  const found = user.collection.some(el => el.id === game.id)
-                  return (
-                    <Col key={index} xs={6} sm={4} md={3} xxl={2} className='px-2 pb-4 card-col' >
-                      {
-                        found ?
-                          <div className='collect' onClick={() => handleCollect(game, 'remove')}>
-                            <i className="fa-solid fa-minus collect-minus" style={{ color: '#ffffff' }}></i>
-                          </div>
-                          :
-                          <div className='collect' onClick={() => handleCollect(game, 'add')}>
-                            <i className="fa-solid fa-plus collect-plus" style={{ color: '#ffffff' }}></i>
-                          </div>
-                      }
-                      <Card className="text-center game-card h-100" onClick={() => handleShow(game)}>
-                        <div className='img-container'>
-                          <Card.Img variant='top' src={game.thumbnail} />
-                        </div>
-                        <Card.Body className='d-flex flex-column justify-content-center'>
-                          <Card.Text>
-                            {game.name}
-                          </Card.Text>
-                        </Card.Body>
-                      </Card>
-                    </Col>
-                  )
-                })
-              }
-            </Row>
-            <div className='pagination pagination-bottom'>
-              {subset.map((item) => (
-                <div key={item.id}>{item.title}</div>
-              ))}
-              <ReactPaginate className='react-paginate'
-                pageCount={totalPages}
-                onPageChange={handlePageChange}
-                forcePage={currentPage}
-                pageRangeDisplayed={3}
-                marginPagesDisplayed={1}
-              />
-            </div>
-            {
-              detail &&
-              <GameModal detail={detail} show={show} setShow={setShow} />
-            }
-          </>
-          :
-          allGames.length > 0 ?
-            <h2>No Games Found</h2>
-            :
-            <h2>Loading...</h2>
-      }
+    <>
+      {!collectionMode && <GameCarousel handleShow={handleShow} gamesData={allGames.slice(0, 5)} />}
+      <Container className='center-cards'>
+        <Row as={Form} onSubmit={handleSubmit} className='game-card-search'>
+          <Col xs={12} md={4}>
+            <Form.Label hidden label='Search game' />
+            <Form.Control autoComplete='off' className='search-input' type="search" placeholder="Search games..." name="search" defaultValue={newSearch} onChange={(e) => debounced(e.target.value)} />
+            <span className="focus-border"></span>
+          </Col>
+          <Col xs={6} md={4}>
+            <Form.Label label='Category'>
+              <Form.Control as='select' name="category" value={newCategory} onChange={handleChange} aria-label="Floating label select" >
+                <option value=''>- Category -</option>
+                {allCategories.map(({ name, id }, index) => {
+                  return (<option key={index} value={id}>{name}</option>)
+                })}
+              </Form.Control>
+              <span className="focus-border"></span>
+            </Form.Label>
+          </Col>
+          <Col xs={6} md={4}>
+            <Form.Label label='Mechanic'>
+              <Form.Control as='select' name="mechanic" value={newMechanic} onChange={handleChange} aria-label="Floating label select" >
+                <option value=''>- Mechanic -</option>
+                {allMechanics.map(({ name, id }, index) => {
+                  return (<option key={index} value={id}>{name}</option>)
+                })}
+              </Form.Control>
+              <span className="focus-border"></span>
+            </Form.Label>
+          </Col>
+        </Row>
+        {
+          filteredGames.length > 0 ?
+            <>
+              <div className='pagination'>
+                {subset.map((item) => (
+                  <div key={item.id}>{item.title}</div>
+                ))}
+                <ReactPaginate className='react-paginate'
+                  pageCount={totalPages}
+                  onPageChange={handlePageChange}
+                  forcePage={currentPage}
+                  pageRangeDisplayed={3}
+                  marginPagesDisplayed={1}
+                />
+              </div>
+              <Row className={collectionMode ? 'game-card-display-collection' : 'game-card-display'} >
+                {
+                  subset.map((game, index) => {
+                    let found
+                    if (user.collection) {
+                      found = user.collection.some(el => el === game.id)
+                    }
 
-    </Container >
+                    return (
+                      <Col key={index} xs={6} md={3} className='px-2 pb-4 card-col' >
+                        <Card className="text-center game-card h-100">
+                          <div className='img-container' onClick={() => handleShow(game)}>
+                            <Card.Img variant='top' src={game.image} />
+                          </div>
+                          <Card.Body className='d-flex flex-column justify-content-center'>
+                            {
+                              found ?
+                                <div className='collect-remove' onClick={() => handleCollect(game, 'remove')}>
+                                  Remove
+                                </div>
+                                :
+                                <div className='collect-add' onClick={() => handleCollect(game, 'add')}>
+                                  Add
+                                </div>
+                            }
+                            <Card.Text onClick={() => handleShow(game)}>
+                              {game.name}
+                            </Card.Text>
+                          </Card.Body>
+                        </Card>
+                      </Col>
+                    )
+                  })
+                }
+              </Row>
+              <div className='pagination pagination-bottom'>
+                {subset.map((item) => (
+                  <div key={item.id}>{item.title}</div>
+                ))}
+                <ReactPaginate className='react-paginate'
+                  pageCount={totalPages}
+                  onPageChange={handlePageChange}
+                  forcePage={currentPage}
+                  pageRangeDisplayed={3}
+                  marginPagesDisplayed={1}
+                  onClick={topFunction}
+                />
+              </div>
+              {
+                detail &&
+                <GameModal detail={detail} show={show} setShow={setShow} />
+              }
+            </>
+            :
+            allGames.length > 0 ?
+              <h2>- Sorry, no matches for your query -</h2>
+              :
+              <Row className={collectionMode ? 'game-card-display-collection  card-col-placeholder' : 'game-card-display card-col-placeholder'}>
+                <PlaceholderCards number={collectionMode ? 12 : 8} />
+              </Row>
+          // <h2>Loading...</h2>
+          // Placeholder cards
+
+        }
+
+      </Container >
+    </>
   )
 }

@@ -1,10 +1,31 @@
 .not-found {
   h1 {
     font-size: 3rem;
+    color: white;
+    margin-top: 3rem;
+    transform: scale(1);
+    animation: pulse 2.5s infinite;
   }
 
   a {
     text-decoration: none;
+    color: $warning;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1.02);
+  }
+
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+  }
+
+  100% {
+    transform: scale(1.02);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
   }
 }
 
@@ -12,11 +33,14 @@
   .not-found {
     h1 {
       font-size: 5rem;
+      margin-top: 1rem;
+
     }
 
 
     a {
       font-size: 1.5rem;
+
     }
   }
 }

@@ -1,9 +1,38 @@
 .center-cards {
   padding-top: $edge-padding;
+
+  h2 {
+    color: white;
+    font-weight: 200;
+    text-align: center;
+  }
 }
 
 .search-input {
   margin-bottom: $edge-padding;
+}
+
+.game-card-search {
+  .form-control {
+    font-weight: 300;
+    background-color: $secondary;
+    border: 0px solid $primary;
+    border-radius: 0;
+    border-bottom: 3px solid $teal;
+    color: white;
+    padding-top: 0;
+    transition: 0.4s;
+
+    &::placeholder {
+      color: white;
+    }
+
+    &:focus {
+      box-shadow: none;
+      border-bottom: 3px solid $warning;
+    }
+
+  }
 }
 
 .pagination {
@@ -18,13 +47,26 @@ ul.react-paginate {
   list-style-type: none;
   user-select: none;
   padding-left: 0px;
+  color: white;
+  font-weight: 200;
+}
+
+ul.react-paginate li {
+  border: $secondary 2px solid;
+  transition: 0.3s;
+
+  &:hover {
+    border-bottom: 2px solid $teal;
+  }
 }
 
 ul.react-paginate li a {
   border-radius: 3px;
   padding: 0.1rem 0.5rem;
-  border: gray 1px solid;
+
   cursor: pointer;
+  color: white;
+
 }
 
 ul.react-paginate li.previous a,
@@ -35,11 +77,24 @@ ul.react-paginate li.break a {
   user-select: none;
 }
 
+ul.react-paginate li.selected {
+  &:hover {
+    border-bottom: 2px solid $secondary !important;
+  }
+}
+
 ul.react-paginate li.selected a {
   background-color: $teal;
   border-color: transparent;
   color: white;
   min-width: 32px;
+}
+
+ul.react-paginate li.disabled {
+  &:hover {
+    border-bottom: 2px solid $secondary !important;
+  }
+
 }
 
 ul.react-paginate li.disabled a {
@@ -53,29 +108,47 @@ ul.react-paginate li.disabled a {
 
 .card-col {
   height: 300px;
-  position: relative;
+
 }
 
-.collect {
-  background-color: $danger;
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
+.collect-remove,
+.collect-add {
+  font-size: 0.75rem;
+  width: 100%;
+  top: -5px;
+  left: 0;
   position: absolute;
-  right: 10px;
-  top: 5px;
   z-index: 4;
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 4px 4px 0 0;
+  cursor: pointer;
+  transition: 0.3s;
+  border-bottom: 3px solid $primary;
 
-  .collect-plus,
-  .collect-minus {}
+  &:hover {
+    border-bottom: 3px solid $warning;
+  }
 }
 
+.collect-add {
+  background-color: $teal;
+}
+
+.collect-remove {
+  background-color: $danger;
+}
+
+
 .game-card {
+  background-color: $secondary;
+  border: none;
+  cursor: pointer;
+
   .img-container {
-    max-height: 80%;
+    min-height: 68%;
+
 
     img {
       height: 100%;
@@ -84,17 +157,51 @@ ul.react-paginate li.disabled a {
   }
 
   .card-body {
-    height: 30%;
+    min-height: 30%;
+    background-color: $primary;
+    margin-top: 5px;
+    border-radius: $border-radius;
+    position: relative;
 
     p {
       overflow: hidden;
+      color: white;
+      font-weight: 300;
     }
   }
 }
 
+.card-col-placeholder:first-of-type {
+  margin-top: 50px; // Make this bigger if needed
+}
+
+.placeholder-div {
+  opacity: 0.8;
+  animation: fade 2s infinite;
+  border-radius: $border-radius !important;
+  object-fit: none !important;
+}
+
+.placeholder-card-body {
+  padding: 0 !important;
+}
+
+.placeholder-div-text {
+  height: 20px;
+  width: 80%;
+  opacity: 0.8;
+  animation: fade 2s infinite;
+}
+
 @include media-breakpoint-up(md) {
+  .game-card {
+    .img-container {
+      max-height: 68%;
+    }
+  }
+
   .game-card-display-collection {
-    height: calc(100vh - 214px);
+    height: calc(100vh - 215px);
 
     .card-col {
       height: 33%;
@@ -102,7 +209,7 @@ ul.react-paginate li.disabled a {
   }
 
   .game-card-display {
-    height: calc(66vh - 156px);
+    height: calc(66vh - 151px);
 
     .card-col {
       height: 50%;
@@ -110,6 +217,8 @@ ul.react-paginate li.disabled a {
   }
 
   .game-card {
+
+
     .img-container {
       height: 70%;
 
@@ -121,6 +230,7 @@ ul.react-paginate li.disabled a {
 
     .card-body {
       height: 30%;
+      padding: 13px 5px 5px 5px;
 
       p {
         overflow: hidden;
@@ -136,5 +246,19 @@ ul.react-paginate li.disabled a {
 @include media-breakpoint-up(xxl) {
   .img-container {
     max-height: 70%;
+  }
+}
+
+// Animations
+
+@keyframes fade {
+
+  0%,
+  100% {
+    opacity: 0.8
+  }
+
+  50% {
+    opacity: 0.3
   }
 }

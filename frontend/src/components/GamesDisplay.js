@@ -22,46 +22,18 @@ import { userId } from '../lib/auth'
 import Button from 'react-bootstrap/esm/Button'
 
 export default function GamesDisplay() {
-  const [allGames, setAllGames] = useState([])
+
   const [topGames, setTopGames] = useState([])
-  const [allCategories, setAllCategories] = useState([])
-  const [allMechanics, setAllMechanics] = useState([])
+
   const [user, setUser] = useState({})
   const [collectionUser, setCollectionUser] = useState({})
   const [messageList, setMessageList] = useState([])
   const [collectionMode, setCollectionMode] = useState(false)
-  const [loadingGames, setLoadingGames] = useState(false)
-  const [gamesProgress, setGamesProgress] = useState(0)
   const [allUsers, setAllUsers] = useState([])
   const [show, setShow] = useState(false)
+  let messageRefresh
 
 
-  async function getGamesData() {
-    try {
-      setLoadingGames(true)
-      const { data } = await axiosAuth.get('/api/games/') // This is authorised route for testing.
-      // const { data } = await axios.get('/api/games/') // This is unauthorised for testing
-      setAllGames(data)
-    } catch (error) {
-      console.log(error)
-    }
-  }
-  async function getCategoriesData() {
-    try {
-      const { data } = await axios.get('/api/categories/') // This is unauthorised for testing
-      setAllCategories(data.sort((a, b) => a.name.localeCompare(b.name)))
-    } catch (error) {
-      console.log(error)
-    }
-  }
-  async function getMechanicsData() {
-    try {
-      const { data } = await axios.get('/api/mechanics/') // This is unauthorised for testing
-      setAllMechanics(data.sort((a, b) => a.name.localeCompare(b.name)))
-    } catch (error) {
-      console.log(error)
-    }
-  }
   async function getTopGamesData() {
     try {
       const { data } = await axios.get('https://boardgamegeek.com/xmlapi2/hot?type=boardgame&count=10') // This is unauthorised for testing
@@ -99,12 +71,14 @@ export default function GamesDisplay() {
 
   useEffect(() => {
     getAllUserData()
-    getMessageData()
     getUserData()
-    getMechanicsData()
-    getCategoriesData()
-    getGamesData()
+    getMessageData()
     getTopGamesData()
+    // clearInterval(messageRefresh)
+    // setInterval(() => {
+    //   getMessageData()
+    // }, 10000)
+
   }, [])
 
   function activateCollectionMode() {
@@ -128,6 +102,7 @@ export default function GamesDisplay() {
               <img className='logo' src={logo} alt="collect-dot-bg-logo" />
             </Link>
             <div className='top-games-container'>
+              <h2>Top 10 trending games</h2>
               {topGames.map((game, index) => {
                 return (
                   <Link to={'https://boardgamegeek.com/boardgame/' + game.attributes.id} key={index}>
@@ -157,18 +132,17 @@ export default function GamesDisplay() {
             {
               !collectionMode ?
                 <>
-                  <GameCarousel gamesData={allGames.slice(0, 5)} />
-                  <GameCards allGames={allGames} user={user} getUserData={getUserData} games={allGames} allCategories={allCategories} allMechanics={allMechanics} />
+                  <GameCards user={user} getUserData={getUserData} />
                 </>
                 :
-                <UserCollection allGames={allGames} deactivateCollectionMode={deactivateCollectionMode} user={user} collectionUser={collectionUser} allCategories={allCategories} allMechanics={allMechanics} getUserData={getUserData} />
+                <UserCollection deactivateCollectionMode={deactivateCollectionMode} user={user} collectionUser={collectionUser} getUserData={getUserData} />
             }
           </Col>
           <Col xs={0} md={3} lg={3} className='right-col'>
             <Profile user={user} activateCollectionMode={activateCollectionMode} setCollectionUser={setCollectionUser} collectionMode />
             <ChatDisplay user={user} setCollectionUser={setCollectionUser} activateCollectionMode={activateCollectionMode} allUsers={allUsers} setUser={setUser} messageList={messageList} getMessageData={getMessageData} getUserData={getUserData} />
             <div className="me-2 mb-2 modal-button" onClick={handleShow}>
-              <i className="fa-regular fa-message fa-lg" style={{ color: '#ffffff' }}></i>
+              <i className="fa-regular fa-message fa-xl" style={{ color: '#1b4358' }}></i>
             </div>
             <Modal className='mobile-modal' show={show} fullscreen={false} onHide={() => setShow(false)}>
               <Modal.Header closeButton>

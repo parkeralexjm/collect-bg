@@ -10,26 +10,26 @@ export default function LandingFooter() {
 
   return (
     <footer className='container landing-footer'>
-      <div className='landing-footer-inner'>
-        <Row>
-          <Col>
-            <Link to={''}>
-              <img className='logo' src={logo} alt="collect-dot-bg-logo" />
-            </Link>
+      {/* <div className='landing-footer-inner'> */}
+      <Row>
+        <Col>
+          <Link to={''}>
+            <img className='logo' src={logo} alt="collect-dot-bg-logo" />
+          </Link>
 
-            <h5>Copyright &copy; 2023</h5>
-          </Col>
-          <Col className='d-flex justify-content-end align-items-end'>
-            <div className='landing-socials'>
-              <i className="fa-brands fa-xl fa-x-twitter"></i>
-              <i className="fa-brands fa-xl fa-facebook-f"></i>
-              <i className="fa-brands fa-xl fa-github"></i>
-              <i className="fa-brands fa-xl fa-linkedin"></i>
-            </div>
-          </Col>
-        </Row>
+          <h5>Copyright &copy; 2023</h5>
+        </Col>
+        <Col className='d-flex justify-content-end align-items-end'>
+          <div className='landing-socials'>
+            <i className="fa-brands fa-xl fa-x-twitter"></i>
+            <i className="fa-brands fa-xl fa-facebook-f"></i>
+            <i className="fa-brands fa-xl fa-github"></i>
+            <i className="fa-brands fa-xl fa-linkedin"></i>
+          </div>
+        </Col>
+      </Row>
 
-      </div>
+      {/* </div> */}
     </footer>
   )
 }

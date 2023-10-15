@@ -6,7 +6,6 @@ import { loginForm, registerForm } from '../lib/forms'
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
 import Dropdown from 'react-bootstrap/Dropdown'
 import Button from 'react-bootstrap/Button'
 import Modal from 'react-bootstrap/Modal'
@@ -48,8 +47,8 @@ export default function Header({ version, setIsAuth }) {
       {/* Mobile display dropdown */}
       {version === 'landing' ?
         <Dropdown drop='start'>
-          <Dropdown.Toggle id="login" className='login-dropdown'>
-            <i className="fa-solid fa-bars" style={{ color: '#4eaca2' }}></i>
+          <Dropdown.Toggle variant='warning' id="login" className='login-dropdown'>
+            <i className="fa-solid fa-bars" style={{ color: '#00263A' }}></i>
           </Dropdown.Toggle>
           <Dropdown.Menu>
             {tokenIsValid('collect-access-token') ?
@@ -69,11 +68,11 @@ export default function Header({ version, setIsAuth }) {
       {version === 'landing' ?
         <Row className='align-items-center landing-header-links justify-content-end flex-nowrap'>
           {tokenIsValid('collect-access-token') ?
-            <Button className='warning' onClick={handleShow}>Enter Collection</Button>
+            <Button variant='warning' onClick={handleShow}>Enter Collection</Button>
             :
             <>
               <Nav.Link onClick={handleShow}>Log In</Nav.Link>
-              <Button className='warning' onClick={handleShow}>Register</Button>
+              <Button variant='warning' onClick={handleShow}>Register</Button>
             </>
           }
         </Row>
@@ -82,8 +81,8 @@ export default function Header({ version, setIsAuth }) {
 
       }
       {/* Login/Register modal */}
-      <Modal show={show} onHide={handleClose} animation={false} className="login-modal">
-        <LandingModal handleClose={handleClose} formType={formType} setFormType={setFormType} setIsAuth={setIsAuth} />
+      <Modal show={show} onHide={handleClose} animation={true} className="login-modal">
+        <LandingModal show={show} handleClose={handleClose} formType={formType} setFormType={setFormType} setIsAuth={setIsAuth} />
       </Modal>
     </Navbar>
   )

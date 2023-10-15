@@ -1,14 +1,17 @@
 // custom variables
-$teal: #0F756B;
-$primary: $teal;
+$navy: #00263A;
+$primary: $navy;
+$navy-light: #1b4358;
+$secondary: $navy-light;
+$teal: #3CDBC0;
+$info: $teal;
 $grey: #D8ECEA;
-$secondary: #4eaca2;
-$yellow: #E9B824;
-$orange: #EE9322;
-$red: #D83F31;
+$yellow: #F1BE48;
+$warning: $yellow ;
+$red: #E03C31;
 $spacer: 0.5rem;
-$border-radius: 0.2rem;
-$border-radius-lg: .2rem;
+$border-radius: 5px;
+$border-radius-lg: 10px;
 $border-radius-sm: .15rem;
 $edge-padding: 10px;
 $inside-edge-padding: 5px;
@@ -31,7 +34,6 @@ $games-border-radius: 8px;
 './components/gamesdisplay.scss',
 './components/notfound.scss',
 './components/carousel.scss',
-'./components/categorycards.scss',
 './components/gamecards.scss',
 './components/profile.scss',
 './components/feature.scss',
@@ -56,6 +58,14 @@ body,
   height: 100%;
 }
 
+a {
+  text-decoration: none !important;
+}
+
+.modal-open {
+  padding-right: 0px !important;
+}
+
 @media only screen and (min-width: $md) {
 
   html,
@@ -73,7 +83,7 @@ body,
   }
 
   *::-webkit-scrollbar-track {
-    background: $secondary;
+    background: #0E1F2C;
     /* color of the tracking area */
   }
 
@@ -82,7 +92,26 @@ body,
     /* color of the scroll thumb */
     border-radius: 10px;
     /* roundness of the scroll thumb */
-    border: 3px solid $secondary;
+    border: 3px solid #0E1F2C;
     /* creates padding around scroll thumb */
   }
+}
+
+.btn {
+  transition: 0.3s;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  border: 2px solid $warning;
+  -webkit-text-fill-color: white;
+  -webkit-box-shadow: 0 0 0px 30px $secondary inset !important;
+  transition: background-color 5000s ease-in-out 0s;
 }

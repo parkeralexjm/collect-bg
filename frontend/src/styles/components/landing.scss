@@ -1,5 +1,5 @@
 .landing {
-  background-image: url('../../images/ffflux.svg');
+  background-image: url('../../images/background-metro-mobile.png');
   background-attachment: fixed; // This is essential for the parallax effect
   background-repeat: no-repeat;
   background-position: center;
@@ -19,36 +19,29 @@
 
   .hero {
     color: white;
-    font-size: 4rem;
+    font-size: 2.2rem;
     margin: 2rem 0;
   }
 }
 
-.landing-decoration {
-  background-image: url('../../images/Landing-decoration.png');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  height: 1142px;
-  width: 75vw;
-}
-
 .landing-info-row {
-
-  margin: 100px 0;
+  margin: 75px 0;
 }
 
-.landing-info-box {
-  background-color: rgba(#D8ECEA, 0.25);
+.landing-info-box,
+.info-box-1,
+.info-box-2,
+.info-box-3 {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  border-radius: 8px;
-
+  align-items: center;
+  border-radius: $border-radius;
 
   h3 {
     font-size: 1rem;
-    margin: 1rem;
+    margin: 0.5rem;
+    font-weight: 400;
   }
 }
 
@@ -56,58 +49,91 @@
 .info-box-2,
 .info-box-3 {
   padding: $edge-padding;
-  border-radius: 8px;
-  max-width: 275px;
+  border-radius: $border-radius;
+  max-width: 375px;
 }
 
+
 .info-box-image {
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  width: 200px;
+  width: 75px;
+  height: 75px;
 }
 
 .info-box-1 {
   background-color: $teal;
+  animation: nudge 10s linear infinite alternate;
 
-  .info-box-image {
-    background-image: url('../../images/new-folder-dynamic-color.png');
+  .landing-info-box {
+    border: 2px solid $teal;
   }
 }
 
 .info-box-2 {
   background-color: $warning;
+  animation: nudge 10s linear infinite alternate;
+  animation-direction: reverse;
 
-  .info-box-image {
-    background-image: url('../../images/chat-bubble-dynamic-color.png');
+  .landing-info-box {
+    border: 2px solid $warning;
   }
 }
 
 .info-box-3 {
   background-color: $danger;
+  animation: nudge 10s linear infinite alternate;
 
-  .info-box-image {
-    background-image: url('../../images/trophy-dynamic-color.png');
+  .landing-info-box {
+    border: 2px solid $danger;
   }
 }
 
 
 @media only screen and (min-width: $md) {
+  .landing {
+    background-image: url('../../images/background-metro.png');
+  }
+
   .landing-info {
     .hero {
       font-size: 5rem;
     }
   }
 
-  .landing-info-box {
+  .landing-info-box,
+  .info-box-1,
+  .info-box-2,
+  .info-box-3 {
     h3 {
       font-size: 1.75rem;
     }
+  }
+
+  .info-box-image {
+    width: 150px;
+    height: 150px;
   }
 
   .info-box-1,
   .info-box-2,
   .info-box-3 {
     max-width: 500px;
+  }
+}
+
+// Animations
+
+@keyframes nudge {
+
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(50px, 0);
+  }
+
+  80% {
+    transform: translate(-50px, 0);
   }
 }

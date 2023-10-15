@@ -12,6 +12,7 @@ djangorestframework = "*"
 django-environ = "*"
 djangorestframework-simplejwt = "*"
 pillow = "*"
+django-filter = "*"
 django-on-heroku = "*"
 
 [dev-packages]

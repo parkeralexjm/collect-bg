@@ -1,12 +1,12 @@
 .display-background {
-  background-image: url('../../images/ffflux.svg');
+  background-image: url('../../images//background-metro.png');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   padding: 0.75rem;
 
   .display {
-    background-color: $teal;
+    background-color: $primary;
     border-radius: $games-border-radius;
     max-width: 1440px;
     padding: 0;
@@ -27,13 +27,24 @@
   height: 100%;
 
   .logo {
-    width: 75%;
+    height: 45px;
   }
 
   .top-games-container {
-    height: calc(100vh - 147px);
+    height: calc(100vh - 123px);
     overflow-x: hidden;
     overflow-y: auto;
+
+
+    h2 {
+      color: white;
+      font-size: 1rem;
+      font-weight: 400;
+      text-align: center;
+      margin: $inside-edge-padding 0;
+      padding-bottom: $inside-edge-padding;
+      border-bottom: 2px solid $teal;
+    }
   }
 
   .display-top-games:not(:nth-child(-1)) {
@@ -48,10 +59,17 @@
     width: 100%;
     padding: $inside-edge-padding;
 
+    &:hover>img {
+      transform: scale(1.03);
+      transition: all ease 250ms;
+    }
+
     img {
       width: 60px !important;
       height: 60px;
       border-radius: $games-border-radius;
+
+
     }
 
   }
@@ -64,22 +82,30 @@
   align-items: center;
   padding-left: $inside-edge-padding;
   flex: 1;
+  color: white;
 
   h3 {
     font-size: 0.9rem;
+    font-weight: 200;
   }
 
   h4 {
     font-size: 0.8rem;
+    font-weight: 400;
   }
 
   .top-games-rank {
     display: inline-block;
     text-align: center;
-    width: 35px;
-    height: 35px;
-    margin-left: 3px;
-    padding: 3px 6px;
+    width: 25px;
+    height: 25px;
+    margin: 0 5px;
+    padding: 0;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
   }
 }
 
@@ -88,24 +114,31 @@
   justify-content: center;
   margin-top: 10px;
 
+
+
   i {
     padding: $edge-padding;
-    color: $secondary;
+    color: $teal;
+
+    &:hover {
+      transform: scale(1.1);
+      transition: all ease 250ms;
+    }
   }
 }
 
 .center-col {
-  background-color: $warning;
+  background-color: $secondary;
   border-radius: $games-border-radius;
   padding: $edge-padding $edge-padding 0 $edge-padding;
   min-height: 615px;
 }
 
 .center-col-collection {
-  background-color: $warning;
+  background-color: $secondary;
   border-radius: $games-border-radius;
   padding: $edge-padding $edge-padding 0 $edge-padding;
-  min-height: 941px;
+  min-height: 564px;
 }
 
 .center-cards {
@@ -119,7 +152,7 @@
 }
 
 .modal-button {
-  background-color: $teal;
+  background-color: $warning;
   height: 4rem;
   width: 4rem;
   position: fixed;
@@ -130,6 +163,7 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  z-index: 100;
 }
 
 @media only screen and (min-width: $md) {

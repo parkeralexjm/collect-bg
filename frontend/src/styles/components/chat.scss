@@ -35,6 +35,14 @@
   display: flex;
   overflow-x: hidden;
   overflow-y: scroll;
+
+  &::-webkit-scrollbar-track {
+    background: $secondary;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border: 3px solid $secondary;
+  }
 }
 
 .chat {
@@ -46,6 +54,7 @@
 .following-display {
   height: calc((var(--vh, 1vh) * 100) - 125px);
   padding-top: 10px;
+  flex-direction: column;
 }
 
 
@@ -55,6 +64,25 @@
   form {
     position: relative;
 
+    textarea {
+      border: 2px solid $secondary;
+      background-color: $primary;
+      color: white;
+      font-weight: 300;
+
+      &:focus {
+        border: 2px solid $danger;
+        background-color: $primary;
+        color: white;
+        font-weight: 300;
+      }
+
+      &::placeholder {
+        color: white;
+        font-weight: 300;
+      }
+    }
+
     button {
       position: absolute;
       right: 0;
@@ -63,12 +91,24 @@
   }
 }
 
-.chat {}
+.following-form {
+  form {
+    display: flex;
 
-.following-display {
-  flex-direction: column;
+    .form-control {
+      flex: 1;
+      margin-right: 5px;
+    }
+
+    button {
+      width: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+    }
+  }
 }
-
 
 @media only screen and (min-width: $md) {
 
@@ -94,7 +134,7 @@
   }
 
   .chat {
-    height: calc(100vh - 350px);
+    height: calc(100vh - 367px);
   }
 
   .following-display {
@@ -102,7 +142,7 @@
   }
 
   .following-users {
-    height: calc(100vh - 291px);
+    height: calc(100vh - 265px);
     overflow-x: hidden;
     overflow-y: auto;
   }

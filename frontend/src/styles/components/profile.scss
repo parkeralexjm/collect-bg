@@ -34,14 +34,55 @@
 
   .profile-info {
     display: flex;
-    flex-direction: row;
-    align-items: flex-end;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 10px;
+    padding-left: 10px;
+
+    h5 {
+      color: white;
+      font-weight: 300;
+    }
 
     h4 {
       text-overflow: ellipsis;
       overflow: hidden;
+      color: white;
+      font-size: 2rem;
+      font-weight: 200;
+      max-width: 240px;
     }
 
 
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .profile {
+    .profile-info {
+      h4 {
+        max-width: 150px;
+      }
+
+      h5 {
+        font-size: 1rem;
+      }
+    }
+
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .profile {
+    .profile-info {
+      h4 {
+        max-width: 200px;
+      }
+
+      h5 {
+        font-size: 1.5rem;
+      }
+
+    }
   }
 }
