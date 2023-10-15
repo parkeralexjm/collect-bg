@@ -11,7 +11,7 @@ export default function UserCollection({ getUserData, user, collectionUser, deac
         <h1>{collectionUser.username === user.username ? 'My collection' : collectionUser.username + "'s collection"}</h1>
         <Button variant='outline-danger' onClick={deactivateCollectionMode}>Exit</Button>
       </div>
-      <GameCards user={user} getUserData={getUserData} games={collectionUser.collection} collectionMode={true} />
+      <GameCards user={user} getUserData={getUserData} collectionUser={collectionUser} collectionMode={true} />
     </>
   )
 }

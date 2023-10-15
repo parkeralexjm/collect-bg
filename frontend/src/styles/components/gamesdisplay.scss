@@ -109,9 +109,16 @@
   justify-content: center;
   margin-top: 10px;
 
+
+
   i {
     padding: $edge-padding;
     color: $teal;
+
+    &:hover {
+      transform: scale(1.1);
+      transition: all ease 250ms;
+    }
   }
 }
 

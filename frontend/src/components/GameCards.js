@@ -16,7 +16,7 @@ import PlaceholderCards from './PlaceholderCards'
 import axios from 'axios'
 import GameCarousel from './Carousel'
 
-export default function GameCards({ user, getUserData, collectionMode = false }) {
+export default function GameCards({ user, getUserData, collectionMode = false, collectionUser }) {
   const [filter, setFilter] = useState({
     search: '',
     category: '',
@@ -57,11 +57,17 @@ export default function GameCards({ user, getUserData, collectionMode = false })
       if (filter.search !== '') {
         search = `&name=${filter.search}`
       }
-
-      const { data } = await axiosAuth.get(`/api/games/?${pagination}${category}${mechanic}${search}&p=${currentPage + 1}`) // This is authorised route for testing.
+      if (!collectionMode) {
+        const { data } = await axiosAuth.get(`/api/games/?${pagination}${category}${mechanic}${search}&p=${currentPage + 1}`) // This is authorised route for testing.
+        setAllGames(data.results)
+        setTotalPages(Math.ceil(data.count / 8))
+      } else {
+        const { data } = await axiosAuth.get(`/api/auth/${collectionUser.id}/collection/?${pagination}${category}${mechanic}${search}&p=${currentPage + 1}`) // This is authorised route for testing.
+        console.log(data)
+        setAllGames(data.collection)
+        setTotalPages(Math.ceil(data.collection.length / 8))
+      }
       // const { data } = await axios.get('/api/games/') // This is unauthorised for testing
-      setAllGames(data.results)
-      setTotalPages(Math.ceil(data.count / 8))
     } catch (error) {
       console.log(error)
     }
@@ -102,7 +108,7 @@ export default function GameCards({ user, getUserData, collectionMode = false })
 
   useEffect(() => {
     getGamesData()
-  }, [filter, currentPage])
+  }, [filter, currentPage, collectionUser])
 
 
   useEffect(() => {

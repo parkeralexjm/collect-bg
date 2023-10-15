@@ -1,4 +1,4 @@
-from rest_framework.generics import CreateAPIView, GenericAPIView, ListAPIView, RetrieveUpdateAPIView, UpdateAPIView
+from rest_framework.generics import CreateAPIView, GenericAPIView, ListAPIView, RetrieveUpdateAPIView, UpdateAPIView, RetrieveAPIView
 from .serializers.common import RegistrationSerializer, AllUsersSerializer, UserSerializer
 from .serializers.populated import PopulatedUserSerializer, PopulatedUserCollectionSerializer, PopulatedUserCollectionOnlySerializer
 from django.contrib.auth import get_user_model
@@ -68,10 +68,16 @@ class UserFollowView(UserView, UpdateAPIView):
         return Response(status=201)
 
 
-class UserCollectionView(UserView, ListAPIView):
+class UserCollectionView(UserView, RetrieveAPIView):
     serializer_class = PopulatedUserCollectionOnlySerializer
     permission_classes = [IsAuthenticatedOrReadOnly]
     pagination_class = CustomPagination
+
+    # def get(self, request, *args, **kwargs):
+    #     user = self.get_object()
+    #     print('user', user.collection.all())
+    #     print('kwargs', kwargs)
+    #     return Response(user.collection.all(), status=200)
 
 
 class UserCollectionUpdateView(UserView, UpdateAPIView):

@@ -53,6 +53,7 @@
   max-width: 375px;
 }
 
+
 .info-box-image {
   width: 75px;
   height: 75px;
@@ -60,6 +61,7 @@
 
 .info-box-1 {
   background-color: $teal;
+  animation: nudge 10s linear infinite alternate;
 
   .landing-info-box {
     border: 2px solid $teal;
@@ -68,6 +70,8 @@
 
 .info-box-2 {
   background-color: $warning;
+  animation: nudge 10s linear infinite alternate;
+  animation-direction: reverse;
 
   .landing-info-box {
     border: 2px solid $warning;
@@ -76,6 +80,7 @@
 
 .info-box-3 {
   background-color: $danger;
+  animation: nudge 10s linear infinite alternate;
 
   .landing-info-box {
     border: 2px solid $danger;
@@ -112,5 +117,23 @@
   .info-box-2,
   .info-box-3 {
     max-width: 500px;
+  }
+}
+
+// Animations
+
+@keyframes nudge {
+
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(50px, 0);
+  }
+
+  80% {
+    transform: translate(-50px, 0);
   }
 }
