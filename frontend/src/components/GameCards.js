@@ -185,7 +185,7 @@ export default function GameCards({ user, getUserData, collectionMode = false, c
 
   return (
     <>
-      {!collectionMode && <GameCarousel gamesData={allGames.slice(0, 5)} />}
+      {!collectionMode && <GameCarousel handleShow={handleShow} gamesData={allGames.slice(0, 5)} />}
       <Container className='center-cards'>
         <Row as={Form} onSubmit={handleSubmit} className='game-card-search'>
           <Col xs={12} md={4}>

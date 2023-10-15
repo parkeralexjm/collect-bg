@@ -51,12 +51,22 @@ ul.react-paginate {
   font-weight: 200;
 }
 
+ul.react-paginate li {
+  border: $secondary 2px solid;
+  transition: 0.3s;
+
+  &:hover {
+    border-bottom: 2px solid $teal;
+  }
+}
+
 ul.react-paginate li a {
   border-radius: 3px;
   padding: 0.1rem 0.5rem;
-  border: gray 1px solid;
+
   cursor: pointer;
   color: white;
+
 }
 
 ul.react-paginate li.previous a,
@@ -67,11 +77,24 @@ ul.react-paginate li.break a {
   user-select: none;
 }
 
+ul.react-paginate li.selected {
+  &:hover {
+    border-bottom: 2px solid $secondary !important;
+  }
+}
+
 ul.react-paginate li.selected a {
   background-color: $teal;
   border-color: transparent;
   color: white;
   min-width: 32px;
+}
+
+ul.react-paginate li.disabled {
+  &:hover {
+    border-bottom: 2px solid $secondary !important;
+  }
+
 }
 
 ul.react-paginate li.disabled a {
@@ -185,7 +208,7 @@ ul.react-paginate li.disabled a {
   }
 
   .game-card-display {
-    height: calc(66vh - 147px);
+    height: calc(66vh - 151px);
 
     .card-col {
       height: 50%;
