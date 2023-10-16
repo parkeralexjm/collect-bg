@@ -67,16 +67,15 @@ export default function GamesDisplay() {
     }
   }
 
-
   useEffect(() => {
     getAllUserData()
     getUserData()
     getMessageData()
     getTopGamesData()
-    clearInterval(messageRefresh)
-    setInterval(() => {
-      getMessageData()
-    }, 10000)
+    // clearInterval(messageRefresh)
+    // setInterval(() => {
+    //   getMessageData()
+    // }, 10000)
 
   }, [])
 

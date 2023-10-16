@@ -21,6 +21,7 @@ export default function GameCards({ user, getUserData, collectionMode = false, c
     search: '',
     category: '',
     mechanic: '',
+    collection: '',
   })
   const [allGames, setAllGames] = useState([])
   const [filteredGames, setFilteredGames] = useState([])
@@ -61,12 +62,12 @@ export default function GameCards({ user, getUserData, collectionMode = false, c
         const { data } = await axiosAuth.get(`/api/games/?${pagination}${category}${mechanic}${search}&p=${currentPage + 1}`) // This is authorised route for testing.
         setAllGames(data.results)
         setTotalPages(Math.ceil(data.count / 8))
-      } else {
-        const { data } = await axiosAuth.get(`/api/auth/${collectionUser.id}/collection/?${pagination}${category}${mechanic}${search}&p=${currentPage + 1}`) // This is authorised route for testing.
-        setAllGames(data.collection)
-        setTotalPages(Math.ceil(data.collection.length / 12))
+      } else if (collectionMode && collectionUser) {
+        const collection = `&owned=${collectionUser.id}`
+        const { data } = await axiosAuth.get(`/api/games/?${collection}${pagination}${category}${mechanic}${search}&p=${currentPage + 1}&page_size=12`) // This is authorised route for testing.
+        setAllGames(data.results)
+        setTotalPages(Math.ceil(data.count / 12))
       }
-      // const { data } = await axios.get('/api/games/') // This is unauthorised for testing
     } catch (error) {
       console.log(error)
     }
@@ -89,9 +90,12 @@ export default function GameCards({ user, getUserData, collectionMode = false, c
   }
 
   useEffect(() => {
+    setFilter({ ...filter, collection: collectionUser })
+  }, [collectionUser])
+
+  useEffect(() => {
     getMechanicsData()
     getCategoriesData()
-    getGamesData()
   }, [])
 
   function resetFilters() {
@@ -102,13 +106,14 @@ export default function GameCards({ user, getUserData, collectionMode = false, c
       search: '',
       category: '',
       mechanic: '',
+      collection: '',
     })
   }
 
   useEffect(() => {
     setAllGames([])
     getGamesData()
-  }, [filter, currentPage, collectionUser])
+  }, [filter, currentPage])
 
 
   useEffect(() => {
@@ -157,12 +162,11 @@ export default function GameCards({ user, getUserData, collectionMode = false, c
     setShow(true)
   }
 
-  function handleCollect(game, option) {
+  function handleCollect(id) {
     async function patchCollection() {
       try {
-        const { data } = await axiosAuth.patch(`/api/auth/${user.id}/collectionupdate/`, { id: game.id, type: option })
+        const { data } = await axiosAuth.patch(`/api/games/${id}/owned/`)
         // refresh here
-        getUserData()
       } catch (error) {
         console.log(error)
       }
@@ -239,8 +243,10 @@ export default function GameCards({ user, getUserData, collectionMode = false, c
                 {
                   subset.map((game, index) => {
                     let found
-                    if (user.collection) {
-                      found = user.collection.some(el => el === game.id)
+                    if (game.owned.includes(user.id)) {
+                      found = true
+                    } else {
+                      found = false
                     }
 
                     return (
@@ -252,11 +258,11 @@ export default function GameCards({ user, getUserData, collectionMode = false, c
                           <Card.Body className='d-flex flex-column justify-content-center'>
                             {
                               found ?
-                                <div className='collect-remove' onClick={() => handleCollect(game, 'remove')}>
+                                <div className='collect-remove' onClick={() => handleCollect(game.id)}>
                                   Remove
                                 </div>
                                 :
-                                <div className='collect-add' onClick={() => handleCollect(game, 'add')}>
+                                <div className='collect-add' onClick={() => handleCollect(game.id)}>
                                   Add
                                 </div>
                             }

@@ -70,8 +70,8 @@ export default function FollowingList({ user, setCollectionUser, activateCollect
         {user.following && user.following.map((user, index) => {
           return <div key={index} className='following-collection'>
             <Button variant='warning' onClick={() => {
-              setCollectionUser(user)
               activateCollectionMode()
+              setCollectionUser(user)
             }}>{user.username}</Button>
             <Button variant='outline-danger' className='following-remove' value={user.id} onClick={handleRemove}>X</Button>
           </div>

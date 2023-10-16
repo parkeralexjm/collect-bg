@@ -52,7 +52,7 @@ class GameDetailView(GameView, RetrieveUpdateDestroyAPIView):
 
 # Like view for Game
 # Endpoint: /Games/:id/like
-class GameLikeView(GameView, UpdateAPIView):
+class GameOwnedView(GameView, UpdateAPIView):
     permission_classes = [IsAuthenticated]
 
     # Overriding the patch method
@@ -61,12 +61,12 @@ class GameLikeView(GameView, UpdateAPIView):
         game = self.get_object()  #  get the single Game object
 
         # check if the user already appears in the list of likes, remove if so
-        if request.user in game.likes.all():
-            game.likes.remove(request.user)
+        if request.user in game.owned.all():
+            game.owned.remove(request.user)
             game.save()
             return Response(status=204)
-        # If user does not exist in likes, add them
+        # If user does not exist in owned, add them
         else:
-            game.likes.add(request.user)
+            game.owned.add(request.user)
             game.save()
             return Response(status=201)
