@@ -31,7 +31,8 @@ from django_filters import rest_framework as filters
 
 
 class GameView(GenericAPIView):
-    queryset = Game.objects.all()
+    queryset = Game.objects.all().prefetch_related(
+        'categories', 'mechanics', 'owned')
     serializer_class = PopulatedGameSerializer
 
 
