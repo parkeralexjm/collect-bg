@@ -13,11 +13,10 @@
 }
 
 .game-card-search {
-  background-color: $secondary;
 
   .form-control {
     font-weight: 300;
-    background-color: $secondary;
+    background-color: transparent;
     border: 0px solid $primary;
     border-radius: 0;
     border-bottom: 3px solid $teal;
@@ -34,7 +33,11 @@
       border-bottom: 3px solid $warning;
     }
 
+    option {
+      background-color: $secondary !important;
+    }
   }
+
 }
 
 .pagination {
@@ -208,6 +211,14 @@ ul.react-paginate li.disabled a {
     .card-col {
       height: 33%;
     }
+  }
+
+  .center-cards h2 {
+    height: calc(66vh - 155px);
+  }
+
+  #root>section>div>div>div.center-col-collection.col-xxl-7.col-lg-6.col-md-9.col-12>div.center-cards.container>h2 {
+    height: calc(100vh - 203px);
   }
 
   .game-card-display {

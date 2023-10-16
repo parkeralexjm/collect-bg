@@ -24,8 +24,8 @@ export default function Landing() {
             <Col xs={10} md={10} className='d-flex justify-content-center'>
               <div className='info-box-1'>
                 {/* <div className='landing-info-box'> */}
-                <img src={folder} className='info-box-image'></img>
-                <h3>Store and display your collection for others to follow</h3>
+                <img src={trophy} className='info-box-image'></img>
+                <h3>Check out the hottest new games right now</h3>
                 {/* </div> */}
               </div>
             </Col>
@@ -48,8 +48,8 @@ export default function Landing() {
             <Col xs={10} md={10} className='d-flex justify-content-center'>
               <div className='info-box-3'>
                 {/* <div className='landing-info-box'> */}
-                <img src={trophy} className='info-box-image'></img>
-                <h3>Check out the hottest new games right now</h3>
+                <img src={folder} className='info-box-image'></img>
+                <h3>Store and display your collection for others to follow</h3>
                 {/* </div> */}
               </div>
             </Col>
