@@ -96,7 +96,7 @@ export default function GamesDisplay() {
       <div className='display container'>
         <Row className='d-flex background-row'>
           <Col xs={0} md={0} lg={3} xxl={2} className='left-col'>
-            <Link to={''}>
+            <Link to={'/'}>
               <img className='logo' src={logo} alt="collect-dot-bg-logo" />
             </Link>
             <div className='top-games-container'>

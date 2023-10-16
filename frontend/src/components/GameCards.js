@@ -94,6 +94,7 @@ export default function GameCards({ user, getUserData, collectionMode = false, c
 
   useEffect(() => {
     setFilter({ ...filter, collection: collectionUser })
+    setCurrentPage(0)
   }, [collectionUser])
 
   useEffect(() => {
@@ -138,7 +139,7 @@ export default function GameCards({ user, getUserData, collectionMode = false, c
   }
 
   function handleSubmit(e) {
-    e.preventdefault()
+    e.preventDefault()
   }
 
   const handlePageChange = (selectedPage) => {
@@ -169,12 +170,14 @@ export default function GameCards({ user, getUserData, collectionMode = false, c
     async function patchCollection() {
       try {
         const { data } = await axiosAuth.patch(`/api/games/${id}/owned/`)
-        // refresh here
+        // setFilteredGames(...filteredGames,)
       } catch (error) {
         console.log(error)
       }
     }
     patchCollection()
+
+    // return the object in the request, spread filtered games and update the state
   }
 
   function topFunction() {

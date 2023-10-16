@@ -65,9 +65,9 @@ class GameOwnedView(GameView, UpdateAPIView):
         if request.user in game.owned.all():
             game.owned.remove(request.user)
             game.save()
-            return Response(status=204)
+            return Response(game, status=204)
         # If user does not exist in owned, add them
         else:
             game.owned.add(request.user)
             game.save()
-            return Response(status=201)
+            return Response(game, status=201)
