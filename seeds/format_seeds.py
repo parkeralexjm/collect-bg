@@ -38,7 +38,7 @@ with open('./seeds/new-game-seeds.json', 'r', errors="ignore") as file:
         #     elif option['_type'] == "boardgamemechanic":
         #         game['fields']['mechanics'].append(option['_id'])
 
-        game['fields']['id'] = game['fields']['_id']
+        # game['fields']['id'] = game['fields']['_id']
 
         # remove min maxplay time
         # game.pop("minplaytime")
@@ -47,8 +47,8 @@ with open('./seeds/new-game-seeds.json', 'r', errors="ignore") as file:
         # Change the format to match the model
 
         # Delete the link list
-        del game['fields']['link']
-        del game['fields']['_id']
+        # del game['fields']['link']
+        # del game['fields']['_id']
         # del game['_type']
 
         # new_game.append({
@@ -56,6 +56,7 @@ with open('./seeds/new-game-seeds.json', 'r', errors="ignore") as file:
         #     "pk": int(game['_id']),
         #     "fields": game
         # })
+        # game['fields']['owned'] = ["1"]
 
         # print(f"{number} {new_game['fields']['name']}")
         # number += 1

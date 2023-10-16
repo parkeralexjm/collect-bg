@@ -7,4 +7,4 @@ class GameFilter(filters.FilterSet):
 
     class Meta:
         model = Game
-        fields = ['categories', 'mechanics', 'name']
+        fields = ['categories', 'mechanics', 'name', 'owned']

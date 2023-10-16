@@ -24,9 +24,9 @@ class Game(models.Model):
         related_name='game_mechanic',
         blank=True
     )
-    likes = models.ManyToManyField(
+    owned = models.ManyToManyField(
         'users.User',
-        related_name='liked_games',
+        related_name='owned_games',
         blank=True
     )
 
