@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/static/css/main.fa852197.css",
-    "main.js": "/static/js/main.33faf3fe.js",
-    "static/media/new-folder-dynamic-color.png": "/static/media/new-folder-dynamic-color.c37179e0f4d7a4a539ec.png",
-    "static/media/trophy-dynamic-color.png": "/static/media/trophy-dynamic-color.8e979549fbd3d8c29339.png",
-    "static/media/chat-bubble-dynamic-color.png": "/static/media/chat-bubble-dynamic-color.e45c05ce3449e624d952.png",
+    "main.css": "/static/css/main.32ab7459.css",
+    "main.js": "/static/js/main.0fe4d1fb.js",
+    "static/media/background-center.png": "/static/media/background-center.57f0fccf4a699e61766f.png",
     "static/media/Logo-Light.png": "/static/media/Logo-Light.e424f45bd0ca05c07788.png",
     "static/media/background-metro.png": "/static/media/background-metro.5d036e1811604c28a4cb.png",
     "static/media/404-light.png": "/static/media/404-light.aa57f79e5028e5856c4a.png",
     "static/media/background-metro-mobile.png": "/static/media/background-metro-mobile.b70edf7cf7a58bcde732.png",
+    "static/media/trophy-dynamic-color.png": "/static/media/trophy-dynamic-color.5ba2047359d3f33c63a6.png",
     "static/media/placeholder-game-image.png": "/static/media/placeholder-game-image.3b7c7950771c33df06f1.png",
     "static/media/placeholder-text.png": "/static/media/placeholder-text.770766dc17b11e9d5009.png",
+    "static/media/chat-bubble-dynamic-color.png": "/static/media/chat-bubble-dynamic-color.e2903a7cb9edb67bc511.png",
     "index.html": "/index.html",
-    "main.fa852197.css.map": "/static/css/main.fa852197.css.map",
-    "main.33faf3fe.js.map": "/static/js/main.33faf3fe.js.map"
+    "main.32ab7459.css.map": "/static/css/main.32ab7459.css.map",
+    "main.0fe4d1fb.js.map": "/static/js/main.0fe4d1fb.js.map"
   },
   "entrypoints": [
-    "static/css/main.fa852197.css",
-    "static/js/main.33faf3fe.js"
+    "static/css/main.32ab7459.css",
+    "static/js/main.0fe4d1fb.js"
   ]
 }
