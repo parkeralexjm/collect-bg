@@ -13,6 +13,8 @@
 }
 
 .game-card-search {
+  background-color: $secondary;
+
   .form-control {
     font-weight: 300;
     background-color: $secondary;
@@ -52,7 +54,7 @@ ul.react-paginate {
 }
 
 ul.react-paginate li {
-  border: $secondary 2px solid;
+  border: transparent 2px solid;
   transition: 0.3s;
 
   &:hover {
@@ -92,7 +94,7 @@ ul.react-paginate li.selected a {
 
 ul.react-paginate li.disabled {
   &:hover {
-    border-bottom: 2px solid $secondary !important;
+    border-bottom: 2px solid transparent !important;
   }
 
 }
@@ -142,7 +144,7 @@ ul.react-paginate li.disabled a {
 
 
 .game-card {
-  background-color: $secondary;
+  background-color: transparent;
   border: none;
   cursor: pointer;
 
