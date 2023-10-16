@@ -223,7 +223,7 @@ export default function GameCards({ user, getUserData, collectionMode = false, c
               <span className="focus-border"></span>
             </Form.Label>
           </Col>
-          <Col xs={6} md={2}>
+          <Col xs={12} md={2}>
             <Button onClick={resetFilters} variant='outline-warning'>Reset</Button>
           </Col>
         </Row>
