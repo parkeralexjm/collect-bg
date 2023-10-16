@@ -34,6 +34,7 @@ export default function GameCards({ user, getUserData, collectionMode = false, c
   const [detail, setDetail] = useState({})
   const [allCategories, setAllCategories] = useState([])
   const [allMechanics, setAllMechanics] = useState([])
+  const [loading, setLoading] = useState(false)
 
   //  This function debounces the search so that the cards do not 'jump' around with user inputs
   const debounced = useDebouncedCallback((value) => {
@@ -45,6 +46,7 @@ export default function GameCards({ user, getUserData, collectionMode = false, c
   }, 500)
 
   async function getGamesData(pagination = '') {
+    setLoading(true)
     try {
       let category = ''
       let mechanic = ''
@@ -71,6 +73,7 @@ export default function GameCards({ user, getUserData, collectionMode = false, c
     } catch (error) {
       console.log(error)
     }
+    setLoading(false)
   }
   async function getCategoriesData() {
     try {
@@ -295,12 +298,16 @@ export default function GameCards({ user, getUserData, collectionMode = false, c
               }
             </>
             :
-            allGames.length > 0 ?
-              <h2>- Sorry, no matches for your query -</h2>
-              :
+            loading ?
               <Row className={collectionMode ? 'game-card-display-collection  card-col-placeholder' : 'game-card-display card-col-placeholder'}>
-                <PlaceholderCards number={collectionMode ? 12 : 8} />
+                <PlaceholderCards number={collectionMode ? 12 : 8} loading={loading} />
               </Row>
+              :
+              filter.search === '' && filter.category === '' && filter.mechanic === '' ?
+                <h2>- User has no games -</h2>
+                :
+                <h2>- Sorry, no matches for your query -</h2>
+
           // <h2>Loading...</h2>
           // Placeholder cards
 

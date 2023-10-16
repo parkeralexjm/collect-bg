@@ -141,6 +141,10 @@
 }
 
 .center-col-collection {
+  background-image: linear-gradient(rgba($secondary, 0.8), rgba($secondary, 0.8)), url('../../images/background-center.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
   background-color: $secondary;
   border-radius: $border-radius;
   padding: $edge-padding $edge-padding 0 $edge-padding;
