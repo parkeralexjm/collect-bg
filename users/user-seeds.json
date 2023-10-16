@@ -1,211 +1,158 @@
 [
-{
-  "model": "users.user",
-  "pk": 1,
-  "fields": {
-    "password": "pbkdf2_sha256$600000$yoH6j8Sxzkwn7GvHwDAffn$NWisa1+WY85G6WtWgUsGC+gyPaMJax4sf7zbfKTNEuQ=",
-    "last_login": "2023-10-06T16:02:49Z",
-    "is_superuser": true,
-    "username": "alex",
-    "first_name": "Alex",
-    "last_name": "",
-    "email": "parkeralexjm@gmail.com",
-    "is_staff": true,
-    "is_active": true,
-    "date_joined": "2023-10-06T15:59:06Z",
-    "image": "profile_images/Aparker.jpg",
-    "displayname": null,
-    "groups": [],
-    "user_permissions": [],
-    "collection": [
-      167791,
-      199792,
-      173346,
-      822,
-      204583,
-      68448,
-      237182,
-      233867,
-      266524,
-      84876,
-      54043,
-      244522,
-      50,
-      219513,
-      244992,
-      98778,
-      287954,
-      92415,
-      300877,
-      224037,
-      158899,
-      132531,
-      225694,
-      260605
-    ],
-    "following": [
-      17,
-      13,
-      16,
-      18
-    ]
+  {
+    "model": "users.user",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$yoH6j8Sxzkwn7GvHwDAffn$NWisa1+WY85G6WtWgUsGC+gyPaMJax4sf7zbfKTNEuQ=",
+      "last_login": "2023-10-06T16:02:49Z",
+      "is_superuser": true,
+      "username": "alex",
+      "first_name": "Alex",
+      "last_name": "",
+      "email": "parkeralexjm@gmail.com",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2023-10-06T15:59:06Z",
+      "image": "profile_images/Aparker.jpg",
+      "displayname": null,
+      "groups": [],
+      "user_permissions": [],
+      "following": [
+        17,
+        13,
+        16,
+        18
+      ]
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 13,
+    "fields": {
+      "password": "pass",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "gary",
+      "first_name": "Alex",
+      "last_name": "",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2023-10-09T13:21:36Z",
+      "image": "default.jpg",
+      "displayname": null,
+      "groups": [],
+      "user_permissions": [],
+      "following": [
+        1
+      ]
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 14,
+    "fields": {
+      "password": "steve",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "steve",
+      "first_name": "",
+      "last_name": "",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2023-10-09T17:19:50Z",
+      "image": "default.jpg",
+      "displayname": null,
+      "groups": [],
+      "user_permissions": [],
+      "following": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 15,
+    "fields": {
+      "password": "barry",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "barry",
+      "first_name": "",
+      "last_name": "",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2023-10-09T17:20:02Z",
+      "image": "default.jpg",
+      "displayname": null,
+      "groups": [],
+      "user_permissions": [],
+      "following": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 16,
+    "fields": {
+      "password": "stephanie",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "stephanie",
+      "first_name": "",
+      "last_name": "",
+      "email": "",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2023-10-09T17:20:09Z",
+      "image": "default.jpg",
+      "displayname": null,
+      "groups": [],
+      "user_permissions": [],
+      "following": []
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 17,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$Jdxw0q7CRI0IMbtOkKCQlB$nlUqsLgxfL/yabAY23Hh7wW1zUw0HHKoQkLVkX150I8=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "Baconfave",
+      "first_name": "",
+      "last_name": "",
+      "email": "alanmarkkerr@gmail.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2023-10-15T21:00:06.063Z",
+      "image": "default.jpg",
+      "displayname": null,
+      "groups": [],
+      "user_permissions": [],
+      "following": [
+        1
+      ]
+    }
+  },
+  {
+    "model": "users.user",
+    "pk": 18,
+    "fields": {
+      "password": "pbkdf2_sha256$600000$r8N9U5B1frSvxHydOGY7VA$8PnHG061t3hE+I9S7IDtpuuf+UWctRbKCz8xDv/Lu7I=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "ElliottP",
+      "first_name": "",
+      "last_name": "",
+      "email": "ellioman57@msn.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2023-10-16T07:56:23.004Z",
+      "image": "default.jpg",
+      "displayname": null,
+      "groups": [],
+      "user_permissions": [],
+      "following": []
+    }
   }
-},
-{
-  "model": "users.user",
-  "pk": 13,
-  "fields": {
-    "password": "pass",
-    "last_login": null,
-    "is_superuser": false,
-    "username": "gary",
-    "first_name": "Alex",
-    "last_name": "",
-    "email": "",
-    "is_staff": false,
-    "is_active": true,
-    "date_joined": "2023-10-09T13:21:36Z",
-    "image": "default.jpg",
-    "displayname": null,
-    "groups": [],
-    "user_permissions": [],
-    "collection": [
-      312484,
-      295947,
-      266192,
-      199792,
-      230802,
-      342942
-    ],
-    "following": [
-      1
-    ]
-  }
-},
-{
-  "model": "users.user",
-  "pk": 14,
-  "fields": {
-    "password": "steve",
-    "last_login": null,
-    "is_superuser": false,
-    "username": "steve",
-    "first_name": "",
-    "last_name": "",
-    "email": "",
-    "is_staff": false,
-    "is_active": true,
-    "date_joined": "2023-10-09T17:19:50Z",
-    "image": "default.jpg",
-    "displayname": null,
-    "groups": [],
-    "user_permissions": [],
-    "collection": [],
-    "following": []
-  }
-},
-{
-  "model": "users.user",
-  "pk": 15,
-  "fields": {
-    "password": "barry",
-    "last_login": null,
-    "is_superuser": false,
-    "username": "barry",
-    "first_name": "",
-    "last_name": "",
-    "email": "",
-    "is_staff": false,
-    "is_active": true,
-    "date_joined": "2023-10-09T17:20:02Z",
-    "image": "default.jpg",
-    "displayname": null,
-    "groups": [],
-    "user_permissions": [],
-    "collection": [],
-    "following": []
-  }
-},
-{
-  "model": "users.user",
-  "pk": 16,
-  "fields": {
-    "password": "stephanie",
-    "last_login": null,
-    "is_superuser": false,
-    "username": "stephanie",
-    "first_name": "",
-    "last_name": "",
-    "email": "",
-    "is_staff": false,
-    "is_active": true,
-    "date_joined": "2023-10-09T17:20:09Z",
-    "image": "default.jpg",
-    "displayname": null,
-    "groups": [],
-    "user_permissions": [],
-    "collection": [],
-    "following": []
-  }
-},
-{
-  "model": "users.user",
-  "pk": 17,
-  "fields": {
-    "password": "pbkdf2_sha256$600000$Jdxw0q7CRI0IMbtOkKCQlB$nlUqsLgxfL/yabAY23Hh7wW1zUw0HHKoQkLVkX150I8=",
-    "last_login": null,
-    "is_superuser": false,
-    "username": "Baconfave",
-    "first_name": "",
-    "last_name": "",
-    "email": "alanmarkkerr@gmail.com",
-    "is_staff": false,
-    "is_active": true,
-    "date_joined": "2023-10-15T21:00:06.063Z",
-    "image": "default.jpg",
-    "displayname": null,
-    "groups": [],
-    "user_permissions": [],
-    "collection": [
-      822,
-      148228,
-      237182,
-      178900,
-      13,
-      30549,
-      39856,
-      169654,
-      65244,
-      9220,
-      157969,
-      147151,
-      320
-    ],
-    "following": [
-      1
-    ]
-  }
-},
-{
-  "model": "users.user",
-  "pk": 18,
-  "fields": {
-    "password": "pbkdf2_sha256$600000$r8N9U5B1frSvxHydOGY7VA$8PnHG061t3hE+I9S7IDtpuuf+UWctRbKCz8xDv/Lu7I=",
-    "last_login": null,
-    "is_superuser": false,
-    "username": "ElliottP",
-    "first_name": "",
-    "last_name": "",
-    "email": "ellioman57@msn.com",
-    "is_staff": false,
-    "is_active": true,
-    "date_joined": "2023-10-16T07:56:23.004Z",
-    "image": "default.jpg",
-    "displayname": null,
-    "groups": [],
-    "user_permissions": [],
-    "collection": [],
-    "following": []
-  }
-}
 ]

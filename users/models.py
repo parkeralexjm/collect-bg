@@ -5,11 +5,6 @@ from django.contrib.auth.models import AbstractUser
 
 
 class User(AbstractUser):
-    collection = models.ManyToManyField(
-        'games.Game',
-        related_name='collected_games',
-        blank=True
-    )
     image = models.ImageField(default='default.jpg',
                               upload_to='profile_images')
     following = models.ManyToManyField(
