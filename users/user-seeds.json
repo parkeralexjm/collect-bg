@@ -46,7 +46,8 @@
     "following": [
       17,
       13,
-      16
+      16,
+      18
     ]
   }
 },
@@ -183,6 +184,28 @@
     "following": [
       1
     ]
+  }
+},
+{
+  "model": "users.user",
+  "pk": 18,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$r8N9U5B1frSvxHydOGY7VA$8PnHG061t3hE+I9S7IDtpuuf+UWctRbKCz8xDv/Lu7I=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "ElliottP",
+    "first_name": "",
+    "last_name": "",
+    "email": "ellioman57@msn.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-10-16T07:56:23.004Z",
+    "image": "default.jpg",
+    "displayname": null,
+    "groups": [],
+    "user_permissions": [],
+    "collection": [],
+    "following": []
   }
 }
 ]
