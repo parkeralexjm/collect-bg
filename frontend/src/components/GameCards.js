@@ -170,7 +170,11 @@ export default function GameCards({ user, getUserData, collectionMode = false, c
     async function patchCollection() {
       try {
         const { data } = await axiosAuth.patch(`/api/games/${id}/owned/`)
-        // setFilteredGames(...filteredGames,)
+        const gameIndex = filteredGames.findIndex((game => game.id === id))
+        const newFilteredGames = filteredGames
+        newFilteredGames[gameIndex] = data
+        setFilteredGames(newFilteredGames)
+
       } catch (error) {
         console.log(error)
       }
@@ -231,7 +235,7 @@ export default function GameCards({ user, getUserData, collectionMode = false, c
           </Col>
         </Row>
         <div className='pagination'>
-          {subset.map((item) => (
+          {filteredGames.map((item) => (
             <div key={item.id}>{item.title}</div>
           ))}
           <ReactPaginate className='react-paginate'
@@ -247,7 +251,7 @@ export default function GameCards({ user, getUserData, collectionMode = false, c
             <>
               <Row className={collectionMode ? 'game-card-display-collection' : 'game-card-display'} >
                 {
-                  subset.map((game, index) => {
+                  filteredGames.map((game, index) => {
                     let found
                     if (game.owned.includes(user.id)) {
                       found = true
@@ -283,7 +287,7 @@ export default function GameCards({ user, getUserData, collectionMode = false, c
                 }
               </Row>
               <div className='pagination pagination-bottom'>
-                {subset.map((item) => (
+                {filteredGames.map((item) => (
                   <div key={item.id}>{item.title}</div>
                 ))}
                 <ReactPaginate className='react-paginate'

@@ -67,7 +67,7 @@ class GameOwnedView(GameView, UpdateAPIView):
             game.owned.remove(request.user)
             game.save()
             serialized_game = PopulatedGameSerializer(game)
-            return Response(serialized_game.data, status=204)
+            return Response(serialized_game.data, status=201)
         # If user does not exist in owned, add them
         else:
             game.owned.add(request.user)
