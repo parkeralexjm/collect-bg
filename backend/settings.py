@@ -70,6 +70,7 @@ MIDDLEWARE = [
 ]
 
 CSRF_TRUSTED_ORIGINS = [
+    "https://collect-bg-229e9688a986.herokuapp.com/",
     "http://127.0.0.1:8000",
     "http://localhost:8000"
 ]
