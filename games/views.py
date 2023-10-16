@@ -55,6 +55,7 @@ class GameDetailView(GameView, RetrieveUpdateDestroyAPIView):
 # Endpoint: /Games/:id/like
 class GameOwnedView(GameView, UpdateAPIView):
     permission_classes = [IsAuthenticated]
+    serializer_class = PopulatedGameSerializer
 
     # Overriding the patch method
     # This will produce like toggle behaviour
@@ -65,9 +66,11 @@ class GameOwnedView(GameView, UpdateAPIView):
         if request.user in game.owned.all():
             game.owned.remove(request.user)
             game.save()
-            return Response(game, status=204)
+            serialized_game = PopulatedGameSerializer(game)
+            return Response(serialized_game.data, status=204)
         # If user does not exist in owned, add them
         else:
             game.owned.add(request.user)
             game.save()
-            return Response(game, status=201)
+            serialized_game = PopulatedGameSerializer(game)
+            return Response(serialized_game.data, status=201)
