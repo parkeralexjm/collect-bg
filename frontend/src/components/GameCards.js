@@ -182,11 +182,11 @@ export default function GameCards({ user, getUserData, collectionMode = false, c
     element.classList.remove('loading')
   }
 
-  function handleCollect(id, method) {
-    const element = document.getElementById(`${method}-btn`)
+  function handleCollect(index, id, method) {
+    const element = document.getElementById(`${index}-${method}-btn`)
     if (!element.classList.contains('loading')) {
       element.classList.add('loading')
-      toggleLoading(method)
+      toggleLoading(method, index)
       patchCollection(id, element)
     }
 
@@ -194,13 +194,14 @@ export default function GameCards({ user, getUserData, collectionMode = false, c
   // return the object in the request, spread filtered games and update the state
 
 
-  function toggleLoading(method) {
-    const element = document.getElementById(`${method}-btn`)
-    if (method === 'add') {
-      element.innerHTML = 'Adding...'
-    } else {
-      element.innerHTML = 'Removing...'
-    }
+  function toggleLoading(method, index) {
+    const element = document.getElementById(`${index}-${method}-btn`)
+    console.log(element)
+    // if (method === 'add') {
+    //   element.innerHTML = 'Adding...'
+    // } else {
+    //   element.innerHTML = 'Removing...'
+    // }
   }
 
   function topFunction() {
@@ -287,14 +288,14 @@ export default function GameCards({ user, getUserData, collectionMode = false, c
                           <Card.Body className='d-flex flex-column justify-content-center'>
                             {
                               found ?
-                                <div id='remove-btn' className='collect-remove' onClick={() => {
-                                  handleCollect(game.id, 'remove')
+                                <div id={index + '-remove-btn'} className='collect-remove' onClick={() => {
+                                  handleCollect(index, game.id, 'remove')
                                 }}>
                                   Remove
                                 </div>
                                 :
-                                <div id='add-btn' className='collect-add' onClick={() => {
-                                  handleCollect(game.id, 'add')
+                                <div id={index + '-add-btn'} className='collect-add' onClick={() => {
+                                  handleCollect(index, game.id, 'add')
                                 }
                                 }>
                                   Add
