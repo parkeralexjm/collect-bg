@@ -35,6 +35,7 @@ export default function GameCards({ user, getUserData, collectionMode = false, c
   const [allCategories, setAllCategories] = useState([])
   const [allMechanics, setAllMechanics] = useState([])
   const [loading, setLoading] = useState(false)
+  const [cardLoading, setCardLoading] = useState(false)
 
   //  This function debounces the search so that the cards do not 'jump' around with user inputs
   const debounced = useDebouncedCallback((value) => {
@@ -179,13 +180,13 @@ export default function GameCards({ user, getUserData, collectionMode = false, c
     } catch (error) {
       console.log(error)
     }
-    element.classList.remove('loading')
+    setCardLoading(false)
   }
 
   function handleCollect(index, id, method) {
     const element = document.getElementById(`${index}-${method}-btn`)
-    if (!element.classList.contains('loading')) {
-      element.classList.add('loading')
+    if (!cardLoading) {
+      setCardLoading(true)
       toggleLoading(method, index)
       patchCollection(id, element)
     }
@@ -196,12 +197,11 @@ export default function GameCards({ user, getUserData, collectionMode = false, c
 
   function toggleLoading(method, index) {
     const element = document.getElementById(`${index}-${method}-btn`)
-    console.log(element)
-    // if (method === 'add') {
-    //   element.innerHTML = 'Adding...'
-    // } else {
-    //   element.innerHTML = 'Removing...'
-    // }
+    if (method === 'add') {
+      element.innerHTML = 'Adding...'
+    } else {
+      element.innerHTML = 'Removing...'
+    }
   }
 
   function topFunction() {
