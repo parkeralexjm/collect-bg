@@ -120,7 +120,8 @@ ul.react-paginate li.disabled a {
 }
 
 .collect-remove,
-.collect-add {
+.collect-add,
+.loading {
   font-size: 0.9rem;
   width: 100%;
   top: -5px;
@@ -138,6 +139,10 @@ ul.react-paginate li.disabled a {
   &:hover {
     border-bottom: 3px solid $warning;
   }
+}
+
+.loading {
+  background-color: $warning !important;
 }
 
 .collect-add {

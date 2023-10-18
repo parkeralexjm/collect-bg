@@ -166,22 +166,41 @@ export default function GameCards({ user, getUserData, collectionMode = false, c
     setShow(true)
   }
 
-  function handleCollect(id) {
-    async function patchCollection() {
-      try {
-        const { data } = await axiosAuth.patch(`/api/games/${id}/owned/`)
-        const gameIndex = filteredGames.findIndex((game => game.id === id))
-        const newFilteredGames = filteredGames
-        newFilteredGames[gameIndex] = data
-        setFilteredGames(newFilteredGames)
+  async function patchCollection(id, element) {
+    try {
+      const { data } = await axiosAuth.patch(`/api/games/${id}/owned/`)
+      const gameIndex = filteredGames.findIndex((game => game.id === id))
+      const games = [...filteredGames]
+      const game = { ...games[gameIndex] }
+      game.owned = data.owned
+      games[gameIndex] = game
+      setFilteredGames(games)
 
-      } catch (error) {
-        console.log(error)
-      }
+    } catch (error) {
+      console.log(error)
     }
-    patchCollection()
+    element.classList.remove('loading')
+  }
 
-    // return the object in the request, spread filtered games and update the state
+  function handleCollect(id, method) {
+    const element = document.getElementById(`${method}-btn`)
+    if (!element.classList.contains('loading')) {
+      element.classList.add('loading')
+      toggleLoading(method)
+      patchCollection(id, element)
+    }
+
+  }
+  // return the object in the request, spread filtered games and update the state
+
+
+  function toggleLoading(method) {
+    const element = document.getElementById(`${method}-btn`)
+    if (method === 'add') {
+      element.innerHTML = 'Adding...'
+    } else {
+      element.innerHTML = 'Removing...'
+    }
   }
 
   function topFunction() {
@@ -268,11 +287,16 @@ export default function GameCards({ user, getUserData, collectionMode = false, c
                           <Card.Body className='d-flex flex-column justify-content-center'>
                             {
                               found ?
-                                <div className='collect-remove' onClick={() => handleCollect(game.id)}>
+                                <div id='remove-btn' className='collect-remove' onClick={() => {
+                                  handleCollect(game.id, 'remove')
+                                }}>
                                   Remove
                                 </div>
                                 :
-                                <div className='collect-add' onClick={() => handleCollect(game.id)}>
+                                <div id='add-btn' className='collect-add' onClick={() => {
+                                  handleCollect(game.id, 'add')
+                                }
+                                }>
                                   Add
                                 </div>
                             }
